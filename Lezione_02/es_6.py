@@ -27,7 +27,7 @@ prezzo += ordine["Salmone"]
 prezzo += ordine["Tiramisu"]
 prezzo += ordine["Coca Cola"]
 
-print(prezzo)
+print(f"Il tuo ordine costa: {prezzo} euro")
 
 
 
