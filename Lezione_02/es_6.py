@@ -1,4 +1,4 @@
-ITS_Bakery_Menu = {
+ITS_Bakery_Menu:dict = {
     "Pizza": 9.00, 
     "Pasta": 10.50, 
     "Zuppa" : 7.00, 
@@ -21,7 +21,7 @@ ordine["Salmone"] = 20.20
 ordine["Tiramisu"] = 6.00
 ordine["Coca Cola"] = 3.50
     
-prezzo = 0
+prezzo:int = 0
 prezzo += ordine["Pizza"]
 prezzo += ordine["Salmone"]
 prezzo += ordine["Tiramisu"]
