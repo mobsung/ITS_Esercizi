@@ -3,4 +3,4 @@ such as, “Hello Eric, would you like to learn some Python today?'''
 
 
 name:str = "Ping Proxy"
-print(f" Hello{name}, would you like to learn some Python today?")
+print(f" Hello {name}, would you like to learn some Python today?")
