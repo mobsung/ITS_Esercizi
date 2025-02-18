@@ -7,13 +7,13 @@
 
 guest_list:list = ["Tony Stark", "Michael Scott", "Sheldon Cooper", "Tyrion Lannister"]
 
-for invite in guest_list:
-    print(f"Dear {invite} you're invited to the party!")
+for guest in guest_list:
+    print(f"Dear {guest} you're invited to the party!")
 
 print(f"{guest_list[0]} can't come to the party!")
 
 guest_list[0] = "Frodo Baggings"
 
-for invite in guest_list:
-    print(f"Dear {invite} you're invited to the party!")
+for guest in guest_list:
+    print(f"Dear {guest} you're invited to the party!")
  

@@ -3,6 +3,6 @@ like to invite to dinner. Then use your list to print a message to each person, 
 
 guest_list:list = ["Tony Stark", "Michael Scott", "Sheldon Cooper", "Tyrion Lannister"]
 
-for invite in guest_list:
-    print(f"Dear {invite} you're invited to the party!")
+for guest in guest_list:
+    print(f"Dear {guest} you're invited to the party!")
 

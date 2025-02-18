@@ -12,7 +12,7 @@ print("Hey everyone I found a bigger table!")
 
 guest_list.insert(0, "Gandalf")
 guest_list.insert(2, "Lionel Messi")
-guest_list.insert(len(guest_list), "Luke Skywalker")
+guest_list.append("Luke Skywalker")
 
 #for invites in guest_list:
     #print(f"Dear {invites} you're invited to the party!")
