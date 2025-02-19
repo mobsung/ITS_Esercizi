@@ -7,7 +7,7 @@
 
 
 
-guest_list:list = ["Frodo Baggings", "Michael Scott", "Sheldon Cooper", "Tyrion Lannister"]
+guest_list:list[str] = ["Frodo Baggings", "Michael Scott", "Sheldon Cooper", "Tyrion Lannister"]
 print("Hey everyone I found a bigger table!")
 print("------------------------------------------------")
 guest_list.insert(0, "Gandalf")

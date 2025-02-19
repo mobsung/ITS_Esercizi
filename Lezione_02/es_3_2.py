@@ -3,6 +3,6 @@ print a message to them. The text of each message should be the same, but each m
 
 
 
-names:list = ("Ping", "Proxy")
+names:list[str] = ("Ping", "Proxy")
 print(f"{names[0]} il leggendario")
 print(f"{names[1]} il leggendario")

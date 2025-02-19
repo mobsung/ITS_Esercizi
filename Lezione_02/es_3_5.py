@@ -5,7 +5,7 @@
 '''
 
 
-guest_list:list = ["Tony Stark", "Michael Scott", "Sheldon Cooper", "Tyrion Lannister"]
+guest_list:list[str] = ["Tony Stark", "Michael Scott", "Sheldon Cooper", "Tyrion Lannister"]
 
 print(f"Dear {guest_list[0]} you're invited to the party!")
 print(f"Dear {guest_list[1]} you're invited to the party!")

@@ -3,7 +3,7 @@ one at a time.'''
 
 
 
-names:list = ("Ping", "Proxy")
+names:list[str] = ("Ping", "Proxy")
 
 print(names[0])
 print(names[1])
