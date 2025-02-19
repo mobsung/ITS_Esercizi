@@ -11,7 +11,7 @@ guest_list:list = ["Frodo Baggings", "Michael Scott", "Sheldon Cooper", "Tyrion 
 print("Hey everyone I found a bigger table!")
 
 guest_list.insert(0, "Gandalf")
-guest_list.insert(2, "Lionel Messi")
+guest_list.insert(len (guest_list) // 2, "Lionel Messi")
 guest_list.append("Luke Skywalker")
 
 #for invites in guest_list:

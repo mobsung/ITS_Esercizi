@@ -9,7 +9,4 @@ for pos in range(max_pos):
         print(f"You're position is: {posizione}{posizioni[3]} place.")
         break
 
-
-
-
-
+    
