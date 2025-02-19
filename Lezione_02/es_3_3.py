@@ -2,7 +2,8 @@
 Use your list to print a series of statements about these items, such as “I would like to own a Honda motorcycle.”'''
 
 
-statements:list = ["I would like to own a Honda motorcycle.", "Motorcylies are cool", "Red motorcyclies are the best"]
+statements:list = ["are smaller then cars.", "are cool.", "are really fast."]
 
-for statement in statements:
-    print(statement)
+print(f"Motorcylies are {statements[0]}")
+print(f"Motorcylies are {statements[1]}")
+print(f"Motorcylies are {statements[2]}")

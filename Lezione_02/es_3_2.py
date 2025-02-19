@@ -4,5 +4,5 @@ print a message to them. The text of each message should be the same, but each m
 
 
 names:list = ("Ping", "Proxy")
-for name in names:
-    print(f"{name}: il leggendario.")
+print(f"{names[0]} il leggendario")
+print(f"{names[1]} il leggendario")

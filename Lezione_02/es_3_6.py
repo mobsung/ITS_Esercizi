@@ -9,10 +9,15 @@
 
 guest_list:list = ["Frodo Baggings", "Michael Scott", "Sheldon Cooper", "Tyrion Lannister"]
 print("Hey everyone I found a bigger table!")
-
+print("------------------------------------------------")
 guest_list.insert(0, "Gandalf")
 guest_list.insert(2, "Lionel Messi")
 guest_list.append("Luke Skywalker")
 
-for guest in guest_list:
-    print(f"Dear {guest} you're invited to the party!")
+print(f"Dear {guest_list[0]} you're invited to the party!")
+print(f"Dear {guest_list[1]} you're invited to the party!")
+print(f"Dear {guest_list[2]} you're invited to the party!")
+print(f"Dear {guest_list[3]} you're invited to the party!")
+print(f"Dear {guest_list[4]} you're invited to the party!")
+print(f"Dear {guest_list[5]} you're invited to the party!")
+print(f"Dear {guest_list[6]} you're invited to the party!")
