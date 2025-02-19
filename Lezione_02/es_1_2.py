@@ -9,7 +9,13 @@ Si esegua il programma con valori positivi e negativi di x. Che cosa cambia nel 
 
 
 
-x = -8
-y = x % 2
+x:float = 8
+y:float = x % 2
+print(x)
+print(y)
+
+
+x:float = -8
+y:float = x % 2
 print(x)
 print(y)
