@@ -7,7 +7,49 @@ you're sorry you can't invite them to dinner.
 
 
 
-guest_list:list = ["Frodo Baggings", "Michael Scott", "Sheldon Cooper", "Tyrion Lannister"]
+guest_list:list[str] = ["Frodo Baggings", "Michael Scott", "Sheldon Cooper", "Tyrion Lannister"]
+print("Hey everyone I found a bigger table!")
+print("------------------------------------------------")
+guest_list.insert(0, "Gandalf")
+guest_list.insert(2, "Lionel Messi")
+guest_list.append("Luke Skywalker")
+
+print(f"Dear {guest_list[0]} you're invited to the party!")
+print(f"Dear {guest_list[1]} you're invited to the party!")
+print(f"Dear {guest_list[2]} you're invited to the party!")
+print(f"Dear {guest_list[3]} you're invited to the party!")
+print(f"Dear {guest_list[4]} you're invited to the party!")
+print(f"Dear {guest_list[5]} you're invited to the party!")
+print(f"Dear {guest_list[6]} you're invited to the party!")
+print("------------------------------------------------")
+print("Sorry everyone I can only invite 2 guests!")
+print("------------------------------------------------")
+uninvite:int = guest_list.pop(0)
+print(f"I'm sorry {uninvite} you aren't invited anymore!")
+uninvite:int = guest_list.pop(0)
+print(f"I'm sorry {uninvite} you aren't invited anymore!")
+uninvite:int = guest_list.pop(0)
+print(f"I'm sorry {uninvite} you aren't invited anymore!")
+uninvite:int = guest_list.pop(0)
+print(f"I'm sorry {uninvite} you aren't invited anymore!")
+uninvite:int = guest_list.pop(0)
+print(f"I'm sorry {uninvite} you aren't invited anymore!")
+print("------------------------------------------------")
+print(f"Dear {guest_list[0]} you're invited to the party!")
+print(f"Dear {guest_list[1]} you're invited to the party!")
+print("------------------------------------------------")
+del guest_list[:]
+print(guest_list)
+
+
+
+
+
+
+
+
+
+'''guest_list:list = ["Frodo Baggings", "Michael Scott", "Sheldon Cooper", "Tyrion Lannister"]
 print("Hey everyone I found a bigger table!")
 print("------------------------------------------------")
 guest_list.insert(0, "Gandalf")
@@ -32,4 +74,4 @@ for guest in guest_list:
 
 del guest_list[:]
 
-print(guest_list)
+print(guest_list)'''
