@@ -24,7 +24,7 @@ total_guests:int = len(guest_list)
 for guest in range(total_guests):
     uninvite = guest_list.pop(0)
     print(f"I'm sorry {uninvite} you aren't invited anymore!")
-    if guest == total_guests - 3:
+    if guest == len(guest_list) + 2:
         break
 print("------------------------------------------------")
 for guest in guest_list:
