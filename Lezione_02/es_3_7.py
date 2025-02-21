@@ -71,7 +71,6 @@ for guest in range(total_guests):
 print("------------------------------------------------")
 for guest in guest_list:
     print(f"Dear {guest} you're still invited to the party!")
-
+print("------------------------------------------------")
 del guest_list[:]
-
 print(guest_list)'''
