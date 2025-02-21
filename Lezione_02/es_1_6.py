@@ -48,7 +48,7 @@ prezzo += ordine["Pizza"]
 prezzo += ordine["Salmone"]
 prezzo += ordine["Tiramisu"]
 prezzo += ordine["Coca Cola"]
-print(f"il tuo ordine è: {', '.join(ordine)}")
+print(f"il tuo ordine è: {' <> '.join(ordine)}")
 print(f"Il tuo ordine costa: {prezzo} euro")
 
 
