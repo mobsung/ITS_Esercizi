@@ -9,7 +9,7 @@ for animal in range(len(animal_list)):
     print(animal_list[animal])
 
 for animal in range(len(animal_list)):
-    print(f"{animal_list[animal]} would make a great pet.")
+    print(f"The {animal_list[animal]} would make a great pet.")
 
 print("All these animals have 4 legs!")
 
