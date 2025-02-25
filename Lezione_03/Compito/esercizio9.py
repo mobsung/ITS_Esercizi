@@ -24,13 +24,13 @@ for i in range (3, 1000000, 4): #Algorto per il calcolo e la verifa del valore d
     iterazioni += 1 
     if not pi_2f and float(f"{pi:.2f}") == 3.14:
         pi_2f = True    #Aggiornamento della variabile booleana a True per interrompere la verifica della condizione dopo la prima volta che si è verificata
-        print(f"π raggiunge il valore: {pi:.2f} alla {iterazioni}° iterazione")
+        print(f"π raggiunge il valore: {pi:.2f} alla {iterazioni * 2}° iterazione")
     if not pi_3f and float(f"{pi:.3f}") - 0.001 == 3.141:   #Condizione aggiustata per correggere l'arrotondamento per eccesso tramite la funzione ":.f"
         pi_3f = True
-        print(f"π raggiunge il valore: {pi - 0.001:.3f} alla {iterazioni}° iterazione")
+        print(f"π raggiunge il valore: {pi - 0.001:.3f} alla {iterazioni * 2}° iterazione")
     if not pi_4f and float(f"{pi:.4f}") - 0.0006 == 3.1415: #Condizione aggiustata per correggere l'arrotondamento per eccesso tramite la funzione ":.f"
         pi_4f = True
-        print(f"π raggiunge il valore: {pi - 0.0006:.4f} alla {iterazioni}° iterazione")
+        print(f"π raggiunge il valore: {pi - 0.0006:.4f} alla {iterazioni * 2}° iterazione")
     if not pi_5f and float(f"{pi:.5f}") == 3.14159:
         pi_5f = True
-        print(f"π raggiunge il valore: {pi:.5f} alla {iterazioni}° iterazione")
+        print(f"π raggiunge il valore: {pi:.5f} alla {iterazioni * 2}° iterazione")
