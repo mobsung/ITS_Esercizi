@@ -7,11 +7,9 @@ animal_list:list[str] = ["Dog", "Cat", "Rabbit", "Alpaca"]
 
 for animal in range(len(animal_list)):
     print(animal_list[animal])
-print("------------------------------------------------")
 
 for animal in range(len(animal_list)):
     print(f"{animal_list[animal]} would make a great pet.")
-print("------------------------------------------------")
 
 print("All these animals have 4 legs!")
 

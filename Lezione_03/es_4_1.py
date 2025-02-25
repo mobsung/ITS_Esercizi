@@ -7,12 +7,9 @@ pizza_list:list[str] = ["Pizza Margherita", "Pizza ai Peperoni", "Pizza Diavola"
 
 for pizza in pizza_list:
     print(pizza)
-print("------------------------------------------------")
 
 for pizza in pizza_list:
     print(f"Would you like to try a slice of {pizza}?")
-print("------------------------------------------------")
-
 print(f"I like {pizza_list[1]} the most!")
 
 
