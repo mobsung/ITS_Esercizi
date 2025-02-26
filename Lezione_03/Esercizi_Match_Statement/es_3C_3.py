@@ -20,7 +20,7 @@ Materiale scolastico
 '''
 
 
-'''oggetti:list[str] = []
+oggetti:list[str] = []
 for i in range (3):
     oggetto:str = input("Inserisci il nome di un oggetto: ")
     oggetti.append(oggetto)
@@ -34,9 +34,9 @@ match oggetti:
     case ["telefono", "computer", "tablet"]:
         print("Dispositivi elettronici")
     case _:
-        print("Categoria sconosciuta")'''
+        print("Categoria sconosciuta")
 
-oggetti:dict[str, bool] = {}
+'''oggetti:dict[str, bool] = {}
 for i in range (3):
     oggetto:str = input("Inserisci il nome di un oggetto: ")
     oggetti[oggetto] = (True)
@@ -50,4 +50,4 @@ match oggetti:
     case {"telefono": True, "computer": True, "tablet": True}:
         print("Dispositivi elettronici")
     case _:
-        print("Categoria sconosciuta")
+        print("Categoria sconosciuta")'''
