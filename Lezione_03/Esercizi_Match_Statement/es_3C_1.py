@@ -19,7 +19,7 @@ Output: Voto non valido
 '''
 
 
-voto:int = input("Inserisci il voto: ")
+voto:str = input("Inserisci il voto: ")
 if voto.isdigit():
     match voto:
         case "10":
