@@ -35,3 +35,19 @@ match oggetti:
         print("Dispositivi elettronici")
     case _:
         print("Categoria sconosciuta")
+
+oggetti:dict[str, bool] = {}
+for i in range (3):
+    oggetto:str = input("Inserisci il nome di un oggetto: ")
+    oggetti[oggetto] = (True)
+match oggetti:
+    case {"penna": True, "matita": True, "quaderno": True}:
+        print("Materiale scolastico")
+    case {"pane": True, "latte": True, "uova": True}:
+        print("Prodotti alimentari")
+    case {"sedia": True, "tavolo": True, "armadio": True}:
+        print("Mobili")
+    case {"telefono": True, "computer": True, "tablet": True}:
+        print("Dispositivi elettronici")
+    case _:
+        print("Categoria sconosciuta")
