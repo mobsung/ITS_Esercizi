@@ -23,7 +23,7 @@ pesci:list[str] = ["squalo", "trota", "salmone", "carpa"]
 animal:str = input("Digita il nome di un animale: ")
 
 match animal:
-    case animal if animale in (mammiferi):
+    case animal if animal in (mammiferi):
         print(f"{animal} appartiene alla categoria dei Mammiferi!")
     case animale if animal in (rettili):
         print(f"{animal} appartiene alla categoria dei Rettili!")
