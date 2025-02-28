@@ -34,8 +34,8 @@ Digitare nome dell'utente: Luca Verdi
 Digitare ruolo dell'utente: moderatore
 Digitare l'età dell'utente: 25
 Output: Salve Luca Verdi! Può gestire i contenuti ma non modificare le impostazioni.'''
-
-user:dict[str, any] = {}
+from typing import Any
+user:dict[str, Any] = {}
 
 nome:str = input("Digitare nome dell'utente: ")
 ruolo:str = input("Digitare ruolo dell'utente: ")

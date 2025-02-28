@@ -14,8 +14,8 @@ than, greater than or equal to, and less than or equal to
 name:str = "Marcel"
 print("Is name == 'Marcel'? I predict True.")
 print(name == 'Marcel')
-print("Is name == 'Stefano'? I predict False.")
-print(name == 'Stefano')
+print("Is name != 'Marcel'? I predict False.")
+print(name != 'Marcel')
 
 
 name:str = "Marcel"
