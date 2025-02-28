@@ -3,5 +3,5 @@
 
 from typing import Any
 person_data:dict[str, Any] = {"first_name": "Marcel", "last_name": "Movileanu", "Age": 23, "City": "Roma"}
-for key, value in person_data.items():
+for value in person_data.values():
     print(value)
