@@ -19,30 +19,73 @@ Categorie di habitat:
 - terra
 '''
 
-mammiferi:list[str] = ["cane", "gatto", "cavallo", "elefante", "leone", "balena", "delfino"]
-rettili:list[str] = ["serpente", "lucertola", "tartaruga", "coccodrillo"]
-uccelli:list[str] = ["aquila", "pappagallo", "gufo", "falco", "cigno", "anatra", "gallina", "tacchino"]
+mammiferi_terra:list[str] = ["cane", "gatto", "cavallo", "elefante", "leone"]
+mammiferi_acqua:list[str] = ["balena", "delfino"]
+rettili_terra:list[str] = ["serpente", "lucertola", "tartaruga", "coccodrillo"]
+rettili_acqua:list[str] = ["tartaruga", "coccodrillo"]
+uccelli_terra:list[str] = ["anatra", "gallina", "tacchino"]
+uccelli_aria:list[str] = ["aquila", "pappagallo", "gufo", "falco", "cigno", "anatra"]
 pesci:list[str] = ["squalo", "trota", "salmone", "carpa"]
 
-habitat_list:list[str] = ["acqua", "aria", "terra"]
+animal:str = input("Digita il nome di un animale: ").lower()
+habitat:str = input(f"Digita l'habitat in cui vive l'animale {animal}:").lower()
 
-animal:str = input("Digita il nome di un animale: ")
-habitat:str = input(f"Digita l'habitat in cui vive l'animale {animal}:")
+animal_info:dict[str, str] = {}
 
-match animal, habitat:
-    case animal if animal in (mammiferi):
-        animal_type = "Mammiferi"
-        print(f"{animal} appartiene alla categoria dei {animal_type}!")
-    case animale if animal in (rettili):
-        animal_type = "Rettili"
-        print(f"{animal} appartiene alla categoria dei {animal_type}!")
-    case animale if animal in (uccelli):
-        animal_type = "Uccelli"
-        print(f"{animal} appartiene alla categoria dei {animal_type}!")
-    case animale if animal in (pesci):
-        animal_type = "Pesci"
-        print(f"{animal} appartiene alla categoria dei {animal_type}!")
+match animal:
+    case animal if animal in (mammiferi_terra):
+        animal_type:str = "Mammifero"
+        print(f"{animal} appartiene alla categoria dei Mammiferi!")
+        match habitat:
+            case habitat if habitat == "terra":
+                animal_info[animal] = animal_type, habitat
+    case animal if animal in (mammiferi_acqua):
+        animal_type:str = "Mammifero"
+        print(f"{animal} appartiene alla categoria dei Mammiferi!")
+        match habitat:
+            case habitat if habitat == "acqua":
+                animal_info[animal] = animal_type, habitat
+    
+    
+
+    case animal if animal in (rettili_terra):
+        animal_type:str = "Rettile"
+        print(f"{animal} appartiene alla categoria dei Rettili!")
+        match habitat:
+            case habitat if habitat == "terra":
+                animal_info[animal] = animal_type, habitat
+    case animal if animal in (rettili_acqua):
+        animal_type:str = "Rettile"
+        print(f"{animal} appartiene alla categoria dei Rettili!")
+        match habitat:
+            case habitat if habitat == "acqua":
+                animal_info[animal] = animal_type, habitat
+
+
+
+    case animal if animal in (uccelli_terra):
+        animal_type:str = "Uccello"
+        print(f"{animal} appartiene alla categoria dei Uccelli!")
+        match habitat:
+            case habitat if habitat == "terra":
+                animal_info[animal] = animal_type, habitat
+    case animal if animal in (uccelli_aria):
+        animal_type:str = "Uccello"
+        print(f"{animal} appartiene alla categoria dei Uccelli!")
+        match habitat:
+            case habitat if habitat == "aria":
+                animal_info[animal] = animal_type, habitat
+
+
+    case animal if animal in (pesci):
+        animal_type:str = "Pesce"
+        print(f"{animal} appartiene alla categoria dei Uccelli!")
+        match habitat:
+            case habitat if habitat == "acqua":
+                animal_info[animal] = animal_type, habitat
+
+
     case _:
-        print(f"Non so dire in quale categoria classificare l'animale {animal}")
-
-
+        animal_type:str = "unknown"
+        print(animal_type)
+print(animal_info)
