@@ -43,8 +43,6 @@ for i in lanci:
             case _:
                 print(f"lancio: {i} non valido!")
                 lanci.append(len(lanci) + 1)
-    if testa + croce == 8:
-        break
 
 print(f"Totale 'testa': {testa}")
 print(f"Percentuale 'testa': {testa / 8 * 100:.2f}%")
