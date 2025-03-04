@@ -13,9 +13,9 @@ print(f"La somma tra dei numeri interi tra 1 e 10 compresi è pari a {somma}")
 
 #Somma interi da 20 a 37 = 513
 somma:int = sumInRange(20, 37)
-print(f"La somma tra dei numeri interi tra 1 e 10 compresi è pari a {somma}")
+print(f"La somma tra dei numeri interi tra 20 e 37 compresi è pari a {somma}")
 
 
 #Somma interi da 35 a 49 = 630
 somma:int = sumInRange(35, 49)
-print(f"La somma tra dei numeri interi tra 1 e 10 compresi è pari a {somma}")
+print(f"La somma tra dei numeri interi tra 35 e 49 compresi è pari a {somma}")
