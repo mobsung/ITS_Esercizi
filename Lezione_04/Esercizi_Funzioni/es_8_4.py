@@ -2,10 +2,13 @@
 
 
 
-def make_shirt(text:str = "I love Python", size:str = "Large") -> None:
+def make_shirt(size:str = "Large", text:str = "I love Python") -> None:
     print(f'The size of the shist is {size} and the text is "{text}".')
 
 
+#Large
+make_shirt()
 
-make_shirt("Insane", "medium")
+#Medium
+make_shirt("Medium")
 
