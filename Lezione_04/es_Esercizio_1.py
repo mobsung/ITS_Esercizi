@@ -1,7 +1,7 @@
 '''Write a function check_value(), which takes a number as an argument.
 Using if / else, the function should print whether the number is bigger, smaller, or equal to 5.'''
 
-def check_value(n):
+def check_value(n: int) -> None:
     if n > 5:
         print(f"{n} is bigger that 5!")
     elif n < 5:
