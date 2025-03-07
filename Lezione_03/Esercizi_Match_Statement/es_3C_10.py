@@ -22,31 +22,34 @@ Inserisci il mese: 3
 Output: Nessuna festività importante in questa data.
 '''
 
-'''def limiti(giorno:int, mese:int):
+def limiti(giorno:int, mese:int):
     if giorno < 1 or giorno > 31:
         print("Il giorno inserito non è valido")
     if mese < 1 or mese > 12:
         print("Il mese non è valido")
     else:
-        return giorno, mese'''
+        giorno, mese = True, True
+        return giorno, mese
 
+giorno:int = int(input("Inserisci il giorno:"))
+mese:int = int(input("Inserisci il mese:"))
 
-
-data: tuple[int, int] = int(input("Inserisci il giorno:")), int(input("Inserisci il mese:"))
-#limiti(data)
-match data:
-    case (1, 1):
-        print(f"Il {data[0]}/{data[1]} è Capodanno!")
-    case (14, 2):
-        print(f"Il {data[0]}/{data[1]} è San Valentino!")
-    case (2, 6):
-        print(f"Il {data[0]}/{data[1]} è la Festa della Repubblica Italiana!")
-    case (15, 8):
-        print(f"Il {data[0]}/{data[1]} è Ferragosto!")
-    case (31, 10):
-        print(f"Il {data[0]}/{data[1]} è Halloween!")
-    case (25, 12):
-        print(f"Il {data[0]}/{data[1]} è Natale!")
-    case _:
-        print("Nessuna festività importante in questa data.")
+data: tuple[int, int] = (giorno, mese)
+if limiti(giorno, mese) == True:
+    giorno, mese = data
+    match data:
+        case (1, 1):
+            print(f"Il {data[0]}/{data[1]} è Capodanno!")
+        case (14, 2):
+            print(f"Il {data[0]}/{data[1]} è San Valentino!")
+        case (2, 6):
+            print(f"Il {data[0]}/{data[1]} è la Festa della Repubblica Italiana!")
+        case (15, 8):
+            print(f"Il {data[0]}/{data[1]} è Ferragosto!")
+        case (31, 10):
+            print(f"Il {data[0]}/{data[1]} è Halloween!")
+        case (25, 12):
+            print(f"Il {data[0]}/{data[1]} è Natale!")
+        case _:
+            print("Nessuna festività importante in questa data.")
     

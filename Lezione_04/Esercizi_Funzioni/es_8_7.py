@@ -5,19 +5,21 @@ from typing import Any
 def make_album(name:str, album:str, songs_number:int = None):
     if songs_number is None:
         mydict: dict[str, Any] = {"Artist name": name, "Album name": album}
-        for key, value in mydict.items():
-            print(f"{key}: {value}", end = " ")
+        return mydict
     else:
         mydict: dict[str, Any] = {"Artist name": name, "Album name": album, "Number of songs": songs_number}
-        for key, value in mydict.items():
-            if key != "Number of songs":
-                print(f"{key}: '{value}'", end = " - ")
-            else:
-                print(f"{key}: {value}", end = " - ")
-        print("\n")
+        return mydict
+
+
+def print_album(mydict):  
+    for key1, value1 in mydict.items():
+        if key1 != "Number of songs":
+            print(f"{key1}: '{value1}'", end = " - ")
+        else:
+            print(f"{key1}: {value1}", end = " - ")
+    print("\n")
         
 
-make_album("Evanescence", "Fallen", 11)
-make_album("Broken Q", "Prelude to Darkness", 10)
-make_album("AC/DC", "Back in Black")
-print("\n")
+print_album(make_album("Evanescence", "Fallen", 11))
+print_album(make_album("Broken Q", "Prelude to Darkness", 10))
+print_album(make_album("AC/DC", "Back in Black"))
