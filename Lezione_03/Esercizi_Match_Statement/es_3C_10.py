@@ -22,10 +22,18 @@ Inserisci il mese: 3
 Output: Nessuna festività importante in questa data.
 '''
 
+'''def limiti(giorno:int, mese:int):
+    if giorno < 1 or giorno > 31:
+        print("Il giorno inserito non è valido")
+    if mese < 1 or mese > 12:
+        print("Il mese non è valido")
+    else:
+        return giorno, mese'''
+
 
 
 data: tuple[int, int] = int(input("Inserisci il giorno:")), int(input("Inserisci il mese:"))
-
+#limiti(data)
 match data:
     case (1, 1):
         print(f"Il {data[0]}/{data[1]} è Capodanno!")
