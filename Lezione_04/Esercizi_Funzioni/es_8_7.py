@@ -2,7 +2,7 @@
 
 from typing import Any
 
-def make_album(name:str, album:str, songs_number:int = None):
+def make_album(name:str, album:str, songs_number:int = None) -> dict:
     if songs_number is None:
         mydict: dict[str, Any] = {"Artist name": name, "Album name": album}
         return mydict
