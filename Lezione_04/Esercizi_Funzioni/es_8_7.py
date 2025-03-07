@@ -12,11 +12,11 @@ def make_album(name:str, album:str, songs_number:int = None):
 
 
 def print_album(mydict):  
-    for key1, value1 in mydict.items():
-        if key1 != "Number of songs":
-            print(f"{key1}: '{value1}'", end = " - ")
+    for key, value in mydict.items():
+        if key != "Number of songs":
+            print(f"{key}: '{value}'", end = " - ")
         else:
-            print(f"{key1}: {value1}", end = " - ")
+            print(f"{key}: {value}", end = " - ")
     print("\n")
         
 
