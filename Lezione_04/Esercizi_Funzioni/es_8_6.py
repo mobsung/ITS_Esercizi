@@ -5,6 +5,6 @@ def city_country(city:str, country:str) -> None:
     print(city, country, sep=', ')
 
 
-city_country("Rome", "italy")
+city_country("Rome", "Italy")
 city_country("Paris", "France")
 city_country("Santiago", "Chile")
