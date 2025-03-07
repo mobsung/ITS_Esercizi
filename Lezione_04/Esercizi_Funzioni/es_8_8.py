@@ -23,11 +23,16 @@ def print_album(mydict):
     print("\n")
         
 
-while True:
-    name:str = input("Insert Artist name: ").title()
-    album:str = input("Insert album name: ").title()
-    songs_number:Any = input("Insert the number of songs(insert 'None' in you dont have this information): ")
-    print_album(make_album(name, album, songs_number))
-    break
+cont: int = 0
+insert= []
+while cont <2:
+    artista:str = input("Inserisci un artista: ")
+    album:str = input("Inserisci un album: ")
+    num_songs:int = int(input("Inserisci il numero di canzoni: "))
+    insert.append((artista,album,num_songs))
+    cont += 1
+
+for i in insert:
+    print_album(make_album(i[0],i[1],i[2]))
 
 
