@@ -28,7 +28,7 @@ insert= []
 while cont <2:
     artista:str = input("Inserisci un artista: ")
     album:str = input("Inserisci un album: ")
-    num_songs:int = int(input("Inserisci il numero di canzoni: "))
+    num_songs:int = int(input("Inserisci il numero di canzoni(inserisci 'None' se non disponibile): "))
     insert.append((artista,album,num_songs))
     cont += 1
 
