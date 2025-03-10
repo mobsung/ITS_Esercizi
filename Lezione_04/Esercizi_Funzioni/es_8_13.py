@@ -2,7 +2,10 @@
 
 
 
-def build_profile(**information) -> dict:
-    print(information)
+def build_profile(**kwargs) -> dict:
+    result:str = ""
+    for key, value in kwargs.items():
+        result += f'{key}: {value}\n'
+    return result
 
-build_profile(firstNome = "Marcel", lastName = "Movileanu", age = "23", hair = "brown", birthDate = "14/03/2001")
+print(build_profile(firstNome = "Marcel", lastName = "Movileanu", age = "23", hair = "brown", birthDate = "14/03/2001"))

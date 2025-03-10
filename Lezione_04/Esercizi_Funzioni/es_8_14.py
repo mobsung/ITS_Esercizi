@@ -3,7 +3,10 @@
 
 
 def car_information(modelName: str, manufacturer: str, **kwargs: str) -> None:
-    print(f'Car name: {modelName}, Manufacturer: {manufacturer}, Other usefull information: {kwargs}')
+    result:str = f'Model name:{modelName}, Manufacturer: {manufacturer}\n'
+    for key, value in kwargs.items():
+        result += f'    - {key}: {value}\n'
+    return result
         
 
-car_information('subaru', 'outback', color='blue', tow_package=True)
+print(car_information('subaru', 'outback', color='blue', tow_package=True))
