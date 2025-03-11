@@ -30,4 +30,4 @@ def romanToInt(s):
             result += conversion_dict[s[i]]
     return result
 
-print(romanToInt("MCMXCIV"))
+print(romanToInt("VII"))
