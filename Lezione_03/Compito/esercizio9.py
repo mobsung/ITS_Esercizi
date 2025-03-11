@@ -22,7 +22,7 @@ iterazioni:int = 0 #Variabile inizializzata a 0 per il conteggio del numero di i
 for i in range (3, 1000000, 4): #Algorto per il calcolo e la verifa del valore di π
     pi = pi - 4/i + 4/(i + 2)
     iterazioni += 1 
-    if not pi_2f and float(f"{pi:.2f}") == 3.14:
+    if not pi_2f and float(f"{pi}") == 3.14:
         pi_2f = True    #Aggiornamento della variabile booleana a True per interrompere la verifica della condizione dopo la prima volta che si è verificata
         print(f"π raggiunge il valore: {pi:.2f} alla {iterazioni * 2}° iterazione")
     if not pi_3f and float(f"{pi:.3f}") - 0.001 == 3.141:   #Condizione aggiustata per correggere l'arrotondamento per eccesso tramite la funzione ":.f"
