@@ -22,15 +22,16 @@ iterazioni:int = 0 #Variabile inizializzata a 0 per il conteggio del numero di i
 for i in range (3, 1000000, 4): #Algorto per il calcolo e la verifa del valore di π
     pi = pi - 4/i + 4/(i + 2)
     iterazioni += 1 
-    if not pi_2f and float(f"{pi}") == 3.14:
+    if not pi_2f and f"{str(pi)[:4]}" == "3.14":
         pi_2f = True    #Aggiornamento della variabile booleana a True per interrompere la verifica della condizione dopo la prima volta che si è verificata
-        print(f"π raggiunge il valore: {pi:.2f} alla {iterazioni * 2}° iterazione")
-    if not pi_3f and float(f"{pi:.3f}") - 0.001 == 3.141:   #Condizione aggiustata per correggere l'arrotondamento per eccesso tramite la funzione ":.f"
+        print(f"π raggiunge il valore: {str(pi)[:4]} alla {iterazioni * 2}° iterazione")
+    if not pi_3f and f"{str(pi)[:5]}" == "3.141":   #Condizione aggiustata per correggere l'arrotondamento per eccesso tramite la funzione ":.f"
         pi_3f = True
-        print(f"π raggiunge il valore: {pi - 0.001:.3f} alla {iterazioni * 2}° iterazione")
-    if not pi_4f and float(f"{pi:.4f}") - 0.0006 == 3.1415: #Condizione aggiustata per correggere l'arrotondamento per eccesso tramite la funzione ":.f"
+        print(f"π raggiunge il valore: {str(pi)[:5]} alla {iterazioni * 2}° iterazione")
+    if not pi_4f and f"{str(pi)[:6]}" == "3.1415": #Condizione aggiustata per correggere l'arrotondamento per eccesso tramite la funzione ":.f"
         pi_4f = True
-        print(f"π raggiunge il valore: {pi - 0.0006:.4f} alla {iterazioni * 2}° iterazione")
-    if not pi_5f and float(f"{pi:.5f}") == 3.14159:
+        print(f"π raggiunge il valore: {str(pi)[:6]} alla {iterazioni * 2}° iterazione")
+    if not pi_5f and f"{str(pi)[:7]}" == "3.14159":
         pi_5f = True
-        print(f"π raggiunge il valore: {pi:.5f} alla {iterazioni * 2}° iterazione")
+        print(f"π raggiunge il valore: {str(pi)[:7]} alla {iterazioni * 2}° iterazione")
+print(pi)
