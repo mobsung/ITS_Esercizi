@@ -8,5 +8,5 @@ def car_information(modelName: str, manufacturer: str, **kwargs: str) -> None:
         result += f'    - {key}: {value}\n'
     return result
         
-
-print(car_information('subaru', 'outback', color='blue', tow_package=True))
+if __name__ == "__main__":
+    print(car_information('subaru', 'outback', color='blue', tow_package=True))
