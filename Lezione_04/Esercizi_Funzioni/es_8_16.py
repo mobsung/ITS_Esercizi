@@ -7,4 +7,10 @@ from module_name import *'''
 
 
 
-from es_8_16 import car_information
+from es_8_14 import car_information
+from es_8_14 import car_information as fn
+from Esercizi_Funzioni import es_8_14 as mn
+from es_8_14 import *
+
+
+print(car_information('subaru', 'outback', color='blue', tow_package=True))
