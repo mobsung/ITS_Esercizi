@@ -27,12 +27,6 @@ def pangram(string: str) -> bool:
 print(pangram("The quick brown fox jumps over the lazy dog"))
 
 
-a = {"1", "2"}
-b = {"1", "2"}
-
-if a == b:
-    print("Ok")
-
 
 
 
