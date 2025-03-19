@@ -20,3 +20,19 @@ class Restaurant:
     def open_restaurant(self):
 
         print("The restaurant is open!")
+
+    
+    def set_number_served(self):
+        print(f'The amount of people that have been served: {self.number_served}')
+
+    
+    def increment_number_served(self):
+        self.number_served += int(input("How many more people have been served today?"))
+
+
+
+restaurant: Restaurant = Restaurant("Hanami Sushi", "Sushi")
+served_people: Restaurant = Restaurant(number_served = 10)
+
+restaurant.increment_number_served(20)
+print(restaurant)
