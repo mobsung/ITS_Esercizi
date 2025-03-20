@@ -22,9 +22,10 @@ def guess_the_number(number_range, attempts = 3):
             print("Congratulations you Won!!!")
             return
         attempts -= 1
+    print(f'The correct number is {random_number}!!!')
     print("You lost!!!")
 
-guess_the_number(10)
+guess_the_number(15)
 
         
 
