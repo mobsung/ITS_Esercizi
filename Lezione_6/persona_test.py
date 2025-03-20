@@ -33,3 +33,6 @@ mm.setAge(24)
 mm.displayData()
 print("--------------------")
 
+print(mm.getName(), mm.getLastName(), mm.getAge())
+
+

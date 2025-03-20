@@ -23,8 +23,23 @@ class Persona:
         self.lastname = lastname
 
 #funzione che mi conseta di impostare il valore di self.lastname
-    def setAge(self, age:int) -> None:
+    def setAge(self, age:int) -> int:
 
-        self.age = age
+        if age < 0 or age > 130:
+            self.age = 0
+        else:
+            self.age = age
+
+#funzione che mi consenta di ritornare il valore di self.name
+    def getName(self) -> str:
+        return self.name
+    
+#funzione che mi consenta di ritornare il valore di self.lastname
+    def getLastName(self) -> str:
+        return self.lastname
+
+#funzione che mi consenta di ritornare il valore di self.age
+    def getAge(self) -> int:
+        return self.age
 
 
