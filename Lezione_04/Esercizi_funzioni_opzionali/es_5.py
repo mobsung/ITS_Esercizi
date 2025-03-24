@@ -41,7 +41,7 @@ def inventory_manager(inventory: dict):
 
             inventory_info: str = "Inverntory details\n"
             for key, value in inventory.items():
-                inventory_info += f'>{key}< - Code: {value["code"]} - Name: {value["name"]} - Quantity: {value["quantity"]} - Price: {value["price"]}\n'
+                inventory_info += f'>{key}< - Code: {value["code"]} - Name: {value["name"]} - Quantity: {int(value["quantity"])} - Price: {float(value["price"])}\n'
 
             choice = input('Type: "add" to add an item to the Inventory"\n'
                            'Type: "remove" to remove an item from the Inventory!\n'
@@ -62,7 +62,35 @@ def inventory_manager(inventory: dict):
             if choice == "remove":
                 item: str = input("What item would you like to remove to the list?\n"
                                 "==>")
-                inventory.pop(item)
+                if item in inventory:
+                    inventory.pop(item)
+                else:
+                    print(f"There aren\'t any >{item}< in the Inventory!")
+            if choice == "update":
+                item: str = input("What item would you like to Update?\n"
+                                  "==>")
+                if item in inventory:
+                    print(f'Current Values of the Item: {item}\n'
+                          f'Code: {inventory[item]["code"]} -'
+                          f'Name: {inventory[item]["name"]}'
+                          f'Quantity: {inventory[item]["quantity"]}'
+                          f'Price: {inventory[item]["price"]}')
+                    parameter: str = input("Chose between >quantity< and >price< to update!\n"
+                                           "==>")
+                    while parameter != "quantity" or parameter != "price":
+                        parameter = input("You have to choose between >quantity< and >price<")
+                    parameter_value: Any = input("What >Value< would you like to set?\n"
+                                                 "==>")
+                    if parameter_value >= 0:
+                        inventory[item][parameter] = parameter_value
+                    else:
+                        while parameter_value < 0:
+                            parameter_value: Any = input("The >Value< has to be >= 0!\n"
+                                                         "==>")
+                        inventory[item][parameter] = parameter_value
+                else:
+                    print(f"There aren\'t any >{item}< in the Inventory!")
+                                   
             if choice == "search":
                 print(inventory_info)
                 
