@@ -67,21 +67,19 @@ def inventory_manager(inventory: dict):
                 else:
                     print(f"There aren\'t any >{item}< in the Inventory!")
             if choice == "update":
-                item: str = input("What item would you like to Update?\n"
-                                  "==>")
+                item: str = input("What item would you like to Update?\n==>")
                 if item in inventory:
                     print(f'Current Values of the Item: {item}\n'
-                          f'Code: {inventory[item]["code"]} -'
-                          f'Name: {inventory[item]["name"]}'
-                          f'Quantity: {inventory[item]["quantity"]}'
+                          f'Code: {inventory[item]["code"]} - '
+                          f'Name: {inventory[item]["name"]} - '
+                          f'Quantity: {inventory[item]["quantity"]} - '
                           f'Price: {inventory[item]["price"]}')
-                    parameter: str = input("Chose between >quantity< and >price< to update!\n"
-                                           "==>")
-                    while parameter != "quantity" or parameter != "price":
-                        parameter = input("You have to choose between >quantity< and >price<")
-                    parameter_value: Any = input("What >Value< would you like to set?\n"
-                                                 "==>")
-                    if parameter_value >= 0:
+                    parameter: str = input("Chose between >quantity< and >price< to update!\n==>")
+                    while not (parameter == "quantity" or parameter == "price"):
+                        parameter = input("You have to choose between >quantity< and >price<\n==>")
+                    parameter_value: Any = input("What >Value< would you like to set?\n==>")
+
+                    if float(parameter_value) >= 0:
                         inventory[item][parameter] = parameter_value
                     else:
                         while parameter_value < 0:
