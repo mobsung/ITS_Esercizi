@@ -59,15 +59,18 @@ def shopping_cart(products: dict):
             if choice == "remove":
                 print(products_cart)
                 product = input('Type the name of the product you want to "remove" from the cart!\n'
-                                '==>')
-                if shopping_list[product][1] > 0:
-                    products[product][1] += 1
-                    if shopping_list[product][1] == 1:
-                        shopping_list.pop(product)
+                                    '==>')
+                if product in shopping_list:
+                    if shopping_list[product][1] > 0:
+                        products[product][1] += 1
+                        if shopping_list[product][1] == 1:
+                            shopping_list.pop(product)
+                        else:
+                            shopping_list[product][1] -= 1
                     else:
-                        shopping_list[product][1] -= 1
+                        print(f'There arent anymore "{product}" in the shopping list!')
                 else:
-                    print(f'There arent anymore "{product}" in the shopping list!')
+                    print(f"There arent any {product} in the shopping_list!")
 
             if choice == "view":
                 print(products_stock)
