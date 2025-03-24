@@ -8,25 +8,27 @@ Use for loops and conditional statements to manage the various inventory operati
 from typing import Any
 
 
-def inventory_registrator(inventory:dict[str, dict[str, Any]] = {}) -> dict:
-
-    choice = ""
+def inventory_registrator(inventory:dict[str, dict[str, Any]] = {}, choice = "") -> dict:
 
     while choice != "finish":
-
-        choice = input('Type the "name" of the item that you want to add\n'
-                       'Type "finish" if don\'t want to add more items\n'
-                       '==>')
-        if choice != "finish":
-            code = input('Type "#" and the number of the item!\n'
+        if choice == "":
+            choice = input('Type the "name" of the item that you want to add\n'
+                        'Type "finish" if don\'t want to add more items\n'
                         '==>')
-            name = input('What is the name of the item?\n'
-                        '==>')
-            quantity = input('What is the quantity of the item?\n'
-                        '==>')
-            price = input('What is the price of the item?\n'
-                        '==>')
-            inventory[choice] = {"code": f'#{code}', "name": name, "quantity": int(quantity), "price": float(price)}
+        else:
+            if choice != "finish":
+                code = input('Type "#" and the number of the item!\n'
+                            '==>')
+                name = input('What is the name of the item?\n'
+                            '==>')
+                quantity = input('What is the quantity of the item?\n'
+                            '==>')
+                price = input('What is the price of the item?\n'
+                            '==>')
+                inventory[choice] = {"code": f'#{code}', "name": name, "quantity": int(quantity), 
+                                     "price":float(price)
+                                    }
+                choice = ""
     return inventory
 
 
@@ -52,12 +54,15 @@ def inventory_manager(inventory: dict):
             if choice == "add":
                 item: str = input("What item would you like to add to the list?\n"
                                 "==>")
-                if item in inventory:
-                    add_amount: int = input("What is the amount you would like to add?\n"
-                                            "==>")
-                    inventory[item]["quantity"] += int(add_amount)
+                if item not in inventory:
+                    inventory = inventory_registrator(inventory, item)
                 else:
-                    inventory = inventory_registrator()
+                    print("The Item already exists in the inventory!")
+
+            if choice == "remove":
+                item: str = input("What item would you like to remove to the list?\n"
+                                "==>")
+                inventory.pop(item)
             if choice == "search":
                 print(inventory_info)
                 
