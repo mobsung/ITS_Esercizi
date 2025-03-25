@@ -10,6 +10,8 @@ from typing import Any
 
 def inventory_registrator(inventory:dict[str, dict[str, Any]] = {}, choice = "") -> dict:
 
+    code_list: list [Any] = []
+
     while choice != "finish":
         if choice == "":
             choice = input('Type the "name" of the item that you want to add\n'
@@ -18,25 +20,25 @@ def inventory_registrator(inventory:dict[str, dict[str, Any]] = {}, choice = "")
             if choice != "finish":
                 if choice not in inventory:
                     code = input('Type the code of the item!\n==>')
-                    if len(inventory) > 0:
-                        for key in inventory:
-                            while code in inventory[key]["code"]:
-                                code = input(f'The Code: >#{code}< has already been used!\nChoose a different one!\n==>')
-                            
-                    name = input('What is the name of the item?\n==>')
+                    code_list.append(code)
+                    if len(code_list) > 1:
+                        while code in code_list:
+                            code = input(f'The Code: >#{code}< has already been used!\nChoose a different one!\n==>')
+                        if code not in code_list:
+                            print("OKKK")
+                            code_list.append(code)
+                    print(code_list)
                     quantity = input('What is the quantity of the item?\n==>')
                     price = input('What is the price of the item?\n==>')
                     
-                    inventory[choice] = {"code": f'#{code}', "name": name, "quantity": int(quantity), 
-                                        "price":float(price)
-                                        }
+                    inventory[choice] = {"code": f'#{code}', "quantity": int(quantity), "price":float(price)}
                 else:
                     print(f'The item >{choice}< already exists in the Inventory\n')
             choice = ""
     return inventory
 
 
-def inventory_manager(inventory: dict):
+def inventory_manager(inventory: dict = {}):
 
     choice = ""
     
@@ -45,7 +47,7 @@ def inventory_manager(inventory: dict):
 
             inventory_info: str = "Inverntory details\n"
             for key, value in inventory.items():
-                inventory_info += f'>{key}< - Code: {value["code"]} - Name: {value["name"]} - Quantity: {int(value["quantity"])} - Price: {float(value["price"])}$\n'
+                inventory_info += f'>{key}< - Code: {value["code"]} - Quantity: {int(value["quantity"])} - Price: {float(value["price"])}$\n'
 
             choice = input('Type: "add" to add an item to the Inventory"\n'
                            'Type: "remove" to remove an item from the Inventory!\n'
@@ -73,7 +75,6 @@ def inventory_manager(inventory: dict):
                 if item in inventory:
                     print(f'Current Values of the Item: {item}\n'
                           f'Code: {inventory[item]["code"]} - '
-                          f'Name: {inventory[item]["name"]} - '
                           f'Quantity: {inventory[item]["quantity"]} - '
                           f'Price: {inventory[item]["price"]}')
                     parameter: str = input("Chose between >quantity< and >price< to update!\n==>")
@@ -95,7 +96,7 @@ def inventory_manager(inventory: dict):
                 
 
     
-inventory_manager(inventory_registrator())
+inventory_manager()
 
 
 
@@ -108,4 +109,8 @@ inventory_manager(inventory_registrator())
 #              ruler = {"code": "#5", "name": "ruler", "quantity": 5, "price": 8},
 #              glue = {"code": "#6", "name": "glue", "quantity": 6, "price": 1},
 #              }                       
+
+
+
+
 
