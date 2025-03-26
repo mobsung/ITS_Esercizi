@@ -38,7 +38,6 @@ import random
 def azioni_lepre(posizione_lepre:int = 0) -> int:
 
     azione:int = random.randint(1, 10)
-    spostamento: int = 0
 
     match azione:
         case 1 | 2:
@@ -61,15 +60,15 @@ def azioni_lepre(posizione_lepre:int = 0) -> int:
 
     posizione_lepre += spostamento
     if posizione_lepre < 0:
+        print("La posizione non può essere inferiore a 0")
         posizione_lepre = 0
-
+    print(f'Posizione Lepre - {posizione_lepre}')
     return posizione_lepre
 
 # funzione per la definizione delle azioni della tartaruga
 def azioni_tartaruga(posizione_tartaruga:int = 0) -> int:
 
     azione:int = random.randint(1, 10)
-    spostamento: int = 0
 
     match azione:
         case azione if azione < 6:
@@ -86,29 +85,61 @@ def azioni_tartaruga(posizione_tartaruga:int = 0) -> int:
 
     posizione_tartaruga += spostamento
     if posizione_tartaruga < 0:
+        print("La posizione non può essere inferiore a 0")
         posizione_tartaruga = 0
-    
+    print(f'Posizione Tartaruga - {posizione_tartaruga}!!')
     return posizione_tartaruga
 
 # funzione per la creazione del percorso e la simulazione della gara
 def gara(posizione_tartaruga:int = 0, posizione_lepre:int = 0, range_caselle:int = 70):
     
+    tick: int = 0
+    pioggia:bool = True
+    sole:bool = False
+
     print("'BANG !!!!! AND THEY'RE OFF !!!!!'\n")
 
     while posizione_tartaruga <= 70 and posizione_lepre <= 70:
-        percorso: list[int] = []
-        for i in range(range_caselle + 1):
-            percorso.insert(i, "_")
 
-        posizione_lepre = azioni_lepre(posizione_lepre)
-        posizione_tartaruga = azioni_tartaruga(posizione_tartaruga)
+        if tick % 10 == 0:
+            pioggia = not pioggia
+            sole = not sole
+
+        percorso: list[int] = []
+
+        for i in range(range_caselle):
+            percorso.insert(i, "_")
             
-        if posizione_lepre != posizione_tartaruga:
-            percorso.insert(posizione_tartaruga, "T")
-            percorso.insert(posizione_lepre, "H")
-        else:
+        if tick == 0:
+            posizione_lepre = 0
+            posizione_tartaruga = 0
             percorso.insert(posizione_lepre, "OUCH!")
-        print(f'{percorso}\n') 
+
+        elif pioggia == True:
+            print("Piove!")
+            print(f'Mossa n°{tick}!')
+            posizione_lepre = azioni_lepre(posizione_lepre - 2)
+            posizione_tartaruga = azioni_tartaruga(posizione_tartaruga - 1)
+                
+            if posizione_lepre != posizione_tartaruga:
+                percorso.insert(posizione_tartaruga, "T")
+                percorso.insert(posizione_lepre, "H")
+            else:
+                percorso.insert(posizione_lepre, "OUCH!")
+        else:
+            print("Tempo soleggiato!")
+            print(f'Mossa n°{tick}!')
+            posizione_lepre = azioni_lepre(posizione_lepre)
+            posizione_tartaruga = azioni_tartaruga(posizione_tartaruga)
+                
+            if posizione_lepre != posizione_tartaruga:
+                percorso.insert(posizione_tartaruga, "T")
+                percorso.insert(posizione_lepre, "H")
+            else:
+                percorso.insert(posizione_lepre, "OUCH!")
+        print(f'{"".join(percorso)}\n') 
+
+        tick += 1
 
     if posizione_tartaruga >=70:
         print("TORTOISE WINS! || VAY!!!")
@@ -118,7 +149,7 @@ def gara(posizione_tartaruga:int = 0, posizione_lepre:int = 0, range_caselle:int
         print("HARE WINS || YUCH!!!")
 
 
+
 gara()
 
-    
 
