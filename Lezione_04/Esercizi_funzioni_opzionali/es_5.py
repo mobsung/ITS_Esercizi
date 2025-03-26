@@ -25,9 +25,10 @@ def inventory_registrator(inventory:dict[str, dict[str, Any]] = {}, choice = "")
                         while code in code_list:
                             code = input(f'The Code: >#{code}< has already been used!\nChoose a different one!\n==>')
                         if code not in code_list:
-                            print("OKKK")
+                            print(f'1 - {code_list}')
                             code_list.append(code)
-                    print(code_list)
+                            print(f'2 - {code_list}')
+                    print(f'3 - {code_list}')
                     quantity = input('What is the quantity of the item?\n==>')
                     price = input('What is the price of the item?\n==>')
                     
@@ -94,6 +95,7 @@ def inventory_manager(inventory: dict = {}):
             if choice == "search":
                 print(inventory_info)
                 
+    
 
     
 inventory_manager()

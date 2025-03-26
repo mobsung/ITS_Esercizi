@@ -15,19 +15,22 @@ def inventory_registrator(inventory:dict[str, dict[str, Any]] = {}, choice = "")
     while choice != "finish":
         if choice == "":
             choice = input('Type the "name" of the item that you want to add\n'
-                        'Type "finish" if don\'t want to add more items\n==>')
+                           'Type "finish" if don\'t want to add more items\n==>')
         else:
             if choice != "finish":
                 if choice not in inventory:
                     code = input('Type the code of the item!\n==>')
-                    while code not in code_list:
-                        code_list.append(code)
-                        print("SI STA RIPETENDO")
-                        code = input(f'The Code: >#{code}< has already been used!\nChoose a different one!\n==>')
-                    if code not in code_list:
-                        print("OKKK")
-                        code_list.append(code)
-                    print(code_list)
+                    code_list.append(code)
+                    if code == code_list[-1]:
+                        pass
+                    else:
+                        while code in code_list:
+                            code = input(f'The Code: >#{code}< has already been used!\nChoose a different one!\n==>')
+                        if code not in code_list:
+                            print(f'1 - {code_list}')
+                            code_list.append(code)
+                            print(f'2 - {code_list}')
+                    print(f'3 - {code_list}')
                     quantity = input('What is the quantity of the item?\n==>')
                     price = input('What is the price of the item?\n==>')
                     
