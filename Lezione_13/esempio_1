@@ -1,6 +1,35 @@
 
 
-def recursive_condition(n: int) -> None:
+def recursiveCountdown(n: int) -> None:
 
+    # n is negative
     if n < 0:
         print("Error! Inserted number is negative!")
+
+    # n = 0 must stop the recursive process
+    elif n == 0:
+        print(0)
+    
+    # other cases
+    else:
+        print(n) if n % 19 == 0 else None
+        recursiveCountdown(n-1)
+
+
+
+def recursiveSum(n:int) -> int:
+    # n is negative
+    if n < 0:
+        print("Error! Inserted number is negative!")
+        return None
+    # if n = 0 recursive process must be stopped
+    elif n == 0:
+        return 0
+    # if n is positive, compute recursive sum
+    else:
+        return int(n + recursiveSum(n-1))
+
+print("Recursive count:")    
+recursiveCountdown(100)
+print("Recursive sum:")    
+print(recursiveSum(995))
