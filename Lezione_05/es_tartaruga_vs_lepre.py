@@ -35,106 +35,143 @@ import random
 
 
 # funzione per la definizione delle azioni della lepre
-def azioni_lepre(posizione_lepre:int = 0) -> int:
+def azioni_lepre(posizione_lepre:int = 0, stamina_lepre:int = 100) -> int:
 
-    azione:int = random.randint(1, 10)
+    azione:int = random.randint(1, 10) #generazione numero random da 1 a 10 per coprire il 100% di possibilità
 
+# match case per la verifica casistica con le eventuali mosse da parte della Lepre 
     match azione:
-        case 1 | 2:
+        case azione if 1 <= azione <= 2:
             spostamento = 0
-            print("La Lepre si riposa!")
-        case 3 | 4:
+            stamina_lepre = stamina_lepre + 10 if stamina_lepre <= 90 else 100
+            print("--->La Lepre si riposa e recupera 10 Stamina")
+        case azione if 3 <= azione <= 4 and stamina_lepre >= 15:
+            stamina_lepre -= 15
             spostamento = 9
-            print(f'La Lepre fa un grande balzo e si sposta di {spostamento} caselle avanti!')
-        case 5:
+            print(f'--->La Lepre fa un grande balzo - Si sposta di {spostamento} caselle avanti e consuma 15 Stamina!')
+        case azione if azione == 5 and stamina_lepre >= 20:
+            stamina_lepre -= 20
             spostamento = -12
-            print(f'La Lepre fa una grande scivolata e arretra di {spostamento // 1} caselle!')
-        case 6 | 7 | 8:
+            print(f'--->La Lepre fa una grande scivolata - Arretra di {abs(spostamento)} caselle e consuma 20 Stamina!')
+        case azione if 6 <= azione <= 8 and stamina_lepre >= 5:
+            stamina_lepre -= 5
             spostamento = 1
-            print(f'La Lepre fa un piccolo balzo e si sposta di una casella!')
-        case 9 | 10:
+            print(f'--->La Lepre fa un piccolo balzo - Si sposta di una casella e consuma 5 Stamina!')
+        case azione if 9 <= azione <= 10 and stamina_lepre >= 8:
+            stamina_lepre -= 8
             spostamento = -2
-            print(f'La Lepre fa una piccola scivolata e aretra di {spostamento // 1} caselle!')
+            print(f'--->La Lepre fa una piccola scivolata - Aretra di {abs(spostamento)} caselle e consuma 8 Stamina!')
         case _:
+            print(f'La Lepre rimane ferma in quanto non ha sufficiente Stamina!')
+            spostamento = 0
             pass
 
     posizione_lepre += spostamento
-    if posizione_lepre < 0:
-        print("La posizione non può essere inferiore a 0")
+    if posizione_lepre < 0: # verifica se la posizione è minore di 0, se lo è viene impostata a 0
+        print("--->La posizione non può essere inferiore a 0")
         posizione_lepre = 0
-    print(f'Posizione Lepre - {posizione_lepre}')
-    return posizione_lepre
+
+    print(f'--->Posizione Lepre - {posizione_lepre} | Stamina Lepre - {stamina_lepre}!')
+    return posizione_lepre, stamina_lepre # il return della parametro posizione_lepre e stamina_lepre
 
 # funzione per la definizione delle azioni della tartaruga
-def azioni_tartaruga(posizione_tartaruga:int = 0) -> int:
+def azioni_tartaruga(posizione_tartaruga:int = 0, stamina_tartaruga:int = 100) -> int:
 
-    azione:int = random.randint(1, 10)
+    azione:int = random.randint(1, 10) #generazione numero random da 1 a 10 per coprire il 100% di possibilità
 
+# match case per la verifica casistica con le eventuali mosse da parte della Tartaruga 
     match azione:
-        case azione if azione < 6:
+        case azione if azione <= 5 and stamina_tartaruga >= 5:
+            stamina_tartaruga -= 5
             spostamento = 3
-            print(f"La Tartaruga fa un passo veloce e si sposta di {spostamento} caselle!")
-        case 6 | 7:
+            print(f"--->La Tartaruga fa un passo veloce - Si sposta di {spostamento} caselle e consuma 5 Stamina!")
+        case azione if 6 <= azione <= 7 and stamina_tartaruga >= 10:
+            stamina_tartaruga -= 10
             spostamento = -6
-            print(f'La Tartaruga fa una scivolata e arretra di {spostamento // 1} caselle!')
-        case azione if azione > 7:
+            print(f'--->La Tartaruga fa una scivolata - Arretra di {abs(spostamento)} caselle e consuma 10 Stamina!')
+        case azione if azione >= 8 and stamina_tartaruga >= 3:
+            stamina_tartaruga -= 3
             spostamento = 1
-            print(f'La Tartaruga fa un passo lento e si sposta di {1} casella!')
+            print(f'--->La Tartaruga fa un passo lento - Si sposta di una casella e consuma 3 Stamina!')
         case _:
+            print(f'La Tartaruga rigenera 10 Stamina!')
+            spostamento = 0
+            stamina_tartaruga += 10 if stamina_tartaruga <= 90 else 100 
             pass
 
     posizione_tartaruga += spostamento
-    if posizione_tartaruga < 0:
-        print("La posizione non può essere inferiore a 0")
+    if posizione_tartaruga < 0: # verifica se la posizione è minore di 0, se lo è viene impostata a 0
+        print("--->La posizione non può essere inferiore a 0")
         posizione_tartaruga = 0
-    print(f'Posizione Tartaruga - {posizione_tartaruga}!!')
-    return posizione_tartaruga
+
+    print(f'--->Posizione Tartaruga - {posizione_tartaruga} | Stamina Tartaruga - {stamina_tartaruga}!')
+    return posizione_tartaruga, stamina_tartaruga # il return della parametro posizione_tartaruga e stamina_tartaruga
 
 # funzione per la creazione del percorso e la simulazione della gara
-def gara(posizione_tartaruga:int = 0, posizione_lepre:int = 0, range_caselle:int = 70):
+def gara(posizione_tartaruga:int = 0, posizione_lepre:int = 0, stamina_lepre = 100, stamina_tartaruga = 100, range_caselle:int = 70):
     
-    tick: int = 0
-    pioggia:bool = True
-    sole:bool = False
+    tick: int = 0 # inizializzazione variabile a 0 per il conteggio delle mosse
+# inizializzazione variabile pioggia a True e variabile sole a False in quanto devono alternarsi
+    pioggia:bool = True 
+    sole:bool = False 
+
+    ostacoli: dict[int, int] = {15: -3, 30: -5, 45: -7} # inizializzazione dizionario ostacoli
+    bonus: dict[int, int] = {10: 5, 25: 3, 50: 10} # inizializzazione dizionario bonus
 
     print("'BANG !!!!! AND THEY'RE OFF !!!!!'\n")
+    
+# ciclo while che si verifica finche una o entrambe le posizioni superano 69
+    while posizione_tartaruga <= 70 and posizione_lepre <= 70: 
 
-    while posizione_tartaruga <= 70 and posizione_lepre <= 70:
-
-        if tick % 10 == 0:
+        if tick % 10 == 0: # condizione che inverte il valore delle variabili pioggia e sole ogni 10 tick
             pioggia = not pioggia
             sole = not sole
 
-        percorso: list[int] = []
+        percorso: list[int] = [] # inizializzazione lista vuota da riempire con le caselle del percorso
 
-        for i in range(range_caselle):
-            percorso.insert(i, "_")
+        for i in range(range_caselle - 1): # ciclo for che genera una lista piena di caselle vuote ogni tick
+            percorso.append("_")
             
-        if tick == 0:
-            posizione_lepre = 0
-            posizione_tartaruga = 0
+        if tick == 0: # condizione che si verifica una sola volta e posiziona la Lepre e la Tartaruga nella prima casella
+            posizione_lepre = -1
+            posizione_tartaruga = -1
             percorso.insert(posizione_lepre, "OUCH!")
 
         elif pioggia == True:
-            print("Piove!")
-            print(f'Mossa n°{tick}!')
-            posizione_lepre = azioni_lepre(posizione_lepre - 2)
-            posizione_tartaruga = azioni_tartaruga(posizione_tartaruga - 1)
-                
+            print("--->Piove!")
+            print(f'--->Mossa n°{tick}!')
+            posizione_lepre, stamina_lepre = azioni_lepre(posizione_lepre - 2, stamina_lepre)
+            posizione_tartaruga, stamina_tartaruga = azioni_tartaruga(posizione_tartaruga - 1, stamina_tartaruga)
+
+            posizione_lepre = posizione_lepre + ostacoli[posizione_lepre] if posizione_lepre in ostacoli else posizione_lepre
+            posizione_tartaruga = posizione_tartaruga + ostacoli[posizione_tartaruga] if posizione_tartaruga in ostacoli else posizione_tartaruga
+
+            posizione_lepre = posizione_lepre + bonus[posizione_lepre] if posizione_lepre in bonus else posizione_lepre
+            posizione_tartaruga = posizione_tartaruga + bonus[posizione_tartaruga] if posizione_tartaruga in bonus else posizione_tartaruga
+
             if posizione_lepre != posizione_tartaruga:
-                percorso.insert(posizione_tartaruga, "T")
-                percorso.insert(posizione_lepre, "H")
+                percorso.insert(posizione_tartaruga - 1, "T") if posizione_tartaruga > 0 else percorso.insert(posizione_tartaruga, "T")
+                percorso.insert(posizione_lepre - 1, "H") if posizione_lepre > 0 else percorso.insert(posizione_lepre, "H")
+
             else:
                 percorso.insert(posizione_lepre, "OUCH!")
         else:
-            print("Tempo soleggiato!")
-            print(f'Mossa n°{tick}!')
-            posizione_lepre = azioni_lepre(posizione_lepre)
-            posizione_tartaruga = azioni_tartaruga(posizione_tartaruga)
-                
+            print("--->Tempo soleggiato!")
+            print(f'--->Mossa n°{tick}!')
+            posizione_lepre, stamina_lepre = azioni_lepre(posizione_lepre, stamina_lepre)
+            posizione_tartaruga, stamina_tartaruga = azioni_tartaruga(posizione_tartaruga, stamina_tartaruga)
+
+            posizione_lepre = posizione_lepre + ostacoli[posizione_lepre] if posizione_lepre in ostacoli else posizione_lepre
+            posizione_tartaruga = posizione_tartaruga + ostacoli[posizione_tartaruga] if posizione_tartaruga in ostacoli else posizione_tartaruga
+
+            posizione_lepre = posizione_lepre + bonus[posizione_lepre] if posizione_lepre in bonus else posizione_lepre
+            posizione_tartaruga = posizione_tartaruga + bonus[posizione_tartaruga] if posizione_tartaruga in bonus else posizione_tartaruga
+
+
             if posizione_lepre != posizione_tartaruga:
-                percorso.insert(posizione_tartaruga, "T")
-                percorso.insert(posizione_lepre, "H")
+                percorso.insert(posizione_tartaruga - 1, "T") if posizione_tartaruga > 0 else percorso.insert(posizione_tartaruga, "T")
+                percorso.insert(posizione_lepre - 1, "H") if posizione_lepre > 0 else percorso.insert(posizione_lepre, "H")
+                
             else:
                 percorso.insert(posizione_lepre, "OUCH!")
         print(f'{"".join(percorso)}\n') 
@@ -151,5 +188,3 @@ def gara(posizione_tartaruga:int = 0, posizione_lepre:int = 0, range_caselle:int
 
 
 gara()
-
-
