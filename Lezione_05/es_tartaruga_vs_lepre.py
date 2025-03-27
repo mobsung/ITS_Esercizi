@@ -130,7 +130,7 @@ def gara(posizione_tartaruga:int = 0, posizione_lepre:int = 0, stamina_lepre = 1
         percorso: list[int] = [] # inizializzazione lista vuota da riempire con le caselle del percorso
 
         for i in range(range_caselle - 1): # ciclo for che genera una lista piena di caselle vuote ogni tick
-            percorso.append("_")
+            percorso.insert(i, "_")
             
         if tick == 0: # condizione che si verifica una sola volta e posiziona la Lepre e la Tartaruga nella prima casella
             posizione_lepre = -1
