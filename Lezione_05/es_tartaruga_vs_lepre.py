@@ -39,7 +39,7 @@ def azioni_lepre(posizione_lepre:int = 0, stamina_lepre:int = 100) -> int:
 
     azione:int = random.randint(1, 10) #generazione numero random da 1 a 10 per coprire il 100% di possibilità
 
-# match case per la verifica casistica con le eventuali mosse da parte della Lepre 
+    # match case per la verifica casistica con le eventuali mosse da parte della Lepre 
     match azione:
         case azione if 1 <= azione <= 2:
             spostamento = 0
@@ -79,7 +79,7 @@ def azioni_tartaruga(posizione_tartaruga:int = 0, stamina_tartaruga:int = 100) -
 
     azione:int = random.randint(1, 10) #generazione numero random da 1 a 10 per coprire il 100% di possibilità
 
-# match case per la verifica casistica con le eventuali mosse da parte della Tartaruga 
+    # match case per la verifica casistica con le eventuali mosse da parte della Tartaruga 
     match azione:
         case azione if azione <= 5 and stamina_tartaruga >= 5:
             stamina_tartaruga -= 5
@@ -111,7 +111,7 @@ def azioni_tartaruga(posizione_tartaruga:int = 0, stamina_tartaruga:int = 100) -
 def gara(posizione_tartaruga:int = 0, posizione_lepre:int = 0, stamina_lepre = 100, stamina_tartaruga = 100, range_caselle:int = 70):
     
     tick: int = 0 # inizializzazione variabile a 0 per il conteggio delle mosse
-# inizializzazione variabile pioggia a True e variabile sole a False in quanto devono alternarsi
+    # inizializzazione variabile pioggia a True e variabile sole a False in quanto devono alternarsi
     pioggia:bool = True 
     sole:bool = False 
 
@@ -120,7 +120,7 @@ def gara(posizione_tartaruga:int = 0, posizione_lepre:int = 0, stamina_lepre = 1
 
     print("'BANG !!!!! AND THEY'RE OFF !!!!!'\n")
     
-# ciclo while che si verifica finche una o entrambe le posizioni superano 69
+    # ciclo while che si verifica finche una o entrambe le posizioni superano 69
     while posizione_tartaruga <= 70 and posizione_lepre <= 70: 
 
         if tick % 10 == 0: # condizione che inverte il valore delle variabili pioggia e sole ogni 10 tick
@@ -184,7 +184,5 @@ def gara(posizione_tartaruga:int = 0, posizione_lepre:int = 0, stamina_lepre = 1
         print("IT'S A TIE.")
     else:
         print("HARE WINS || YUCH!!!")
-
-
 
 gara()

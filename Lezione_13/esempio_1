@@ -1,0 +1,6 @@
+
+
+def recursive_condition(n: int) -> None:
+
+    if n < 0:
+        print("Error! Inserted number is negative!")
