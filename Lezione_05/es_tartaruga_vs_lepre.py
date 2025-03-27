@@ -62,7 +62,7 @@ def azioni_lepre(posizione_lepre:int = 0, stamina_lepre:int = 100) -> int:
             spostamento = -2
             print(f'--->La Lepre fa una piccola scivolata - Aretra di {abs(spostamento)} caselle e consuma 8 Stamina!')
         case _:
-            print(f'La Lepre rimane ferma in quanto non ha sufficiente Stamina!')
+            print(f'--->La Lepre rimane ferma in quanto non ha sufficiente Stamina!')
             spostamento = 0
             pass
 
@@ -94,7 +94,7 @@ def azioni_tartaruga(posizione_tartaruga:int = 0, stamina_tartaruga:int = 100) -
             spostamento = 1
             print(f'--->La Tartaruga fa un passo lento - Si sposta di una casella e consuma 3 Stamina!')
         case _:
-            print(f'La Tartaruga rigenera 10 Stamina!')
+            print(f'--->La Tartaruga rigenera 10 Stamina!')
             spostamento = 0
             stamina_tartaruga += 10 if stamina_tartaruga <= 90 else 100 
             pass

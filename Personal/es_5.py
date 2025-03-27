@@ -8,9 +8,7 @@ Use for loops and conditional statements to manage the various inventory operati
 from typing import Any
 
 
-def inventory_registrator(inventory:dict[str, dict[str, Any]] = {}, choice = "") -> dict:
-
-    code_list: list [Any] = []
+def inventory_registrator(inventory:dict[str, dict[str, Any]] = {}, choice = "", code_list: list [Any] = []) -> tuple[dict, list]:
 
     while choice != "finish":
         if choice == "":
@@ -20,16 +18,12 @@ def inventory_registrator(inventory:dict[str, dict[str, Any]] = {}, choice = "")
             if choice != "finish":
                 if choice not in inventory:
                     code = input('Type the code of the item!\n==>')
-                    code_list.append(code)
-                    if code == code_list[-1]:
-                        pass
-                    else:
-                        while code in code_list:
-                            code = input(f'The Code: >#{code}< has already been used!\nChoose a different one!\n==>')
-                        if code not in code_list:
-                            print(f'1 - {code_list}')
-                            code_list.append(code)
-                            print(f'2 - {code_list}')
+                    while code in code_list:
+                        code = input(f'The Code: >#{code}< has already been used!\nChoose a different one!\n==>')
+                    if code not in code_list:
+                        print(f'1 - {code_list}')
+                        code_list.append(code)
+                        print(f'2 - {code_list}')
                     print(f'3 - {code_list}')
                     quantity = input('What is the quantity of the item?\n==>')
                     price = input('What is the price of the item?\n==>')
@@ -38,7 +32,7 @@ def inventory_registrator(inventory:dict[str, dict[str, Any]] = {}, choice = "")
                 else:
                     print(f'The item >{choice}< already exists in the Inventory\n')
             choice = ""
-    return inventory
+    return inventory, code_list 
 
 
 def inventory_manager(inventory: dict = {}):
@@ -69,6 +63,7 @@ def inventory_manager(inventory: dict = {}):
 
             if choice == "remove":
                 item: str = input("What item would you like to remove to the list?\n==>")
+                
                 if item in inventory:
                     inventory.pop(item)
                 else:
