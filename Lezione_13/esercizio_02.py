@@ -4,7 +4,10 @@ Scrivere una funzione ricorsiva compoundInterest che calcoli la somma presente s
 '''
 
 
-def compoundInterest(t:int, m:float = 100) -> None:
+def compoundInterest(t:int, m:float = 1000) -> None:
+
+    if t < 0:
+        print("Error! Inserted number is negative!")
 
     if t == 0:
         print(f'The total money is {m:.2f}')
@@ -14,6 +17,6 @@ def compoundInterest(t:int, m:float = 100) -> None:
         compoundInterest(t - 1, m)
 
 
-compoundInterest(500)
+compoundInterest(350)
 
 
