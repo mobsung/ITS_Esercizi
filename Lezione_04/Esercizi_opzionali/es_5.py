@@ -8,31 +8,24 @@ Use for loops and conditional statements to manage the various inventory operati
 from typing import Any
 
 
-def inventory_registrator(inventory:dict[str, dict[str, Any]] = {}, choice = "") -> dict:
-
-    code_list: list [Any] = []
+def inventory_registrator(inventory:dict[str, dict[str, Any]] = {}, choice = "", code_list: list [Any] = []) -> dict:
 
     while choice != "finish":
         if choice == "":
             choice = input('Type the "name" of the item that you want to add\n'
-                        'Type "finish" if don\'t want to add more items\n==>')
+                           'Type "finish" if don\'t want to add more items\n==>')
         else:
             if choice != "finish":
                 if choice not in inventory:
                     code = input('Type the code of the item!\n==>')
-                    code_list.append(code)
-                    if len(code_list) > 1:
-                        while code in code_list:
-                            code = input(f'The Code: >#{code}< has already been used!\nChoose a different one!\n==>')
-                        if code not in code_list:
-                            print(f'1 - {code_list}')
-                            code_list.append(code)
-                            print(f'2 - {code_list}')
-                    print(f'3 - {code_list}')
+                    while code in code_list:
+                        code = input(f'The Code: >#{code}< has already been used!\nChoose a different one!\n==>')
+                    if code not in code_list:
+                        code_list.append(code)
                     quantity = input('What is the quantity of the item?\n==>')
                     price = input('What is the price of the item?\n==>')
                     
-                    inventory[choice] = {"code": f'#{code}', "quantity": int(quantity), "price":float(price)}
+                    inventory[choice] = {"code": f'{code}', "quantity": int(quantity), "price":float(price)}
                 else:
                     print(f'The item >{choice}< already exists in the Inventory\n')
             choice = ""
@@ -48,7 +41,7 @@ def inventory_manager(inventory: dict = {}):
 
             inventory_info: str = "Inverntory details\n"
             for key, value in inventory.items():
-                inventory_info += f'>{key}< - Code: {value["code"]} - Quantity: {int(value["quantity"])} - Price: {float(value["price"])}$\n'
+                inventory_info += f'>{key}< - Code: #{value["code"]} - Quantity: {int(value["quantity"])} - Price: {float(value["price"])} $\n'
 
             choice = input('Type: "add" to add an item to the Inventory"\n'
                            'Type: "remove" to remove an item from the Inventory!\n'
@@ -67,6 +60,7 @@ def inventory_manager(inventory: dict = {}):
 
             if choice == "remove":
                 item: str = input("What item would you like to remove to the list?\n==>")
+                
                 if item in inventory:
                     inventory.pop(item)
                 else:
@@ -75,9 +69,10 @@ def inventory_manager(inventory: dict = {}):
                 item: str = input("What item would you like to Update?\n==>")
                 if item in inventory:
                     print(f'Current Values of the Item: {item}\n'
-                          f'Code: {inventory[item]["code"]} - '
+                          f'Code: #{inventory[item]["code"]} - '
                           f'Quantity: {inventory[item]["quantity"]} - '
-                          f'Price: {inventory[item]["price"]}')
+                          f'Price: {inventory[item]["price"]} $\n')
+                    
                     parameter: str = input("Chose between >quantity< and >price< to update!\n==>")
                     while not (parameter == "quantity" or parameter == "price"):
                         parameter = input("You have to choose between >quantity< and >price<\n==>")
@@ -93,26 +88,38 @@ def inventory_manager(inventory: dict = {}):
                     print(f"There aren\'t any >{item}< in the Inventory!\n")
                                    
             if choice == "search":
-                print(inventory_info)
+                parameter: str = input('Type - "code" if you want to look for the Code of the Item!\n'
+                                       'Type - "name" if you want to look for the Name of the Item!\n'
+                                       'Type - "all" if you want to look at the whole Inventory!\n==>'
+                                      )
+                while not (parameter == "code" or parameter == "name" or parameter == "all"):
+                        parameter = input("You have to choose between >code< - >name< - >all<\n==>")
                 
-    
+                if parameter == "code":
+                    parameter_value = input("What is the Code you are looking for?\n==>")
+                    for key, value in inventory.items():
+                        if value["code"] == parameter_value:
+                            print(f'The item has been found: >{key}<\n'
+                                  f'Code: #{inventory[key]["code"]} - '
+                                  f'Quantity: {inventory[key]["quantity"]} - '
+                                  f'Price: {inventory[key]["price"]} $\n'
+                                  )
+                        else:
+                            print(f'The code "#{parameter_value}" hasn\'t been found in the inventory')
+
+                if parameter == "name":
+                    parameter_value = input("What is the Item you are looking for?\n==>")
+                    if parameter_value in inventory:
+                        print(f'The item has been found: >{parameter_value}<\n'
+                              f'Code: #{inventory[parameter_value]["code"]} - '
+                              f'Quantity: {inventory[parameter_value]["quantity"]} - '
+                              f'Price: {inventory[parameter_value]["price"]} $\n'
+                             )
+
+                if parameter == "all":
+                    print(f'{inventory_info}\n')
+                
 
     
 inventory_manager()
-
-
-
-
-
-# inventory = {pen = {"code": "#1", "name": "pen", "quantity": 1, "price": 3},
-#              book = {"code": "#2", "name": "book", "quantity": 2, "price": 2.6},
-#              pencil = {"code": "#3", "name": "pencil", "quantity": 3, "price": 3.99},
-#              erazer = {"code": "#4", "name": "erazer", "quantity": 4, "price": 4.50},
-#              ruler = {"code": "#5", "name": "ruler", "quantity": 5, "price": 8},
-#              glue = {"code": "#6", "name": "glue", "quantity": 6, "price": 1},
-#              }                       
-
-
-
-
 

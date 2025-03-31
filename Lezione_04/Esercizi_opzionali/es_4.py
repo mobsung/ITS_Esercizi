@@ -40,8 +40,4 @@ paragraph = '''Create a function that takes a paragraph and counts the number of
     Implement error handling to handle missing files or other input issues.'''
 
 print(word_counter(text_analysis(paragraph)))
-paragraph = paragraph.replace('.', '')
-paragraph_list: list[str] = paragraph.split()
-print(paragraph_list)
-
 
