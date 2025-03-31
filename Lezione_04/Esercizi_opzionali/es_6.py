@@ -9,14 +9,14 @@ import random
 # funzione per l'input dei parametri della password
 def password_parameters() -> tuple[int, int, int, int]:
 
-    chosen_length = int(input("How long should the password be?\n===>"))
+    chosen_length = int(input("How long should the password be?\n==>"))
     length: int = 0
 
     while chosen_length != length:
-        lower_case: int = int(input("How many lower case characters should it have?\n===>"))
-        upper_case: int = int(input("How many uper case characters should it have?\n===>"))
-        numbers: int = int(input("How many numbers should it have?\n===>"))
-        symbols: int = int(input("How many symbols should it have?\n===>"))
+        lower_case: int = int(input("How many lower case characters should it have?\n==>"))
+        upper_case: int = int(input("How many uper case characters should it have?\n==>"))
+        numbers: int = int(input("How many numbers should it have?\n==>"))
+        symbols: int = int(input("How many symbols should it have?\n==>"))
         
         length = lower_case + upper_case + numbers + symbols
         
