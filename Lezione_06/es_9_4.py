@@ -12,6 +12,10 @@ class Restaurant:
         self.cusine_type = cusine_type
         self.number_served = number_served
     
+    def __str__(self):
+
+        return f'The restaurant {self.restaurant_name} serves {self.cusine_type} - People served until now: {self.number_served}'
+
     def describe_restaurant(self):
 
         print(f'The restaurant {self.restaurant_name} serves {self.cusine_type}')
@@ -23,16 +27,18 @@ class Restaurant:
 
     
     def set_number_served(self):
-        print(f'The amount of people that have been served: {self.number_served}')
+
+        self.number_served = int(input('How many people have been served untill now?\n==>'))
 
     
     def increment_number_served(self):
-        self.number_served += int(input("How many more people have been served today?"))
+
+        self.number_served += int(input("How many more people have been served today?\n==>"))
 
 
+if __name__ == "__main__":
 
-restaurant: Restaurant = Restaurant("Hanami Sushi", "Sushi")
-served_people: Restaurant = Restaurant(number_served = 10)
-
-restaurant.increment_number_served(20)
-print(restaurant)
+    restaurant: Restaurant = Restaurant("Hanami Sushi", "Sushi")
+    restaurant.set_number_served()
+    restaurant.increment_number_served()
+    print(restaurant)
