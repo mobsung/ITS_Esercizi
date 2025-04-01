@@ -108,7 +108,7 @@ def azioni_tartaruga(posizione_tartaruga:int = 0, stamina_tartaruga:int = 100) -
     return posizione_tartaruga, stamina_tartaruga # il return della parametro posizione_tartaruga e stamina_tartaruga
 
 # funzione per la creazione del percorso e la simulazione della gara
-def gara(posizione_tartaruga:int = 0, posizione_lepre:int = 0, stamina_lepre = 100, stamina_tartaruga = 100, range_caselle:int = 70):
+def gara(posizione_tartaruga:int = 0, posizione_lepre:int = 0, stamina_lepre = 100, stamina_tartaruga = 100, caselle:int = 70):
     
     tick: int = 0 # inizializzazione variabile a 0 per il conteggio delle mosse
     # inizializzazione variabile pioggia a True e variabile sole a False in quanto devono alternarsi
@@ -127,10 +127,7 @@ def gara(posizione_tartaruga:int = 0, posizione_lepre:int = 0, stamina_lepre = 1
             pioggia = not pioggia
             sole = not sole
 
-        percorso: list[int] = [] # inizializzazione lista vuota da riempire con le caselle del percorso
-
-        for i in range(range_caselle - 1): # ciclo for che genera una lista piena di caselle vuote ogni tick
-            percorso.insert(i, "_")
+        percorso:list[str] = ["_"] * caselle # generazione percorso
             
         if tick == 0: # condizione che si verifica una sola volta e posiziona la Lepre e la Tartaruga nella prima casella
             posizione_lepre = -1
