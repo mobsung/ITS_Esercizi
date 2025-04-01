@@ -121,7 +121,7 @@ def gara(posizione_tartaruga:int = 0, posizione_lepre:int = 0, stamina_lepre = 1
     print("'BANG !!!!! AND THEY'RE OFF !!!!!'\n")
     
     # ciclo while che si verifica finche una o entrambe le posizioni superano 69
-    while posizione_tartaruga <= 70 and posizione_lepre <= 70: 
+    while posizione_tartaruga <= caselle and posizione_lepre <= caselle: 
 
         if tick % 10 == 0: # condizione che inverte il valore delle variabili pioggia e sole ogni 10 tick
             pioggia = not pioggia
