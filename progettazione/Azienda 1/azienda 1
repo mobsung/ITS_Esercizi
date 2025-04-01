@@ -1,0 +1,22 @@
+
+1 - Requisiti degli impiegati
+	1.1. nome
+	1.2. cognome
+	1.3. data di nascita
+	1.4. stipendio (un numero reale >= 0)
+	1.5. dipartimento di afferenza (esattamente uno, vedi req.2)
+	1.6. i progetti ai quali partecipa (anche nessuno) (v. req. 3)
+
+2 - Requisiti sui diparimenti
+	2.1. nome
+	2.2. telefono (una stringa)
+	2.3. impiegati che vi afferiscono (v. req. 1)
+		2.3.1. per ognuno di essi, la data di adderenza
+	2.4. il direttore
+		2.4.1. è un impiegato (v. req. 1)
+			
+3 - Requisiti progetti
+	3.1. nome progetto
+	3.2. budget (un numero reale >= 0)
+	3.3. impiegati partecipanti, anche nessuno (v. req. 1)
+
