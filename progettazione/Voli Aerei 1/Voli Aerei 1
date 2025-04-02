@@ -17,8 +17,9 @@
 	3.2. anno fondazione (Intero >= 0)
 	3.3. citta (v. req.4.2.)
 	
-4. Nazione (Stringa)
+4. Citta (Stringa)
 	4.1. nome (Stringa)
-	4.2. citta 
-		4.2.1. nome (Stringa)
-		4.2.2. numero abitanti (Intero >= 0)
+	4.2. numero abitanti (Intero >= 0)
+	4.3. nazione 
+		4.3.1. nome (Stringa)
+		
