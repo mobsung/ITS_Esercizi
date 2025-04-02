@@ -22,8 +22,3 @@ def recursiveFactorial(n:int) -> int:
         return int(n * recursiveFactorial(n - 1))
 
 print(recursiveFactorial(20))
-
-
-
-
-# 3 * (3 - 1) * (3 - 2)
