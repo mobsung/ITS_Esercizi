@@ -15,9 +15,72 @@
         <h1> TAG di tipo inline: non vanno automaticamente a capo </h1>
         <h2> Ci sono dei tag che non hanno chiusura ... img, br</h2>
         <h1> Attributo in html ... comando che aggiunge informaizoni al tag </h1>
-        <img src="LEGO_logo.svg.png"/> <br />
+        <!--<img src="LEGO_logo.svg.png"/> --><br />
         <a href="esempio_1.html"> ancora di salvataggio </a><br />
         <span> intervallo: fratello gemello del DIV ... span </span>
         <span> secondo intervallo: fratello gemello del DIV ... span </span>
+        <ul>
+            <li> Lunedì </li>
+            <li> Martedì </li>
+            <li> mercoledì </li>
+            <li> Giovedì </li>
+        </ul>
+        <!-- Commento -->
+        <ol>
+            <li> Lunedì </li>
+            <li> Martedì </li>
+            <li> mercoledì </li>
+            <li> Giovedì </li>
+        </ol>
+        <!-- Tabelle... 
+            all'inizio 1990 solo le tabelle  
+            inizio 2000 ... smartphone ... disuso ...  
+            div utilizzano la stessa logica delle tabelle
+            -->
+        <table border="1">
+            <tr>
+                <td>A1</td>
+                <td>A2</td>
+                <td>A3</td>
+            </tr>
+            <tr>
+                <td>B1</td>
+                <td>B2</td>
+                <td>B3</td>
+            </tr>
+            <tr>
+                <td>C1</td>
+                <td>C2</td>
+                <td>C3</td>
+            </tr>
+        </table>
+        <!-- Form rendere la nostra pagina interattiva-->
+         <!-- Nel tag form: 
+                action: destinatario
+                method: get / post
+                name: nome del form
+
+                Invio dati:
+                    chiaro(get) esempio-dati non sensibili
+                    nascosto(post) esempio-dati sensibili
+         -->
+         <form action="https://google.it" method="get">
+            <input type="text" name="nome">
+            <input type="file" name="CV">
+            <input type="checkbox" value="Yes" name="privacy">
+            <!-- Più scelte -->
+                <option> Gennaio </option>
+            <input type="radio" value="Maschio" name="sesso">
+            <input type="radio" value="Femmina" name="sesso">
+            <input type="radio" value="N/D" name="sesso">
+            <select>
+                <option> Gennaio </option>
+                <option> Febraio </option>
+                <option> Marzo </option>
+            </select>
+            <textarea></textarea>
+            <!-- INVIARE IL FORM-->
+            <input type="submit">
+         </form>
     </body>
 </html>
