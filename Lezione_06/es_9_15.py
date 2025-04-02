@@ -55,7 +55,7 @@ class LotteryMachine():
             item :str = input(f"Choose 4 character in from this list: {self.item_list}!\n==>")
 
             if item.upper() in self.item_list:
-                self.my_ticket.append(item)
+                self.my_ticket.append((item).upper())
             else:
                 print(f"The item >{item}< is not in the list!")
 
@@ -66,11 +66,15 @@ class LotteryMachine():
 
         draws:int = 0
 
-        while sorted(self.winning_list) != sorted(self.my_ticket):
+        while self.winning_list != self.my_ticket:
 
             self.winning_list = self.generateWinner()
             
             draws += 1
+            if self.winning_list != self.my_ticket:
+                print(f'Winning list: {self.winning_list}')
+                self.winning_list = []
+            print(f'My ticket: {self.my_ticket}')
         
         print(f'You won in a total of {draws} draws')
 
