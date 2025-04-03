@@ -9,6 +9,16 @@ Suggerimento: per il calcolo delle cifre, fare un controllo se il valore assolut
 '''
 
 
-def recursiveDigitCounter():
+def recursiveDigitCounter(n: int):
 
-    pass
+    if n == 0:
+        return "error"
+    
+    elif abs(n) < 10:
+        return 1
+
+    else:
+        return 1 + recursiveDigitCounter(n / 10) 
+        
+
+print(recursiveDigitCounter(4582))

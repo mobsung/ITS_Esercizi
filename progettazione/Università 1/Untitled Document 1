@@ -1,0 +1,31 @@
+
+
+1. Studenti
+	1.1. nome (Stringa)
+	1.2. codice fiscale (Stringa alfanumerica)
+	1.3. numero matricola (Stringa alfanumerica)
+	1.4. data di nascita (Stringa)
+	1.5. luogo di nascita (v. req.5)
+	1.6. facoltà (v. req.2)
+	1.7. corsi superati (Stringa)
+	
+2. facoltà
+	2.1. nome (Stringa)
+	2.2. tipo (Stringa)
+
+3. professori
+	3.1. nome (Stringa)
+	3.2. data di nascita (Stringa)
+	3.3. codice fiscale (Stringa alfanumerica)
+	3.4. luogo di nascita (v. req.5)
+	3.5. corso (v. req.4)
+	
+4. corsi
+	4.1. codice (Stringa)
+	4.2. nome (Stringa)
+	4.3. numero ore di lezione (Intero >= 0)
+	4.4. facoltà (v. req. 2)
+
+5. luogo di nascita
+	5.1. citta (Stringa)
+	5.2. regione (Stringa)
