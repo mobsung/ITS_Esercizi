@@ -24,9 +24,7 @@ def prime_factors(n: int) -> list[int]:
     while temp_factor < temp_n:
         for i in range(2, temp_n):
             if n % i == 0:
-                print(i)
                 n //= i
-                print(n)
                 temp_factor *= i
                 prime_factors_list.append(i)
 
