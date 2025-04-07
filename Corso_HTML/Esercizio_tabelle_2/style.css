@@ -1,0 +1,33 @@
+.main{
+    width: 50%;
+}
+.top{
+    position: relative;
+    left: 40%; right: 25%;
+}
+
+.home{
+    position: relative;
+    left: 29%;
+}
+
+.registrati{
+    position: relative;
+    left: 400px; top: 20px;
+}
+
+.login{
+    position: relative;
+    left: 400px; top: 30px;
+}
+
+.catalogo{
+    position: relative;
+    left: 400px; top: 60px;
+}
+
+.description{
+    width: 70%;
+    font-family: Arial, sans-serif;
+    
+}
