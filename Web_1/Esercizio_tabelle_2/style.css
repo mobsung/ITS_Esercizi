@@ -1,29 +1,41 @@
+body{
+    background-color: rgb(153, 235, 153);
+}
 .main{
     width: 50%;
-}
-.top{
-    position: relative;
-    left: 40%; right: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
 }
 
 .home{
+    height: 50px;
+    text-align: center;
+    background-color: lightgray;
+}
+
+.top{
+    display: block;
     position: relative;
-    left: 29%;
+    top: 10px;
 }
 
 .registrati{
+    display: block;
     position: relative;
-    left: 400px; top: 20px;
+    top: -120px;
 }
 
 .login{
+    display: block;
     position: relative;
-    left: 400px; top: 30px;
+    top: -60px;
 }
 
-.catalogo{
+.libro_section{
+    display: block;
     position: relative;
-    left: 400px; top: 60px;
+    top: -600px;
 }
 
 .description{
@@ -33,5 +45,20 @@
 }
 
 .libro{
-    width: 180px; height: auto;
+    width: 180px; 
+    height: auto;
+}
+
+.libro_description{
+    width: 400px; 
+    height: 260px;
+}
+
+.libro_bg{
+    background-color: lightgray;
+}
+.libro_position{
+    display: block;
+    position: relative;
+    left: 15px
 }

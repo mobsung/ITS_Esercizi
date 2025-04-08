@@ -3,28 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Esercizio tabelle 2</title>
     <link href="style.css" rel="stylesheet"></link>
 </head>
 <body>
-    <table border="1" style="width: 50%;" align="center">
-        <tr><td><img src="materiale/top.jpg" alt=""></td></tr>
-        <tr>
-            <td align="center"><b>| <a>HOME</a> | <a>LA NOSTRA AZIENDA </a>| <a>I PRODOTTI</a> | <a>I SERVIZI</a> | <a>CARRELLO</a> | <a>CONTATTI</a> |</b></td>
+    <table class="main">
+        <tr class="top"><td><img src="materiale/top.jpg" alt=""></td></tr>
+        <tr class="home">
+            <td>
+                <b>
+                    | <a href="#">HOME</a> 
+                    | <a href="#">LA NOSTRA AZIENDA </a>
+                    | <a href="#">I PRODOTTI</a> 
+                    | <a href="#">I SERVIZI</a> 
+                    | <a href="#">CARRELLO</a> 
+                    | <a href="#">CONTATTI</a> |
+                </b>
+            </td>
         </tr>
         <tr>
             <td>
                 <table>
                     <tr>
                         <td>
-                            <table border="1">
-                                <tr><td><img src="materiale/registrati-ora.jpg" alt=""></td></tr>
-                                <tr><td><img src="materiale/login.jpg" alt=""></td></tr>
+                            <table>
+                                <tr class="registrati"><td><img src="materiale/registrati-ora.jpg" alt=""></td></tr>
+                                <tr class="login"><td><img src="materiale/login.jpg" alt=""></td></tr>
                                 <tr><td><img src="materiale/catalogo.jpg" alt=""></td></tr>
                             </table>
                         </td>
                         <td>
-                            <table border="1">
+                            <table>
                                 <tr class="description">
                                     <td>
                                         <h3>L'attività della Edit Service offre i seguenti servizi :</h3>
@@ -34,32 +43,18 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <table border="1">
+                                        <table class="libro_position">
                                             <tr>
-                                                <td><img src="materiale/libro1.jpg" style="width: 180px; height: auto;"></td>
+                                                <td><img src="materiale/libro1.jpg" class="libro"></td>
                                                 <td>
-                                                    <table border="1">
-                                                        <tr>
-                                                            <td> Le frodi carosello </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td> Categoria : Fiscale</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td> Editore : MAGGIOLI</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td> Codice : 9788891619204</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td> Prezzo : 22,00</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td> *** Articolo Disponibile</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td> ..... maggiori informazioni </td>
-                                                        </tr>
+                                                    <table class="libro_description">
+                                                        <tr class="libro_bg"><td><b> Le frodi carosello </b></td></tr>
+                                                        <tr class="libro_bg"><td> Categoria : Fiscale </td></tr>
+                                                        <tr class="libro_bg"><td> Editore : MAGGIOLI </td></tr>
+                                                        <tr class="libro_bg"><td> Codice : 9788891619204 </td></tr>
+                                                        <tr class="libro_bg"><td> Prezzo : 22,00 </td></tr>
+                                                        <tr class="libro_bg"><td style="color: green;"> *** Articolo Disponibile *** </td></tr>
+                                                        <tr class="libro_bg"><td align="right"><b><i> ..... maggiori informazioni </i></b></td></tr>
                                                     </table>
                                                 </td>
                                             </tr>
@@ -71,32 +66,18 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <table border="1">
+                                        <table class="libro_position">
                                             <tr>
-                                                <td><img src="materiale/libro2.jpg" style="width: 180px; height: auto;"></td>
+                                                <td><img src="materiale/libro2.jpg" class="libro"></td>
                                                 <td>
-                                                    <table border="1">
-                                                        <tr>
-                                                            <td> La cartella di pagamento </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td> Categoria : Fiscale</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td> Editore : MAGGIOLI</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td> Codice : 9788891621115</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td> Prezzo : 54,00</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td> *** Articolo Disponibile</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>..... maggiori informazioni </td>
-                                                        </tr>
+                                                    <table class="libro_description">
+                                                        <tr class="libro_bg"><td><b> La cartella di pagamento </b></td></tr>
+                                                        <tr class="libro_bg"><td> Categoria : Fiscale </td></tr>
+                                                        <tr class="libro_bg"><td> Editore : MAGGIOLI </td></tr>
+                                                        <tr class="libro_bg"><td> Codice : 9788891621115 </td></tr>
+                                                        <tr class="libro_bg"><td> Prezzo : 54,00 </td></tr>
+                                                        <tr class="libro_bg"><td style="color: green;"> *** Articolo Disponibile *** </td></tr>
+                                                        <tr class="libro_bg"><td align="right"><b><i> ..... maggiori informazioni </i></b></td></tr>
                                                     </table>
                                                 </td>
                                             </tr>
@@ -108,32 +89,18 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <table border="1">
+                                        <table class="libro_position">
                                             <tr>
-                                                <td><img src="materiale/libro3.jpg" style="width: 180px; height: auto;"></td>
+                                                <td><img src="materiale/libro3.jpg" class="libro"></td>
                                                 <td>
-                                                    <table border="1">
-                                                        <tr>
-                                                            <td> Azienda agricola e fisco </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td> Categoria : Fiscale</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td> Editore : MAGGIOLI</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td> Codice : 9788891621115</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td> Prezzo : 42,00</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td> *** Articolo Disponibile</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>..... maggiori informazioni </td>
-                                                        </tr>
+                                                    <table class="libro_description">
+                                                        <tr class="libro_bg"><td><b> Azienda agricola e fisco </b></td></tr>
+                                                        <tr class="libro_bg"><td> Categoria : Fiscale </td></tr>
+                                                        <tr class="libro_bg"><td> Editore : MAGGIOLI </td></tr>
+                                                        <tr class="libro_bg"><td> Codice : 9788891621115 </td></tr>
+                                                        <tr class="libro_bg"><td> Prezzo : 42,00 </td></tr>
+                                                        <tr class="libro_bg"><td style="color: green;"> *** Articolo Disponibile *** </td></tr>
+                                                        <tr class="libro_bg"><td align="right"><b><i> ..... maggiori informazioni </i></b></td></tr>
                                                     </table>
                                                 </td>
                                             </tr>
