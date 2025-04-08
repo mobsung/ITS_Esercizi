@@ -24,11 +24,12 @@ def generate(numRows: int) -> list[list[int]]:
                 temp_row.reverse()
                 result.append(temp_row)
                 cicle += 1
-            return result
+            for row in result:
+                print(row)
                   
         
 
-print(generate(6))
+generate(20)
 
 
 
