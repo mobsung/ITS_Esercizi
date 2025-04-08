@@ -1,6 +1,12 @@
+def is_float(value) -> bool:
+    try:
+        float(value)  # Try to convert the string to a float
+        return True   # If successful, it's a float
+    except ValueError:
+        return False  # If conversion fails, it's not a float
+    
 
+a = "1.22"
+is_float(a)
 
-a = [1, 2, 3, 4, 4]
-b = [1, 2, 3, 4, 4, 5 , 5]
-
-print(b-a)
+print(type(a))
