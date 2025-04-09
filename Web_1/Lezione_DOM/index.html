@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function test(){
+
+            var x = 11;
+            var mioelemento = document.getElementById("paperino");
+            
+            if(x < 10){
+
+                mioelemento.innerHTML = "x è minore di 10";
+            }
+            
+            else{
+                mioelemento.innerHTML = "x è maggiore di 10";
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <h1 onclick="document.body.style.backgroundColor='red'">Titolo della pagina</h1>
+    <!-- DOM (non è javascript... browser): document
+            1 - gestione eventi : tastiera e mouse
+            html mette a disposizione "EVENTI"... possono eseguire DOM 
+
+            document : 3 cose .... individuare l'elemento (TAG)
+                posso gestire attributo evento e stile
+
+            2 - tramite javascript
+
+
+
+
+    -->
+    <h1 id="paperino">Scritta personalizzata</h1>
+    <h2 onclick="test()">sclicca qui per cambiare contenuto</h2>
+</body>
+</html>

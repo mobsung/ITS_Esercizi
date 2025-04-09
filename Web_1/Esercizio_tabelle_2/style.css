@@ -15,9 +15,8 @@ body{
 }
 
 .top{
-    display: block;
-    position: relative;
-    top: 10px;
+    width: 100%;
+
 }
 
 .registrati{
