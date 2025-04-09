@@ -7,6 +7,14 @@ Suggerimento: ogni volta che si effettua una chiamata ricorsiva, si utilizzi lo 
 L'ultima chiamata ricorsiva avverrà quando la stringa non contiene caratteri.
 '''
 
-def vowelsCounter():
+def vowelsCounter(s:str)-> int:
+    if not s:
+        return 0
+    elif s[0].lower() in ["a","e","i","o","u"]:
+        return 1 + vowelsCounter(s[1:])
+    else:
+        return vowelsCounter(s[1:])
+    
 
-    pass
+
+print(vowelsCounter("Ciao"))
