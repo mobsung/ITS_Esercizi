@@ -10,19 +10,19 @@ Provide appropriate feedback to the user for each transaction.
 
 
 
-def is_float(value) -> bool:
+def is_valid(value) -> bool:
     try:
-        if float(value) > 0:  # Try to convert the string to a float
-            return True   # If successful, it's a float
+        if float(value) > 0:  
+            return True   
     except ValueError:
-        return False  # If conversion fails, it's not a float
+        return False  
 
 
 def setAccountBalance(starting_balance:str = "") -> float:
 
-    while not is_float(starting_balance):
+    while not is_valid(starting_balance):
         starting_balance = input("Set starting balance:\n==>")
-        if not is_float(starting_balance):
+        if not is_valid(starting_balance):
             print("The balance should be a positive number\n")
 
     return float(starting_balance)
@@ -31,9 +31,9 @@ def setAccountBalance(starting_balance:str = "") -> float:
 
 def deposit(balance:float, deposit_amount:str = "") -> float:
 
-    while not is_float(deposit_amount):
+    while not is_valid(deposit_amount):
         deposit_amount = input("What amount would you like to deposit:\n==>")
-        if not is_float(deposit_amount):
+        if not is_valid(deposit_amount):
             print("The balance should be a positive number\n")
 
     balance += float(deposit_amount)
@@ -45,9 +45,9 @@ def deposit(balance:float, deposit_amount:str = "") -> float:
 
 def withdraw(balance:float, withdraw_amount:str = "") -> float:
     
-    while not is_float(withdraw_amount):
+    while not is_valid(withdraw_amount):
         withdraw_amount = input("What amount would you like to withdraw:\n==>")
-        if not is_float(withdraw_amount):
+        if not is_valid(withdraw_amount):
             print("The balance should be a positive number\n")
 
     if balance - float(withdraw_amount) < 0:
