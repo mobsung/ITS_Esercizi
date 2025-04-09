@@ -9,14 +9,16 @@
 
             var x = 11;
             var mioelemento = document.getElementById("paperino");
-            
+
             if(x < 10){
 
                 mioelemento.innerHTML = "x è minore di 10";
+                mioelemento.style.color = "red";
             }
             
             else{
                 mioelemento.innerHTML = "x è maggiore di 10";
+                mioelemento.style.color = "orange";
             }
 
         }
@@ -39,5 +41,10 @@
     -->
     <h1 id="paperino">Scritta personalizzata</h1>
     <h2 onclick="test()">sclicca qui per cambiare contenuto</h2>
+
+    <form>
+        inserisci il tuo nome
+
+    </form>
 </body>
 </html>
