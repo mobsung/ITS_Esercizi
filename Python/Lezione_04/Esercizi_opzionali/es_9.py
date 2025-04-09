@@ -45,14 +45,12 @@ def chooseWord(word:str = "") -> str:
     return word.lower()
     
 
-
-
 def caesarCipher():
     
     alphabet:str = "abcdefghijklmnopqrstuvwxyz"
     choice:str = choose()
     word:str = chooseWord()
-    shift_value: int = shiftValue()
+    shift_value: int = shiftValue() % 26
 
     if choice == "encrypt":
         encrypted_str:str = ""
@@ -83,8 +81,6 @@ def caesarCipher():
 caesarCipher()
 
 
-
-        
 
 
 
