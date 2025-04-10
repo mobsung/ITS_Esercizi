@@ -1,6 +1,5 @@
-print(120%26)
+a = "abab"
 
-somma = lambda y, x: x * y
+sorted_a = ''.join(sorted(a))
 
-
-print(somma(2, 9))
+print(sorted_a)
