@@ -63,6 +63,10 @@ class Persona():
             print(f"{self.name} {self.last_name} e' una persona adulta!")
         else:
             print(f"{self.name} {self.last_name} e' una persona anziana!")
+
+    
+    def __eq__(self, value):
+        pass
         
 
 
