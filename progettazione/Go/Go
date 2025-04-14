@@ -1,0 +1,54 @@
+
+
+
+1. Giocatore
+	1.1. nickname (Stringa univoca)
+	1.2. nome (Stringa)
+	1.3. cognome (Stringa)
+	1.4. indirizzo (v. req.4)
+	1.5. rank (Intero non negativo)
+	
+
+2. tornei
+	2.1. nome (Stringa)
+	2.2. descrizione (Stringa)
+	2.3. anno (Intero)
+	2.4. partite (v. req. 3)
+
+
+3. partite
+	3.1. data (Data)
+	3.2. luogo (v. req.4)
+	3.3. regolamento gioco (v. req.5)
+	
+	
+4. indirizzo
+	4.1. via (Stringa)
+	4.2. numero civico (Stringa)
+	4.3. nazione 
+		4.3.1. nome (Stringa)
+	4.4. citta 
+		4.4.1. nome (Stringa)
+	4.5. cap (Stringa secondo standard)
+	
+5. regolamento gioco
+	5.1. regole conteggio tra
+		5.1.1. giapponesi
+		5.1.2. cinesi
+	5.2. scelta colore per ogni giocatore uno tra
+		5.2.1. bianco
+			5.2.1.1. giocatore (v. req. 1)
+		5.2.2. nero
+			5.2.2.1. giocatore (v. req. 2)
+	5.3. komi (Reale positivo tra 0 e 10)
+	5.4. esito (v. req.6)
+	
+6. esito uno tra
+	6.1. rinuncia di uno dei giocatori
+		6.1.1. il giocatore (v. req. 1)
+	6.2. coppia di punteggi per ognuto tra
+		6.2.1. bianco (Intero non negativo)
+		6.2.2. nero (Intero non negativo)
+
+		
+	

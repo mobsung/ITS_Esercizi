@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+        body {
+            background-color: rgb(25, 195, 201);
+            padding: 30px;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            padding: 8px 12px;
+            margin: 5px;
+        }
+        ul {
+            margin-top: 20px;
+        }
+        li {
+            margin: 5px 0;
+            padding-bottom: 5px;
+            width: 500px;
+            border-bottom: 1px solid rgb(0, 26, 255);
+        }
+    </style> 
+    <script>
+        function addItem(){
+
+            var item = document.getElementById("item").value;
+            var quantity = document.getElementById("quantity").value;
+
+             if (item !== "") {
+                var add_item = document.createElement('li');
+                add_item.textContent = `${item.charAt(0).toUpperCase()}${item.slice(1).toLowerCase()} x${quantity || '1'}`;
+                document.getElementById('shoppingCart').appendChild(add_item);
+                item.value = "";
+                quantity.value = "";
+            }
+        }
+            if (addItem == "invio"){
+                addItem = true
+            }
+            function emptyCart() {
+                document.getElementById('shoppingCart').innerHTML = "";
+        }
+        
+    </script>
+</head>
+<body>
+    <form action="javascript:void(0);">
+        <table>
+            <tr>
+                <td colspan="4">
+                    <h1>Lista della Spesa</h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" id="item" class="item" placeholder="Add Item">
+                </td>
+                <td>
+                    <input type="text" id="quantity" class="quantity" placeholder="Quantity">
+                </td>
+                <td>
+                    <button type="button" onclick="addItem()">Aggiungi</button>
+                </td>
+                <td>
+                    <button type="button" onclick="emptyCart()">Svuota Lista</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <br>
+    <ul id="shoppingCart"></ul>
+    
+</body>
+</html>
