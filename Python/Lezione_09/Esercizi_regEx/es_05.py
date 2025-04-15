@@ -11,4 +11,14 @@ import re
 # Esercizio 5.1
 def is_date(text:str) -> None:
 
-    pass
+    print(True if re.fullmatch(r'\d{2}/\d{2}/\d{4}', text) else False)
+
+is_date("09/04/2025")
+
+
+# Esercizio 5.2
+def is_dateEx(text:str) -> None:
+
+    print(True if re.fullmatch(r'\d{2}[/-]\d{2}[/-]\d{4}', text) else False)
+
+is_dateEx("09-04-2025")
