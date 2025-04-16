@@ -29,6 +29,13 @@ def getGrid() -> list[list[str]]:
     return word_grid
 
 
+def getWordList() -> list[str]:
+
+    word_list:list[str] = ["ROMA", "SOLE", "AMORE", "ANIMA", "OPERA", "ARIA", "UNITA", "OSSA", "ROSA"]
+
+    return word_list
+
+
 def drawGrid() -> None:
 
     word_grid:list[list[str]]  = getGrid()
@@ -37,8 +44,20 @@ def drawGrid() -> None:
 
 
 def searchWord():
-
     pass
+
+    # grid:list[list[str]] = getGrid()
+    # word_list:list[str] = getWordList()
+    # found_words:list[str] = []
+    # temp_word:str = ""
+    # initial:str = word_list[0][0]
+
+    # for char in word_list[0]:
+    #     for row in grid:
+    #         for col in row:
+                
+
+            
 
 
 drawGrid()
