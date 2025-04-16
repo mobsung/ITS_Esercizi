@@ -12,7 +12,7 @@ import re
 
 def find_codes(text:str):
 
-    codes = re.findall(r'[A-Z\d]{8}', text)
+    codes = re.findall(r'\b[A-Z\d]{8}\b', text)
     
     print(codes)
 
