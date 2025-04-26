@@ -1,0 +1,22 @@
+
+
+
+1. Corsi 
+	1.1. Nome (Stringa)
+	1.2. Crediti formativi ( Intero positivo)
+	1.3. Docenti (v. req. 4)
+	1.4. Anno Accademico (Stringa)
+
+
+2. Esercitazioni
+	2.1. codice (Stringa alfanumerica univoca)
+	2.2. esercizi (1 o più esercizi v. req. 3)	
+	
+3. Esercizio
+	3.1. Testo (Stringa)
+	3.2. Soluzione (Stringa)
+	3.3. Esercitazione in cui è stato presentato (1 o più esercitazioni v. req. 2)
+	3.4. Esercitazioni in cui è stato risolto (v. req. 2)
+	
+4. Docenti
+	4.1. Nome (Stringa)
