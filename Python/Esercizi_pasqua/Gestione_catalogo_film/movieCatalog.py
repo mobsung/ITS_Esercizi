@@ -31,7 +31,7 @@ class MovieCatalog():
 
     def __init__(self):
         
-        self.movie_catalog: dict[str, str] = {}
+        self.movie_catalog: dict[str, list[str]] = {}
 
 
     def add_movie(self, director_name: str, movies: list[str]) -> None:
@@ -50,6 +50,9 @@ class MovieCatalog():
         if director_name in self.movie_catalog:
             if movie_name in self.movie_catalog[director_name]:
                 self.movie_catalog[director_name].remove(movie_name)
+
+                if not self.movie_catalog[director_name]:
+                    del self.movie_catalog[director_name]
             
             else:
                 print(f'The movie "{movie_name}" can\'t be found in the catalog!\n')
@@ -73,7 +76,7 @@ class MovieCatalog():
         print(f'{directors}')
 
 
-    def get_movies_by_director(self, director_name):
+    def get_movies_by_director(self, director_name: str) -> None:
 
         if director_name in self.movie_catalog:
             director_movies = f'-- Movies by the Director "{director_name}" --\n'
@@ -87,7 +90,7 @@ class MovieCatalog():
             print(f'The director "{director_name}" can\'t be found in the Movie catalog!')
 
 
-    def search_movies_by_title(self, title):
+    def search_movies_by_title(self, title: str) -> None:
 
         director_title: str = "-- Directors by Title --\n"
 
@@ -113,7 +116,7 @@ if __name__ == "__main__":
 
     movie_catalog.add_movie("Steven Spielberg", ["E.T.", "Jurassic Park", "Pulp"])
 
-    movie_catalog.add_movie("Quentin Tarantino", ["Pulp Fiction"])
+    movie_catalog.add_movie("Quentin Tarantino", ["Pulp Fiction", "Pulp"])
 
     movie_catalog.add_movie("Christopher Nolan", ["Oppenheimer"])
 
