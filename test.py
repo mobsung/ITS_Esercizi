@@ -5,5 +5,3 @@ for i, (key, value) in enumerate(a.items()):
     b[i] = (key, value)
 
 print(b)
-
-#d
