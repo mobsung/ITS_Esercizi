@@ -1,0 +1,56 @@
+
+
+1. Officine
+	1.1. nome (Stringa)
+	1.2. indirizzo (v. req. 5.)
+	1.3. numero dipendenti (v. req. 2.)
+	1.4. direttore (v. req. 3.)
+	 
+
+
+2. dipendenti
+	2.1. è anche una persona (v. req. 8.)
+	2.2. direttore (v. req. 3.)
+
+
+3. direttori
+	3.1. è anche un dipemndente (v. req. 2.)
+	3.2. data nascita (Data)
+
+
+4. riparazione veicoli
+	4.1. codice (Stringa alfanumerica)
+	4.2. veicolo (v. req. 6.)
+	4.3. data ed ora accettazione
+	4.4. data e ora riconsegna
+
+
+5. Indirizzi
+	5.1. via (Stringa)
+	5.2. civico (Stringa)
+	5.3. CAP (Stringa di 5 caratteri numerici secondo standard)
+	
+	
+6. Veicoli
+	6.1. modello (Stringa alfanumerica)
+	6.2. tipo (Stringa)
+	6.3. targa (Stringa alfanumerica secondo standard)
+	6.4. anno di immatricolazione (Data)
+	6.5. proprietario (v. req. 7.)
+
+
+7. Proprietari
+	7.1. è anche una persona (v. req. 8.)
+	
+	
+8. Persone
+	8.1. nome (Stringa)
+	8.2. codice fiscale (Stringa alfanumerica, univoca)
+	8.3. indirizzo (v. req. 5.)
+	8.4. numero telefono (stringa)
+	
+
+9. Luoghi
+	9.1. citta (Stringa)
+	9.2. regione (Stringa)
+	9.3. nazione (Stringa)
