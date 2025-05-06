@@ -5,3 +5,8 @@ for i, (key, value) in enumerate(a.items()):
     b[i] = (key, value)
 
 print(b)
+
+a = 'Two words'
+
+#print(a[:0] + (a[0:]).title())
+print(a.title())
