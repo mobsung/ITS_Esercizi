@@ -56,8 +56,8 @@ def sum_for_list(lst: list[int]):
                     print(f'DIV -> {i} - Num -> {num} - TEMP num -> {temp_num}')
                     if i not in prime_dividend.keys():
                         prime_dividend[i] = [num]
-                    else:
-                        prime_dividend[i].append(num) if num == temp_num else None
+                    elif num == temp_num:
+                        prime_dividend[i].append(num)
                     temp_num /= i
 
     s_prime_dividend = sorted(prime_dividend, key = lambda k: k)
