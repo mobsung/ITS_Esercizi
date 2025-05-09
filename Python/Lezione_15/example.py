@@ -11,5 +11,16 @@ PATH: str = 'Python/Lezione_15/example.txt'
 # finally:
 #     file.close()
 
-with open(PATH, 'r') as file:
-    print(file.read())
+# with open(PATH, 'r') as file:
+#     print(file.read())
+
+import json
+with open('Python/Lezione_15/example_json.json', 'w') as file:
+
+    db: dict = {
+        'aaa': {'a': 'skahkjhf', 'b': 'kuagsdk'},
+        'bbb': {'c': 'skahkjhf', 'd': 'kuagsdk'},
+        'ccc': {'e': 'skahkjhf', 'f': 'kuagsdk'}
+    }
+
+    json.dump(db, file)
