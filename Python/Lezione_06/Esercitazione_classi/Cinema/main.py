@@ -24,7 +24,7 @@ Il sistema verifica la disponibilità e conferma o rifiuta la prenotazione.
 '''
 
 
-from cinema import*
+from cinema import *
 
 
 film1: Film = Film('A', 1)
