@@ -11,6 +11,8 @@
 # #print(a[:0] + (a[0:]).title())
 # print(a.title())
 
-u = [2,1,2,6,3,2,1,6]
+u = ['a', 'b', 'c']
 
-print(sorted(list(set(u))))
+u.insert(u.index("b"), 'd')
+u.pop(u.index("b"))
+print(u)
