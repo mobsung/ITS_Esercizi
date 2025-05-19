@@ -1,0 +1,35 @@
+'''
+3. Create a class Course:
+Attributes:
+
+course_name
+course_code
+students (list of Student instances)
+professor (Professor instance)
+Methods:
+
+add_student, to add a student to the course.
+set_professor, to set the professor for the course.
+__str__, method to return a string representation of the course.
+'''
+
+from student import Student
+from professor import Professor
+
+class Course:
+
+    def __init__(self, course_name: str, course_code: str):
+        self._course_name = course_name
+        self._course_code = course_code
+        self._professor: Professor = ''
+        self._students: list[Student] = []
+
+    def add_student(self, student: Student) -> None:
+        if student not in self._students:
+            self._students.append(student)
+
+    def set_professor(self, professor: Professor) -> None:
+        self._professor = professor
+
+    def __str__(self):
+        return f'Course name: {self._course_name} - Course Code: {self._course_code}'
