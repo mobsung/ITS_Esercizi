@@ -60,7 +60,7 @@ class Professor(Person):
         #[department.add_professor(self)
 
     def __str__(self):
-        return super().__str__() + f' - ID: {self._professor_id} - {self._department}'
+        return super().__str__() + f' - ID: {self._professor_id} - {self._department.getDepartment()}'
 
 
 class Course:
@@ -97,12 +97,15 @@ class Department:
     def add_professor(self, professor: Professor):
         if professor not in self._professors:
             self._professors.append(professor)
-            professor.setDepartment(self)
+            #professor.setDepartment(self)
+    
+    def getDepartment(self) -> str:
+        return self._department_name
 
     def __str__(self):
         professors_str: str = '\n'.join(str(professor) for professor in self._professors)
         courses_str: str = '\n'.join(str(course) for course in self._courses)
-        return f'Department name: {self._department_name}\n--> Professors list in Department: {professors_str}\n--> Courses list in Department: {courses_str}'
+        return f'Department name: {self._department_name}\n--> Professors list in Department: \n{professors_str}\n--> Courses list in Department: \n{courses_str}'
 
 
 
@@ -118,7 +121,8 @@ if __name__ == '__main__':
     s1.enroll(c1)
     s2.enroll(c1)
     p1.assign_to_course(c1)
+    d1.add_professor(p1)
     
-    #print(p1)
+    print(d1)
 
-    print(c1)
+    #print(c1)
