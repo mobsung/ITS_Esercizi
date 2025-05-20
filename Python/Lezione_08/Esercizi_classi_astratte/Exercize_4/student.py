@@ -33,16 +33,19 @@ class Student(Person):
     def get_role(self) -> str:
         return 'Student'
     
-    def enroll(self, course: Course) -> None:
+    def enroll(self, course: 'Course') -> None:
         if course not in self.courses:
-            course.add_student(Student)
+            course.add_student(self)
             self.courses.append(course)
         else:
             print(f'Lo studente {self._name} è già iscritto al corso {course}')
-
+    
     def print_courses(self):
-        courses_str = '\n'.join(str(course for course in self.courses))
+        courses_str = '\n'.join(str(course) for course in self.courses)
         print(courses_str)
+
+    def __str__(self):
+        return super().__str__() + f' - Role: {self.get_role()}'
 
 if __name__ == '__main__':
 

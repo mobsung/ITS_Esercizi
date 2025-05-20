@@ -32,4 +32,5 @@ class Course:
         self._professor = professor
 
     def __str__(self):
-        return f'Course name: {self._course_name} - Course Code: {self._course_code}'
+        student_str = '\n'.join(str(student) for student in self._students)
+        return f'Course name: {self._course_name} - Course Code: {self._course_code} - Course instructor: {self._professor}\n--> Student list\n{student_str}'
