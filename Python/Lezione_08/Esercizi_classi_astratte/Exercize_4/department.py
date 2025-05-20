@@ -19,6 +19,7 @@ from course import Course
 class Department:
 
     def __init__(self, department_name: str):
+        
         self._department_name = department_name
         self._courses: list[Course] = []
         self._professors: list[Professor] = []

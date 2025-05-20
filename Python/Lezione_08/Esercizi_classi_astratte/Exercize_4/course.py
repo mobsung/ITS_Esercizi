@@ -34,3 +34,10 @@ class Course:
     def __str__(self):
         student_str = '\n'.join(str(student) for student in self._students)
         return f'Course name: {self._course_name} - Course Code: {self._course_code} - Course instructor: {self._professor}\n--> Student list\n{student_str}'
+    
+
+if __name__ == '__main__':
+    c1: Course = Course('Course1', '#1')
+    s1: Student = Student('King', 20, '@1')
+    s1.enroll(c1)
+    print(c1)

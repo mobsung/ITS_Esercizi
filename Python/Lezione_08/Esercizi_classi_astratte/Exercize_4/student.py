@@ -33,7 +33,7 @@ class Student(Person):
     def get_role(self) -> str:
         return 'Student'
     
-    def enroll(self, course: 'Course') -> None:
+    def enroll(self, course: Course) -> None:
         if course not in self.courses:
             course.add_student(self)
             self.courses.append(course)
