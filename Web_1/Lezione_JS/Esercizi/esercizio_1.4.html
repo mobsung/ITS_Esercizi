@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio 1.4</title>
+</head>
+<body>
+    <h1>Esercizio 1.4</h1>
+    <h2>Valore iniziale di x = '50'</h2>
+    <p id="valoreIniziale"></p>
+    <h2>Verifica se il valore di x è numerico</h2>
+    <p id="tipoValore"></p>
+    <h2>Stampa x dopo il cambio tipo</h2>
+    <p id="convertedX"></p>
+    
+    <script>
+
+        let x = '50';
+        document.getElementById("valoreIniziale").textContent = x + ' => ' + typeof x;
+
+
+        if (!isNaN(x)){
+            document.getElementById("tipoValore").textContent = x + ' è un numero';
+        }
+        else{
+            document.getElementById("tipoValore").textContent = x + ' non è un numero';
+        }
+
+        let converted_x = Number(x);
+        document.getElementById("convertedX").textContent = converted_x + ' => ' + typeof converted_x;
+
+    </script>
+</body>
+</html>
