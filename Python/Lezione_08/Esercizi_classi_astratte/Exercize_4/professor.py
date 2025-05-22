@@ -27,11 +27,13 @@ from department import Department
 
 class Professor(Person):
 
-    def __init__(self, name: str, age: int, professor_id: str, department: 'Department'):
+    def __init__(self, name: str, age: int, professor_id: str, department: 'Department' = None):
         super().__init__(name, age)
         self._professor_id = professor_id
         self._courses: list[Course] = []
-        self.setDepartment(department)
+        self.department = None
+        if department:
+            self.setDepartment(department)
 
     def get_role(self) -> str:
         return 'Professor'
@@ -41,12 +43,14 @@ class Professor(Person):
             course.set_professor(self)
             self._courses.append(course)
 
-    def setDepartment(self, department: 'Department'):
-        self._department = department
-        department.add_professor(self)
+    def setDepartment(self, department: 'Department') -> None:
+        if self.department != department:
+            self.department = department
+            if self not in department.professors:
+                department.add_professor(self)
 
-    def __str__(self):
-        return super().__str__() + f' - ID: {self._professor_id}'
+    def __str__(self) -> str:
+        return super().__str__() + f' - ID: {self._professor_id} - Department: {self.department.getDepartment()}'
     
 
 if __name__ == '__main__':

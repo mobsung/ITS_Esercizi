@@ -27,13 +27,15 @@ class Course:
     def add_student(self, student: Student) -> None:
         if student not in self._students:
             self._students.append(student)
+            if self not in student._courses:
+                student.enroll(self)
 
     def set_professor(self, professor: Professor) -> None:
         self._professor = professor
 
-    def __str__(self):
+    def __str__(self) -> str:
         student_str = '\n'.join(str(student) for student in self._students)
-        return f'Course name: {self._course_name} - Course Code: {self._course_code} - Course instructor: {self._professor}\n--> Student list\n{student_str}'
+        return f'Course name: {self._course_name} - Course Code: {self._course_code} - Course instructor: {self._professor}\n--> Student list\n{student_str}\n'
     
 
 if __name__ == '__main__':

@@ -19,21 +19,24 @@ from course import Course
 class Department:
 
     def __init__(self, department_name: str):
-        
         self._department_name = department_name
         self._courses: list[Course] = []
-        self._professors: list[Professor] = []
+        self.professors: list[Professor] = []
 
-    def add_course(self, course: Course):
+    def add_course(self, course: Course) -> None:
         if course not in self._courses:
             self._courses.append(course)
 
-    def add_professor(self, professor: Professor):
-        if professor not in self._professors:
-            self._professors.append(professor)
-            professor.assign_to_course(self)
+    def add_professor(self, professor: Professor) -> None:
+        if professor not in self.professors:
+            self.professors.append(professor)
+            if professor.department != self:
+                professor.setDepartment(self)
+    
+    def getDepartment(self) -> str:
+        return self._department_name
 
     def __str__(self):
-        professors_str: str = '\n'.join(str(professor) for professor in self._professors)
+        professors_str: str = '\n'.join(str(professor) for professor in self.professors)
         courses_str: str = '\n'.join(str(course) for course in self._courses)
-        return f'Department name: {self._department_name}\n--> Professors list in Department: {professors_str}\n--> Courses list in Department: {courses_str}'
+        return f'Department name: {self._department_name}\n--> Professors list in Department: \n{professors_str}\n--> Courses list in Department: \n{courses_str}\n'

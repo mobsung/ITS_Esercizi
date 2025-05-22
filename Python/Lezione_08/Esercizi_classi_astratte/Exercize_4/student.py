@@ -27,25 +27,22 @@ class Student(Person):
 
     def __init__(self, name: str, age: int, student_id: str):
         super().__init__(name, age)
-        self.student_id = student_id
-        self.courses: list[Course] = []
+        self._student_id = student_id
+        self._courses: list[Course] = []
 
     def get_role(self) -> str:
         return 'Student'
     
-    def enroll(self, course: Course) -> None:
-        if course not in self.courses:
-            course.add_student(self)
-            self.courses.append(course)
+    def enroll(self, course: 'Course') -> None:
+        if course not in self._courses:
+            self._courses.append(course)
+            if self not in course._students:
+                course.add_student(self)
         else:
             print(f'Lo studente {self._name} è già iscritto al corso {course}')
-    
-    def print_courses(self):
-        courses_str = '\n'.join(str(course) for course in self.courses)
-        print(courses_str)
 
-    def __str__(self):
-        return super().__str__() + f' - Role: {self.get_role()}'
+    def __str__(self) -> str:
+        return super().__str__() + f' - ID: {self._student_id} - Role: {self.get_role()}'
 
 if __name__ == '__main__':
 
