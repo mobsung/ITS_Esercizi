@@ -13,8 +13,9 @@ set_professor, to set the professor for the course.
 __str__, method to return a string representation of the course.
 '''
 
-from student import Student
-from professor import Professor
+if __name__ == '__main__':
+    from student import Student
+    from professor import Professor
 
 class Course:
 
@@ -24,13 +25,13 @@ class Course:
         self._professor: Professor = ''
         self._students: list[Student] = []
 
-    def add_student(self, student: Student) -> None:
+    def add_student(self, student: 'Student') -> None:
         if student not in self._students:
             self._students.append(student)
             if self not in student._courses:
                 student.enroll(self)
 
-    def set_professor(self, professor: Professor) -> None:
+    def set_professor(self, professor: 'Professor') -> None:
         self._professor = professor
 
     def __str__(self) -> str:

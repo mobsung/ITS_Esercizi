@@ -13,8 +13,9 @@ add_student, to add a student to the university.
 __str__, method to return a string representation of the university.
 '''
 
-from department import Department
-from student import Student
+if __name__ == '__main__':
+    from department import Department
+    from student import Student
 
 class University: 
 
@@ -22,11 +23,11 @@ class University:
         self._departments: list[Department] = []
         self._students: list[Student] = []
 
-    def add_department(self, department: Department) -> None:
+    def add_department(self, department: 'Department') -> None:
         if department not in self._departments:
             self._departments.append(department)
 
-    def add_student(self, student: Student) -> None:
+    def add_student(self, student: 'Student') -> None:
         if student not in self._students:
             self._students.append(student)
 

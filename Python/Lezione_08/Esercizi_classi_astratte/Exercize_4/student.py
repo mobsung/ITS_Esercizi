@@ -21,7 +21,8 @@ assign_to_course, to assign the professor to a course.
 '''
 
 from person import Person
-from course import Course
+if __name__ == '__main__':
+    from course import Course
 
 class Student(Person):
 

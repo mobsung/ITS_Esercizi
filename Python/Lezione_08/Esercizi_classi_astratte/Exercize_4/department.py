@@ -13,8 +13,9 @@ add_professor, to add a professor to the department.
 __str__, method to return a string representation of the department.
 '''
 
-from professor import Professor
-from course import Course
+if __name__ == '__main__':
+    from professor import Professor
+    from course import Course
 
 class Department:
 
@@ -23,11 +24,11 @@ class Department:
         self._courses: list[Course] = []
         self.professors: list[Professor] = []
 
-    def add_course(self, course: Course) -> None:
+    def add_course(self, course: 'Course') -> None:
         if course not in self._courses:
             self._courses.append(course)
 
-    def add_professor(self, professor: Professor) -> None:
+    def add_professor(self, professor: 'Professor') -> None:
         if professor not in self.professors:
             self.professors.append(professor)
             if professor.department != self:
