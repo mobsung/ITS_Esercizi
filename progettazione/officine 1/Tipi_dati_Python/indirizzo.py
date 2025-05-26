@@ -5,9 +5,9 @@ class Indirizzo:
     pattern_cap = re.compile(r'[0-9]{5}')
 
     def __init__(self, via: str, civico: str, cap: str):
-        self.setIndirizzo(via, civico, cap)
+        self._setIndirizzo(via, civico, cap)
 
-    def setIndirizzo(self, via: str, civico: str, cap: str) -> None:
+    def _setIndirizzo(self, via: str, civico: str, cap: str) -> None:
         if type(via) == str and type(civico) == str and re.fullmatch(self.pattern_cap, cap):
             self.via = via
             self.civico = civico

@@ -5,9 +5,9 @@ class Targa:
     pattern_targa = re.compile(r'[A-Z]{2}[0-9]{3}[A-Z]{2}')
 
     def __init__(self, targa:str):
-        self.setTarga(targa)
+        self._setTarga(targa)
 
-    def setTarga(self, targa:str) -> None:
+    def _setTarga(self, targa:str) -> None:
         if re.fullmatch(self.pattern_targa, targa):
             self.targa = targa
         else:

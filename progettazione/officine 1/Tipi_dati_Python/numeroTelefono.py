@@ -5,9 +5,9 @@ class NumeroTelefono:
     pattern_telefono = re.compile(r'((00|\+)39[\. ]??)??3\d{2}[\. ]??\d{6,7}')
 
     def __init__(self, numero_telefono: str):
-        self.setNumeroTelefono(numero_telefono)
+        self._setNumeroTelefono(numero_telefono)
 
-    def setNumeroTelefono(self, numero_telefono: str) -> None:
+    def _setNumeroTelefono(self, numero_telefono: str) -> None:
         if re.fullmatch(self.pattern_telefono, numero_telefono):
             self.numero_telefono = numero_telefono
         else:

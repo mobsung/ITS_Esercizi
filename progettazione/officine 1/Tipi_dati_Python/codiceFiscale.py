@@ -5,9 +5,9 @@ class CodiceFiscale:
     pattern = re.compile(r'[A-Z]{6}[0-9]{2}[ABCDEHLMPRST]{1}[0-9]{2}([A-Z]{1}[0-9]{3})[A-Z]{1}')
 
     def __init__(self, cf: str):
-        self.setCf(cf)
+        self._setCf(cf)
 
-    def setCf(self, cf: str) -> None:
+    def _setCf(self, cf: str) -> None:
 
         if re.fullmatch(self.pattern, cf):
             self.cf = cf
