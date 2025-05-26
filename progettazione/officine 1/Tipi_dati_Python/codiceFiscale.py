@@ -29,8 +29,8 @@ class CodiceFiscale:
 
 if __name__ == '__main__':
 
-    cf1 : CodiceFiscale = CodiceFiscale('MVLMCL01C14Z140O')
-    cf2 : CodiceFiscale = CodiceFiscale('MVLMCL01C14Z140O')
+    cf1 : CodiceFiscale = CodiceFiscale('AAABBB12C34D567E')
+    cf2 : CodiceFiscale = CodiceFiscale('AAABBB12C34D567E')
     cf3 : CodiceFiscale = CodiceFiscale('LVMLCM01C14Z140O')
 
     print({cf1, cf2})
