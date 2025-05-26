@@ -15,3 +15,9 @@ class CompagniaAerea:
 
     def __str__(self) -> str:
         return f'Company name: {self._name} - Foundation year: {self._anno_fondazione}'
+    
+    def getName(self) -> str:
+        return self._name
+    
+    def getAnnoFondazione(self) -> str:
+        return self._anno_fondazione

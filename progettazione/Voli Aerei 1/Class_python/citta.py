@@ -12,7 +12,12 @@ class Citta:
 
     def __str__(self) -> str:
         return f'City name: {self._name} - Current population: {self._population}'
-
+    
+    def getName(self) -> str:
+        return self._name
+    
+    def getPopulation(self) -> str:
+        return self._population
 
 if __name__ == '__main__':
 
