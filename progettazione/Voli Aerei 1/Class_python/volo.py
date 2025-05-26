@@ -3,7 +3,7 @@ from myTypes import CodiceVolo, TimeRange
 
 class Volo:
 
-    _codice_volo: CodiceVolo
+    _codice_volo: CodiceVolo # <<immutable>>
     _duration: TimeRange
 
     def __init__(self, codice_volo: str | CodiceVolo, duration: TimeRange) -> None:
