@@ -31,7 +31,7 @@ if __name__ == '__main__':
 
     # Assigning Professor objects to Course objects
     python_course.set_professor(professor=zoro)
-    ai_course.set_professor(nami)
+    ai_course.set_professor(professor=nami)
     sanji.assign_to_course(course=data_science_course)
 
     # Assigning Student objects to Course objects
@@ -39,8 +39,8 @@ if __name__ == '__main__':
     python_course.add_student(student=queen)
     jack.enroll(course=python_course)
     king.enroll(course=ai_course)
-    ai_course.add_student(jack)
-    data_science_course.add_student(queen)
+    ai_course.add_student(student=jack)
+    data_science_course.add_student(student=queen)
 
     # Assigning Course objects to Department objects
     coding.add_course(course=python_course)
@@ -62,4 +62,5 @@ if __name__ == '__main__':
 
     # Printing University object
     print(university)
+    
     
