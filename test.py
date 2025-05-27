@@ -14,15 +14,15 @@ from typing import TYPE_CHECKING
 # print(a.title())
 
 
-u = ['a', 'b', 'c']
+# u = ['a', 'b', 'c']
 
-layout: list[str] = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
-test = ''
-try:
-    if layout.index(layout[7 + 3]):
-        test = layout[layout.index(layout[7 + 3])]
-except:
-    None
+# layout: list[str] = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+# test = ''
+# try:
+#     if layout.index(layout[7 + 3]):
+#         test = layout[layout.index(layout[7 + 3])]
+# except:
+#     None
 
 
-print(test)
+print(float('3.14'))
