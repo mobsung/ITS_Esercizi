@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio 5.1</title>
+</head>
+<body>
+    <div id="result"></div>
+
+    <script>
+
+        function equality(){
+
+            let element1 = prompt('Type value');
+            let element2 = prompt('Type value');
+
+            return element1 === element2;
+
+        }
+
+        let eq = equality()
+
+        if (eq == true){
+            document.getElementById('result').innerHTML = 'The values are equal';
+        }
+        else{
+
+            document.getElementById('result').innerHTML = 'The values aren\'t equal';
+        }
+            
+
+    </script>
+</body>
+</html>

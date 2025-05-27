@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio 5.2</title>
+</head>
+<body>
+
+    <h1 id="result"></h1>
+
+    <script>
+ 
+        let num = prompt('Type a number between 1 and 7');
+        
+        function verify(num){
+
+            return 1 <= num && num <= 7
+        }
+
+        function print(){
+            let week = ['Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato', 'Domenica'];
+
+            if (verify(num) == true){
+                document.getElementById('result').innerHTML = 'Il giorno della settimana corrispondente al numero ' + num + ' è ' + week[num-1];
+            }
+            else{
+                document.getElementById('result').innerHTML = 'Peccato, non posso indovinare il giorno.';
+            }
+        }
+
+        print()
+    </script>
+</body>
+</html>

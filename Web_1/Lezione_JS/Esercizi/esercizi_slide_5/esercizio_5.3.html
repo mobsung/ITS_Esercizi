@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio 5.3</title>
+</head>
+<body>
+    
+    <h1 id="result"></h1>
+    <input type="text" id="tentativo">
+    <button onclick="guessTheNumber()">controlla</button>
+
+
+    <script>
+
+        let random_num = Math.floor(Math.random() * 101)
+        let counter = 0
+
+        function guessTheNumber(){
+
+            let tentativo = document.getElementById('tentativo').value;
+            counter ++;
+             
+            if(tentativo == random_num){
+
+                document.getElementById('result').innerHTML = 'Congratulations you guessed the number';
+            }
+            else{
+                document.getElementById('result').innerHTML = 'Wah! Wah! TRY AGAIN';
+            }
+
+        }
+        
+    </script>
+
+</body>
+</html>
