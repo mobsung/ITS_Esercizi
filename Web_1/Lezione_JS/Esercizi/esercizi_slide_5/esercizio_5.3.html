@@ -4,13 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Esercizio 5.3</title>
-</head>
-<body>
-    
-    <h1 id="result"></h1>
-    <input type="text" id="tentativo">
-    <button onclick="guessTheNumber()">controlla</button>
 
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f9f9f9;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-top: 50px;
+        }
+    
+        .box {
+          background-color: #e0e0e0;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          padding: 15px;
+          margin: 10px;
+          width: 300px;
+          text-align: center;
+        }
+    
+        input[type="text"] {
+          width: 80%;
+          padding: 8px;
+          font-size: 16px;
+        }
+    
+        button {
+          padding: 10px 20px;
+          font-size: 16px;
+          cursor: pointer;
+          margin-top: 10px;
+        }
+    
+        h3 {
+          margin: 5px;
+          color: #333;
+        }
+      </style>
+    </head>
+    <body>
+    
+      <div class="box">🎯 Gioco: Indovina il numero</div>
+    
+      <div class="box" id="result">Risultato</div>
+    
+      <div class="box">
+        <input type="text" id="tentativo" placeholder="Inserisci un numero">
+      </div>
+    
+      <div class="box">
+        <button onclick="guessTheNumber()">Controlla</button>
+      </div>
+    
+      <div>Tentativi:</div>
+      <h3 id="counter">0</h3>
+    
+      <button onclick="reset()">🔄 Nuovo gioco</button>
 
     <script>
 
@@ -21,7 +72,8 @@
 
             let tentativo = document.getElementById('tentativo').value;
             counter ++;
-             
+            document.getElementById('counter').innerHTML = counter;
+
             if(tentativo == random_num){
 
                 document.getElementById('result').innerHTML = 'Congratulations you guessed the number';
@@ -30,6 +82,13 @@
                 document.getElementById('result').innerHTML = 'Wah! Wah! TRY AGAIN';
             }
 
+        }
+
+        function reset(){
+
+            random_num = Math.floor(Math.random() * 101);
+            counter = 0
+            document.getElementById('counter').innerHTML = counter;
         }
         
     </script>
