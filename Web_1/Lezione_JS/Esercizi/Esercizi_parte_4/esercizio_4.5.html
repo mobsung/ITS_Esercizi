@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Doppio dei numeri da 0 a 20 con passo 2</title>
+</head>
+<body>
+  <h2>Stampa del doppio dei numeri da 0 a 20 con passo 2</h2>
+  <button onclick="stampaDoppioNumeriPari()">Mostra doppio dei numeri</button>
+
+  <h3>Con ciclo FOR:</h3>
+  <pre id="outputFor"></pre>
+
+  <h3>Con ciclo WHILE:</h3>
+  <pre id="outputWhile"></pre>
+
+  <script>
+    function stampaDoppioNumeriPari() {
+      let outputFor = document.getElementById("outputFor");
+      let outputWhile = document.getElementById("outputWhile");
+
+      // Ciclo FOR
+      let testoFor = "";
+      for (let i = 0; i <= 20; i += 2) { // Partendo da 0, fino a 20, con incrementi di 2
+        testoFor += (i * 2) + "\n"; // Stampa il doppio di i
+      }
+      outputFor.textContent = testoFor;
+
+      // Ciclo WHILE
+      let testoWhile = "";
+      let j = 0; // Inizializzazione a 0
+      while (j <= 20) { // Condizione fino a 20
+        testoWhile += (j * 2) + "\n"; // Stampa il doppio di j
+        j += 2; // Incremento di 2
+      }
+      outputWhile.textContent = testoWhile;
+    }
+  </script>
+</body>
+</html>

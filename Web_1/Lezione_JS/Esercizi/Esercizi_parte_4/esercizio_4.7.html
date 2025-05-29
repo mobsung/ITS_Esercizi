@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Trova il Numero Più Grande</title>
+</head>
+<body>
+  <h2>Trova il Numero Più Grande in un Array</h2>
+  <button onclick="trovaNumeroPiuGrande()">Trova il Numero</button>
+
+  <h3>Risultato:</h3>
+  <pre id="output"></pre>
+
+  <script>
+    function trovaNumeroPiuGrande() {
+      // Dichiarazione e valorizzazione dell'array di 7 numeri
+      const numeri = [12, 5, 87, 34, 9, 61, 23]; 
+      let numeroPiuGrande = numeri[0]; // Inizializziamo il numero più grande con il primo elemento dell'array
+      const outputElement = document.getElementById("output");
+      let testoOutput = "";
+
+      // Ciclo FOR per trovare il numero più grande
+      for (let i = 1; i < numeri.length; i++) {
+        if (numeri[i] > numeroPiuGrande) {
+          numeroPiuGrande = numeri[i];
+        }
+      }
+
+      // Restituzione del risultato in output
+      testoOutput += "Numeri nell'array: " + numeri.join(", ") + "\n";
+      testoOutput += "Il numero più grande è: " + numeroPiuGrande;
+
+      outputElement.textContent = testoOutput;
+    }
+  </script>
+</body>
+</html>

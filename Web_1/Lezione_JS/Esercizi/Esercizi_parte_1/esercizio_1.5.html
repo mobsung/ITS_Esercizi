@@ -1,11 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esercizio 1.5</title>
+  <meta charset="UTF-8">
+  <title>Giorni della Settimana</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    #output {
+      margin-top: 15px;
+      white-space: pre-line;
+    }
+  </style>
 </head>
 <body>
-    
+
+  <h2>Giorni della Settimana</h2>
+
+  <label>
+    <input type="checkbox" id="formatoVerticale">
+    Mostra uno sotto l'altro
+  </label>
+
+  <div id="output"></div>
+
+  <script>
+    // Variabile che contiene i giorni separati da virgole
+    let giorniSettimana = "Lunedì,Martedì,Mercoledì,Giovedì,Venerdì,Sabato,Domenica";
+
+    let checkbox = document.getElementById("formatoVerticale");
+    let output = document.getElementById("output");
+
+    function mostraGiorni() {
+      if (checkbox.checked) {
+        // Stampa verticale
+        output.textContent = giorniSettimana.split(',').join('\n');
+      } else {
+        // Stampa orizzontale
+        output.textContent = giorniSettimana;
+      }
+    }
+
+    // Evento per cambiare formato dinamicamente
+    checkbox.addEventListener("change", mostraGiorni);
+
+    // Mostra giorni al caricamento iniziale
+    mostraGiorni();
+  </script>
+
 </body>
 </html>

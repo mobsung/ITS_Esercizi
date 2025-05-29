@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Somma e Media di un Array</title>
+</head>
+<body>
+  <h2>Calcolo Somma e Media di un Array</h2>
+  <button onclick="calcolaSommaMedia()">Calcola</button>
+
+  <h3>Risultati:</h3>
+  <pre id="output"></pre>
+
+  <script>
+    function calcolaSommaMedia() {
+      // Dichiarazione e valorizzazione dell'array
+      let numeri = [10, 25, 5, 40, 15];
+
+      let somma = 0;
+      let media = 0;
+      const outputElement = document.getElementById("output");
+      let testoOutput = "";
+
+      // Calcolo della somma utilizzando un ciclo FOR
+      for (let i = 0; i < numeri.length; i++) {
+        somma += numeri[i];
+      }
+
+      // Calcolo della media
+      media = somma / numeri.length;
+
+      // Restituzione dei risultati in output
+      testoOutput += "Numeri nell'array: " + numeri.join(", ") + "\n";
+      testoOutput += "Somma: " + somma + "\n";
+      testoOutput += "Media: " + media.toFixed(2); // .toFixed(2) per formattare la media con due decimali
+
+      outputElement.textContent = testoOutput;
+    }
+  </script>
+</body>
+</html>

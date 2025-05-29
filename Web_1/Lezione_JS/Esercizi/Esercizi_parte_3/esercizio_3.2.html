@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Calcolo Età</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    #output {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Calcolo dell'età e anni per arrivare a 100</h2>
+
+  <div id="output"></div>
+
+  <script>
+
+    let annoCorrente = 2025;
+    let annoNascita = 1990; 
+
+    // Calcolo dell'età
+    let eta = annoCorrente - annoNascita;
+
+    // Calcolo degli anni mancanti per arrivare a 100
+    let anniPerCento = 100 - eta;
+
+    // Output nel browser
+    let output = document.getElementById("output");
+    output.innerHTML = `
+      <p><strong>Anno corrente:</strong> ${annoCorrente}</p>
+      <p><strong>Anno di nascita:</strong> ${annoNascita}</p>
+      <p><strong>Età attuale:</strong> ${eta} anni</p>
+      <p><strong>Anni mancanti per arrivare a 100:</strong> ${anniPerCento} anni</p>
+    `;
+  </script>
+
+</body>
+</html>

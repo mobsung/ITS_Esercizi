@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Somma e Media</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    #output {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Calcolo Somma e Media di 5 Numeri</h2>
+
+  <div id="output"></div>
+
+  <script>
+    // Dichiarazione dei 5 numeri
+    let num1 = 10;
+    let num2 = 25;
+    let num3 = 7;
+    let num4 = 13;
+    let num5 = 5;
+
+    // Calcolo della somma
+    let somma = num1 + num2 + num3 + num4 + num5;
+
+    // Calcolo della media
+    let media = somma / 5;
+
+    // Output nel browser
+    let output = document.getElementById("output");
+    output.innerHTML = `
+      <p><strong>Numeri:</strong> ${num1}, ${num2}, ${num3}, ${num4}, ${num5}</p>
+      <p><strong>Somma:</strong> ${somma}</p>
+      <p><strong>Media:</strong> ${media}</p>
+    `;
+  </script>
+
+</body>
+</html>

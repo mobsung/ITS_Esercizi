@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Numeri da 5 a 15</title>
+</head>
+<body>
+  <h2>Stampa dei numeri da 5 a 15</h2>
+  <button onclick="stampaNumeri()">Mostra numeri</button>
+
+  <h3>Con ciclo FOR:</h3>
+  <pre id="outputFor"></pre>
+
+  <h3>Con ciclo WHILE:</h3>
+  <pre id="outputWhile"></pre>
+
+  <script>
+    function stampaNumeri() {
+      let outputFor = document.getElementById("outputFor");
+      let outputWhile = document.getElementById("outputWhile");
+
+      // Ciclo FOR
+      let testoFor = "";
+      for (let i = 5; i <= 15; i++) {
+        testoFor += i + "\n";
+      }
+      outputFor.textContent = testoFor;
+
+      // Ciclo WHILE
+      let testoWhile = "";
+      let j = 5;
+      while (j <= 15) {
+        testoWhile += j + "\n";
+        j++;
+      }
+      outputWhile.textContent = testoWhile;
+    }
+  </script>
+</body>
+</html>
