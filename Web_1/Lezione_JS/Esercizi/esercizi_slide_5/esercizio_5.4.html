@@ -6,6 +6,21 @@
     <title>Esercizio 5.4</title>
 </head>
 <body>
+
+    <script>
     
+        function draw() {
+
+            for (let i = 1; i < 21; i++) {
+                let percent = i * 5;
+                let hr = document.createElement("hr");
+                hr.setAttribute('width', percent+'%')
+                document.body.appendChild(hr);
+            }
+        }
+
+        draw();
+
+    </script>
 </body>
 </html>
