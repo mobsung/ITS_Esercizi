@@ -24,5 +24,4 @@ from typing import TYPE_CHECKING
 # except:
 #     None
 
-
-print(float('3.14'))
+print(100 * 1.1)
