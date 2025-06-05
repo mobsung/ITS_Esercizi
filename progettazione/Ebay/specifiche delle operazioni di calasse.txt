@@ -2,10 +2,10 @@ popolarità(i: dataOra): Popolarità
 	precondizioni: nessuna
 	postconmdizioni:
 		- L'operazione non modifica il livello estensionale dei dati.
-		- Sia B l'insieme di p:postConFeedback fatti a this nel periodo compreso tra adesso e adesso - 12 mesi, formalmente.
-			- B è l'insieme di p:PostConFeedback tali che i - 12 mesi <= (this, p):pubblica <= i.
+		- Sia B l'insieme di b:Bid fatti a this nel periodo compreso tra adesso e adesso - 12 mesi, formalmente.
+			- B è l'insieme di b:Bid tali che i - 12 mesi <= (this, p):pubblica <= i.
 		- Sia N il numero di elementi di B (formalmente, la cardinalità, |B|).
-		- sia tot la cardinalità di p:PostConFeedback
+		- sia tot la cardinalità di b:Bid
 		- se tot < 50 allora result = bassa
 		- se 50 <= tot <= 300 allora result = media
 		- se tot > 300 allora result = alta
