@@ -23,16 +23,15 @@ class Customer:
         self.rented_movies: list[Movie] = []
 
     def rent_movie(self, movie: Movie) -> None:
-        if movie not in self.rented_movies:
+        if not movie.is_rented():
             self.rented_movies.append(movie)
+            movie.rent()
         else:
             print(f"Il film '{movie.title}' è già noleggiato.")
 
     def return_movie(self, movie: Movie) -> None:
         if movie in self.rented_movies:
             self.rented_movies.remove(movie)
+            movie.return_movie()
         else:
             print(f"Il film '{movie.title}' non è stato noleggiato da questo cliente.")
-
-    def get_movies(self) -> list[Movie]:
-        return self.rented_movies

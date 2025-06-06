@@ -47,24 +47,26 @@ class VideoRentalStore:
             self.customers[customer_id] = Customer(customer_id=customer_id, name=name)
 
     def rent_movie(self, customer_id: str, movie_id: str) -> None:
-        if customer_id in self.customers:
-            if movie_id in self.movies:
-                self.movies[movie_id].rent()
-                self.customers[customer_id].rent_movie(self.movies[movie_id])
+        if customer_id in self.customers and movie_id in self.movies:
+            self.customers[customer_id].rent_movie(self.movies[movie_id])
         else:
             print("Cliente o film non trovato.")
 
     def return_movie(self, customer_id: str, movie_id: str) -> None:
-        if customer_id in self.customers:
-            if movie_id in self.movies:
-                self.movies[movie_id].return_movie()
-                self.customers[customer_id].return_movie(self.movies[movie_id])
+        if customer_id in self.customers and movie_id in self.movies:
+            self.customers[customer_id].return_movie(self.movies[movie_id])
         else:
             print("Cliente o film non trovato.")
 
     def get_rented_movies(self, customer_id: str) -> list[Movie]:
         if customer_id in self.customers:
-            return self.customers[customer_id].get_movies()
+            return self.customers[customer_id].rented_movies()
         else:
             print("Cliente non trovato.")
             return []
+    
+    def get_rented_movies(self) -> list[Movie]:
+        rented_movies: list[Movie] = []
+        for customer in self.customers.values():
+            rented_movies.extend(customer.rented_movies)
+        return rented_movies
