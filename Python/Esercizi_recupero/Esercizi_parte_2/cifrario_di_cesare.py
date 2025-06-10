@@ -74,6 +74,6 @@ def caesar_cypher_decrypt(word: str, key: int) -> str:
 
     return decrypted_word
 
-print(caesar_cypher_encrypt('stefano', 40))
+print(caesar_cypher_encrypt('ciao', 2))
 print(caesar_cypher_decrypt('gHsToBc', 40))
             
