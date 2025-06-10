@@ -10,7 +10,7 @@ def binary_search(nums: list[int], num: int) -> bool:
     while len(nums) > 1:
 
         if num >= nums[len(nums) // 2]:
-            nums = nums[len(nums) // 2:]
+            nums = nums[len(nums) // 2 + 1:]
         else:
             nums = nums[:len(nums) // 2]
     
