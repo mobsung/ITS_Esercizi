@@ -23,31 +23,12 @@ merge_intervals(intervals) # restituisce [[1, 5]]
 
 def merge_intervals(intervals: list[list[int]]) -> list[list[int]]:
 
-    result_intervals: list[list[int]] = []
-    v_intervals: list[list[int]] = []
-    len_intervals = len(intervals)
     intervals = sorted(intervals)
-    cur_interval: list[int] = intervals[0]
-    temp_interval: list[int] = intervals[0]
+    ver_intervals: list[int] = []
 
-    for interval in intervals:
-        for iter in range(len(intervals)):
-            if interval not in v_intervals:
-                print(f'v_intervals - {v_intervals}')
-                if interval[0] <= cur_interval[0] and interval[1] >= cur_interval[0]:
-                    temp_interval[0] = interval[0]
-                else:
-                    temp_interval[0] = cur_interval[0]
-                if interval[1] >= cur_interval[0] and interval[1] >= cur_interval[1]:
-                    temp_interval[1] = interval[1]
-                else:
-                    temp_interval[1] = cur_interval[1]
-                if cur_interval[1] < interval[0]:
-                    cur_interval = interval[:]
-                print(f'Interval - {interval}')
-                v_intervals.append(interval[:])
-        result_intervals.append(temp_interval[:])
+    while len(intervals) > 0:
 
-    return result_intervals
+        cur_interval: list[int] = intervals[0].copy
 
-print(merge_intervals([[1, 3], [2, 6], [8, 10], [15, 18]]))
+
+#print(merge_intervals([[1, 3], [2, 6], [8, 10], [15, 18]]))
