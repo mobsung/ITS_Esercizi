@@ -28,7 +28,7 @@ def merge_intervals(intervals: list[list[int]]) -> list[list[int]]:
 
     while len(intervals) > 0:
 
-        cur_interval: list[int] = intervals[0].copy
+        cur_interval: list[int] = intervals[0].copy()
 
 
 #print(merge_intervals([[1, 3], [2, 6], [8, 10], [15, 18]]))

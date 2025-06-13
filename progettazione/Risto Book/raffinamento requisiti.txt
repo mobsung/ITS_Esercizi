@@ -1,0 +1,42 @@
+Raffinamento dei requisiti
+
+
+1. Clienti
+    1.1. Nome (Stringa)
+    1.2. Email (Stringa secondo standard)
+
+
+2. Ristoranti
+    2.1. Nome (Stringa)
+    2.2. P.IVA (Stringa numerica secondo standard)
+    2.3. Indirizzo (Stringa secindo standard)
+    2.4. città
+    
+
+3. Prenotazione
+    3.1. DataOra (DataOra)
+    3.2. Numero commensali (Intero > 0)
+    3.3. StatoPrenotazione
+        3.3.1. confermata
+        3.3.2. rifiutata
+        3.3.3. pendente
+        3.3.4. non utilizzata
+        3.3.5. completata
+        3.3.6. annullata
+    3.4. Cliente (v.req. 1)
+    3.5. Ristorante (v.req. 2)
+
+
+4. Responsabile ristorante 
+    4.1. Ristoranti (v.req. 2) (almeno uno)
+    4.2. Chiusura prenotaizone (v.req. 3)
+
+
+5. Promozioni
+    5.1. Percentuale sconto (Intero > 0)
+    5.2. Periodo valido in ore (Ora)
+    5.3. Periodo valido in giorni (Data)
+    5.4. Numero massimo ricoperti (Inteo > 0)
+
+
+
