@@ -59,17 +59,17 @@ def isDNA(dna: str) -> bool:
 
 def sovrapposizione(dna1: str, dna2: str) -> str:
 
-    s_dna: str = dna1 if len(dna1) <= len(dna2) else dna2
+    s_dna: int = len(dna1) if len(dna1) <= len(dna2) else len(dna2)
 
     if isDNA(dna1) and isDNA(dna2):
 
-        for i in range(len(s_dna) -1, -1, -1):
+        for i in range(s_dna -1, -1, -1):
 
-            if dna1[i:] == dna2[:len(dna2) - i]:
-                return dna1[i:]
+            if dna1[i + len(dna1) - s_dna:] == dna2[:len(dna2) - i]:
+                return dna1[i + len(dna1) - s_dna:]
             
-    else:
-        return "Non ci sono sovrapposizioni"
+        else:
+            return "Non ci sono sovrapposizioni"
 
 
 
