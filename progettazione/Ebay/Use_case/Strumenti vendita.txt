@@ -1,0 +1,59 @@
+##Specifica use case pubblica Asta
+
+pubblica_post_asta(
+        descrizione: Stringa, 
+        condizioni: Condizioni [0..1],
+        prezzo: Reale > 0,
+        anni_garanzia: Intero >= 0,
+        scadenza: DataOra,
+        prezzo_bid: Reale > 0,
+        venditore: Venditore,
+        categoria: Categoria [1..*],
+        metodo_pagamento: MetodoDiPagamento [1..*]
+    ) : Asta
+- precondizioni:
+        - se condizioni non è valorizzato allora anni_garanzia deve essere >= 2
+        - scadenza deve essere >= di adesso
+- postcondizioni:
+        - viene creato e restituito l'oggetto v:VenditoreProf dove:
+                - a.descrizione = descrizione
+                - a.anni_garanzia = anni_garanzia
+                - a.scadenza = scadenza
+                - a.prezzo_bid = prezzo_bid
+                - si crea il link (v, a):pubblica dove v è un oggetto della classe VenditoreProf associato all'attore che invoca l'operazione
+                - crea a: Usato se condizioni è valorizzato
+                    - a.condizioni = condizioni
+                - crea a: Nuovo se cindizioni non è valorizzato
+                - per c ogni in categoria:
+                    - si crea il link (c, a):cat_pos
+                - per ogni mp in metodo di pagamento:
+                    - si crea il link (mp, a):met_pos
+
+#========================================================================================================#
+
+
+##Specifica use case pubblica CompraSubito
+
+pubblica_post_cs(
+        descrizione: Stringa, 
+        condizioni: Condizioni [0..1],
+        prezzo: Reale > 0,
+        anni_garanzia: Intero >= 0,
+        venditore: Venditore,
+        categoria: Categoria [1..*],
+        metodo_pagamento: MetodoDiPagamento [1..*]
+    ) : CompraSubito
+- precondizioni:
+        - se condizioni non è valorizzato allora anni_garanzia deve essere >= 2
+- postcondizioni:
+        - viene creato e restituito l'oggetto v:VenditoreProf dove:
+                - cs.descrizione = descrizione
+                - cs.anni_garanzia = anni_garanzia
+                - si crea il link (v, cs):pubblica dove v è un oggettodella classe VenditoreProf associato all'attore che invoca l'operazione
+                - crea cs: Usato se condizioni è valorizzato
+                    - cs.condizioni = consizioni
+                - crea cs: Nuovo se cindizioni non è valorizzato
+                - per c ogni in categoria:
+                    - si crea il link (c, cs):cat_pos
+                - per ogni mp in metodo di pagamento:
+                    - si crea il link (mp, cs):met_pos

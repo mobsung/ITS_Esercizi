@@ -1,0 +1,27 @@
+Specifica use case Strumenti acquisto
+
+
+lascia_feedback()
+
+
+
+acquista(p: Privato, cs: CompraSubito): (p, cs):cs_ut
+
+    - precondizioni:
+        - nessuna
+    - postcondizione:
+        - crea e restituisce il link (p, cs):cs_ut dove:
+            (p, cs).p = p
+            (p, cs).cs = cs
+
+
+proponi_bid(asta: Asta): Bid
+
+    - precondizioni:
+        - nessuna
+    - postcondizioni:
+        - viene creato e restituito b: Bid dove:
+            - b.privato = privato
+            - b.asta = asta
+
+            
