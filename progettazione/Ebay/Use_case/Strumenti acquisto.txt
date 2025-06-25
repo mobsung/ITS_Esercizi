@@ -1,7 +1,18 @@
 Specifica use case Strumenti acquisto
 
 
-lascia_feedback()
+
+lascia_feedback(post: PostOggetto, voto: Intero in[0,5], commento:Stringa[0..1]): PostConFeedback:
+    - precondizioni:
+        - Se post:Asta allora:
+            - Se post.vincitore() ritorna un ut:Utente, deve essere che ut è associato all'attore che invoca l'operazione
+        - Altrimenti post:CompraloSubito:
+            - Deve esistere (u, cs):cs_ut, dove u è un oggetto della classe u:Privato associato all'attore che invoca l'operazione
+    - postcondizioni:
+        - post diventa PostConFeedback, dove gli attributi di post rimangono invariati e si aggiungono:
+            - post.voto = voto
+            - post.commento = commento
+            - post.istante = adesso
 
 
 
@@ -10,9 +21,7 @@ acquista(p: Privato, cs: CompraSubito): (p, cs):cs_ut
     - precondizioni:
         - nessuna
     - postcondizione:
-        - crea e restituisce il link (p, cs):cs_ut dove:
-            (p, cs).p = p
-            (p, cs).cs = cs
+        - viene creato e restituito il link (ut, cs):cs_ut, dove ut è un oggetto della classe ut:Privato associato all'attore che invoca l'operazione
 
 
 proponi_bid(asta: Asta): Bid
