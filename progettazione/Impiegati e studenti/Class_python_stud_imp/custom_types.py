@@ -157,5 +157,9 @@ class Indirizzo:
 		return (self.via(), self.civico() ) == (other.via(), other.civico())
 
 
+class CodiceFiscale:
+
+	pass
+
 
 
