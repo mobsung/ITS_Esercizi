@@ -117,18 +117,17 @@ def caricoMin(mat: list[list[int]]) -> tuple[int, int]:
     return caricoMin
 
 if __name__ == '__main__':
-    mat = genera(5)
-    print(mat, '\n')
+    mat = genera(5) # genera matrice
 
-    printMAT(mat)
+    printMAT(mat) # stampa matrice
 
-    print(calcolaCarico(mat, 0, 1))
+    print(calcolaCarico(mat, 0, 1)) # calcola carico in posizione (0, 1)
 
-    print(caricoNullo(mat))
+    print(caricoNullo(mat)) # calcola caricoNullo
     
-    print(caricoMax(mat))
+    print(caricoMax(mat)) # calcola caricoMax
 
-    print(caricoMin(mat))
+    print(caricoMin(mat)) # calcola caricoMin
 
 
 
