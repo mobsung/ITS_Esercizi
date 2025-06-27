@@ -59,4 +59,10 @@ class Persona:
 
     def _setNascita(self, data_nascita: date) -> None:
         if data_nascita:
-            self._data_nascita = data_nascita        
+            self._data_nascita = data_nascita
+
+    def setUomo(self, pos_mil: str):
+        pass
+
+    def setDonna(self, maternità: IntGEZ):
+        pass
