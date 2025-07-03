@@ -14,8 +14,34 @@ from volo import Volo
 
 class VoloCharter(Volo):
 
-    _costo_volo: float
+    costo_volo: float
+    posti_rimanenti: int
 
     def __init__(self, codice_volo: str, cap_massima: int, costo_volo: float) -> None:
         super().__init__(codice_volo, cap_massima)
-        self._set_costo_volo(costo_volo)
+        self.costo_volo = costo_volo
+        self.posti_rimanenti = self.capacitaMassima()
+
+    def prenota_posto(self, posti: int) -> None:
+        if posti:
+            if posti == self.posti_disponibili():
+                print(f'Il volo con codice "{self.codiceVolo()}" è stato prenotato correttamente per un prezzo totale di ${self.costoVolo()}!')
+                self.posti_rimanenti = 0
+            else:
+                print('I posti prenotati non sono idonei per ricoprire quelli offerti!')
+
+    def posti_disponibili(self) -> int:
+        return self.posti_rimanenti
+    
+    def costoVolo(self) -> float:
+        return self.costo_volo
+    
+
+
+if __name__ == '__main__':
+
+    vCom: VoloCharter = VoloCharter(codice_volo='COM123', cap_massima=100, costo_volo=10000)
+
+    print(vCom.posti_disponibili())
+    vCom.prenota_posto(posti=100)
+    print(vCom.posti_disponibili())

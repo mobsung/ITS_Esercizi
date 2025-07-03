@@ -8,6 +8,10 @@ Metodi:
 
     prenota_posto(posti, classe_servizio): che consente di prenotare un certo numero di posti sul volo in una determinata classe. Tale metodo, prima di riservare un posto, deve controllare prima che ci siano posti disponibili sull'intero volo, poi se ci sono posti disponibili nella classe richiesta. In caso affermativo, contare il numero dei posti prenotati in tale classe. Inoltre, nel caso in cui sia possibile prenotare un posto, il metodo deve stampare a schermo un messaggio che notifichi all'utente di aver riservato un tot di posti per una determinata classe su un dato volo (specificando il codice del volo). In caso contrario, stampare a schermo un messaggio che notifichi all'utente che non ci sono più posti disponibili nella classe scelta. Se sul volo non ci sono più posti disponibili, il metodo deve stampare a schermo un messaggio notificando all'utente che il volo è al completo. Inoltre, se la classe passata come input del metodo non risulta essere una delle seguenti classi ("economica", "business", "prima"), il metodo deve stamapre a schermo un messaggio di errore, notificando all'utente che la classe richiesta non è valida. Infine, il metodo deve aggiornare l'attributo prenotazioni della classe estesa Volo, sommando il numero di prenotazioni ricevute per ogni classe di servizio, poi aggiornare gli attributi prenotazioni_economica, prenotazioni_business, prenotazioni_prima con l'esatto numero delle prenotaioni ricevute per ogni classe di servizio. Suggerimento: introdurre delle variabili locali d'appoggio per gestire le prenotazioni per ogni classe di servizio da azzerare all'inizio di ogni fase di prenotazione.
 '''
+# print(f'Hai prenotato {posti} posti di tipologia {classe_servizio} del volo {self.codice_volo()}!')
+# print(f'Non ci sono abbastanza posti disponibili nella classe {classe_servizio}!')
+# print('Il volo è completo!')
+# print(f'La classe {classe_servizio} non esiste!')
 
 
 from volo import Volo
@@ -16,32 +20,42 @@ from volo import Volo
 
 class VoloCommerciale(Volo):
 
-    _posti_ecconomica: int
-    _posti_business: int
-    _posti_prima: int
+    posti_rimanenti: int
+    posti_ecconomica: int
+    posti_business: int
+    posti_prima: int
+    ecconomica_prenotati: int
+    business_prenotati: int
+    prima_prenotati: int
 
 
     def __init__(self, codice_volo: str, cap_massima: int) -> None:
         super().__init__(codice_volo, cap_massima)
-        self._posti_totali = self.capacita_massima()
-        self._posti_ecconomica = self.capacita_massima() * 0.7
-        self._posti_business = self.capacita_massima() * 0.2
-        self._posti_prima = self.capacita_massima() - self._posti_ecconomica - self._posti_business
-        self._posti_disponibili = self.posti_disponibili()
+        self.posti_rimanenti = self.capacitaMassima()
+        self.posti_ecconomica = int(self.capacitaMassima() * 0.7)
+        self.posti_business = int(self.capacitaMassima() * 0.2)
+        self.posti_prima = self.capacitaMassima() - self.posti_ecconomica - self.posti_business
+        self.ecconomica_prenotati = 0
+        self.business_prenotati = 0
+        self.prima_prenotati = 0
+
 
     def prenota_posto(self, posti: int, classe_servizio: str) -> None:
-        if classe_servizio in self._posti_disponibili:
-            if posti <= self._posti_disponibili['posti disponibili']:
-                if posti <= self._posti_disponibili[classe_servizio]:
-                    print(f'Hai prenotato {posti} posti di tipologia {classe_servizio} del volo {self.codice_volo()}!')
-                    self._posti_totali -= posti
+        if classe_servizio in self.posti_disponibili():
+            if posti <= self.posti_rimanenti:
+                if posti <= self.posti_disponibili()[classe_servizio]:
+                    print(f'Hai prenotato {posti} posti di tipologia {classe_servizio} del volo {self.codiceVolo()}!')
+                    self.posti_rimanenti -= posti
                     if classe_servizio == 'ecconomica':
-                        self._posti_ecconomica -= posti
+                        self.posti_ecconomica -= posti
+                        self.ecconomica_prenotati += posti
                     if classe_servizio == 'business':
-                        self._business -= posti
+                        self.posti_business -= posti
+                        self.business_prenotati += posti
                     if classe_servizio == 'prima':
-                        self._posti_prima -= posti
-                    self._prenotazioni += posti
+                        self.posti_prima -= posti
+                        self.prima_prenotati += posti
+                    self.prenotazioni += posti
                 else:
                     print(f'Non ci sono abbastanza posti disponibili nella classe {classe_servizio}!')
             else:
@@ -52,22 +66,15 @@ class VoloCommerciale(Volo):
     def posti_disponibili(self) -> dict[str, int]:
         posti_disponibili: dict[str, int] = {
 
-            'posti disponibili': self._posti_totali,
-            'ecconomica': int(self._posti_ecconomica),
-            'business': int(self._posti_business),
-            'prima': int(self._posti_prima)
+            'posti disponibili': self.posti_rimanenti,
+            'ecconomica': self.posti_ecconomica,
+            'business': self.posti_business,
+            'prima': self.posti_prima
 
         }
         return posti_disponibili
 
-    def codice_volo(self) -> str:
-        return self._codice_volo
     
-    def capacita_massima(self) -> None:
-        return self._cap_massima
-    
-    def prenotazioni(self) -> int:
-        return self._prenotazioni
     
 
 if __name__ == '__main__':

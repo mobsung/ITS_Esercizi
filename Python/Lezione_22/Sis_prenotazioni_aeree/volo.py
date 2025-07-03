@@ -13,35 +13,29 @@ from abc import ABC, abstractmethod
 
 class Volo(ABC):
 
-    _codice_volo: str
-    _cap_massima: int
-    _prenotazioni: int
+    codice_volo: str
+    cap_massima: int
+    prenotazioni: int
 
     def __init__(self, codice_volo: str, cap_massima: int) -> None:
-        self._set_codice_volo(codice_volo)
-        self._set_cap_massima(cap_massima)
-        self._prenotazioni = 0
+        self.codice_volo = codice_volo
+        self.cap_massima = cap_massima
+        self.prenotazioni = 0
 
     @abstractmethod
     def prenota_posto(self) -> None:
         pass
 
     @abstractmethod
-    def posti_disponibili(self) -> int:
+    def posti_disponibili(self) -> None:
         pass
 
-    def _set_codice_volo(self, codice_volo: str) -> None:
-        self._codice_volo = codice_volo
-
-    def _set_cap_massima(self, cap_massima: int) -> None:
-        self._cap_massima = cap_massima
-
-    # def codice_volo(self) -> str:
-    #     return self._codice_volo
+    def codiceVolo(self) -> str:
+        return self.codice_volo
     
-    # def capacita_massima(self) -> None:
-    #     return self._cap_massima
+    def capacitaMassima(self) -> None:
+        return self.cap_massima
     
-    # def prenotazioni(self) -> int:
-    #     return self._prenotazioni
+    def getPrenotazioni(self) -> int:
+        return self.prenotazioni
     
