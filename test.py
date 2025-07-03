@@ -22,3 +22,8 @@ di = {
         }
     }
 }
+
+a = '12345'
+print(a[:round(len(a) / 2)])
+
+print(round(2.5))
