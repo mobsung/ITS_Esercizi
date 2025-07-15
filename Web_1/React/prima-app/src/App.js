@@ -1,9 +1,12 @@
 import './App.css';
-import UserCRUD from './Esercizi/Manage_user/UserCRUD';
+import News from './Esercizi/News/News';
 function App() {
   return (
-    <UserCRUD></UserCRUD>
+    <>
+      <News></News>
+    </>
   );
 }
 
 export default App;
+

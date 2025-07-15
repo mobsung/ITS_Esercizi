@@ -129,7 +129,21 @@ const UserCRUD = () => {
                         fontWeight: 'bold'
                       }}
                     >
-                      Rimuovi
+                      Remove
+                    </button>
+                    <button
+                      className="btn btn-sm"
+                      onClick={() => rimuoviPersona(p.id)}
+                      style={{
+                        backgroundColor: '#6bff6b',
+                        color: '#fff',
+                        border: 'none',
+                        borderRadius: '5px',
+                        padding: '5px 10px',
+                        fontWeight: 'bold'
+                      }}
+                    >
+                      Update
                     </button>
                   </div>
                 </div>

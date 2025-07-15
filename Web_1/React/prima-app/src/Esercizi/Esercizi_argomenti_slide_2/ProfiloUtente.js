@@ -9,6 +9,7 @@ const ProfiloUtente = ({ utente }) => {
       Professione: ${utente.professione}\n
       Email: ${utente.email}`);
   };
+  
 
   return (
     <div className="card h-100">

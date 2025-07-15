@@ -6,7 +6,7 @@ const Tabellina = (props) => {
     return(
 
     numeri.map((numero) => {
-
+        
         return <span key={numero}>{numero * parseInt(props.moltiplicatore)} </span>
 
     })
