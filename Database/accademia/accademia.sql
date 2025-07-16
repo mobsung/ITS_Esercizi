@@ -41,7 +41,7 @@ create table WP(
     progetto PosInteger,
     id PosInteger,
     nome StringaM not null,
-    inio date not null,
+    inizio date not null,
     fine date not null,
     check(inizio < fine),
     unique(progetto, nome),
