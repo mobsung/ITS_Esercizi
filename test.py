@@ -23,7 +23,9 @@ di = {
     }
 }
 
-a = '12345'
-print(a[:round(len(a) / 2)])
+class U:
 
-print(round(2.5))
+    __nome = str
+
+a = {1, 2, 3}
+print(list(a))
