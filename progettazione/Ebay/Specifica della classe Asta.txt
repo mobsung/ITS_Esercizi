@@ -46,12 +46,13 @@ scaduta(i:DataOra):Boolean
 
 -------------------------------------------------------------------
 
-vincitore(): Utente[0..1]
+vincitore(): Privato[0..1]
     precondizioni: 
-        - l'operazione this.scaduta con parametro i:adesso deve essere result = True
+        nessuna
     postcondizioni:
         - L'operazione non modifica il livello estensionale dei dati
         - Sia p:Privato e b:Bid tale che (p, b):bid_ut e (b, this):asta_bid
+		- Se bid è vuoto result è vuoto
         - result è definito come segue
             - Sia b:Bid il risultato dell'operazione ultimo_bid(adesso) coinvolto nel link (p, b):bid_ut
             - result = p
@@ -76,14 +77,26 @@ ultimo_bid(i: datetime): Bid | None
 -------------------------------------------------------------------
 
 scaduta(i: datetime): bool
-	se this.scadenza <= i:
-		return False
-	return True
+	se this.scadenza < i:
+		return True
+	return False
 
 -------------------------------------------------------------------
 
 vincitore(): Utente | None
-	se this.scaduta(adesso):
-		se ultimo_bid(adesso) == None
+	se this.scaduta(datetime.now()) == True:
+		se ultimo_bid(datetime.now()) == None
 			return None
-		return ultimo_bid(adesso).bid_ut.privato
+		return ultimo_bid(datetime.now()).bid_ut.privato
+	altrimenti return None
+
+-------------------------------------------------------------------
+
+prezzo(i: datetime): RealGEZ
+
+	B = {}
+	per ogni l in this.asta_bid:
+		se l.bid.istante <= i:
+			B.add(l.bid)
+	N = |B|
+	return this.prezzo + N * this.prezzo_bid
