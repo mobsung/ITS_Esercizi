@@ -4,47 +4,35 @@ from volo
 where durataMinuti > 180;
 
 -- 2. Quali sono le compagnie che hanno voli che superano le 3 ore?
-select distinct compagnia.nome
-from compagnia, volo
-where compagnia.nome = volo.comp
-	and volo.durataMinuti > 180;
+select distinct comp
+from volo
+where durataMinuti > 180;
 
 -- 3. Quali sono i voli (codice e nome della compagnia) che partono dall’aeroporto con codice ‘CIA’ ?
-select distinct volo.codice, volo.comp
-from volo, arrpart
-where arrpart.comp = volo.comp
-	and volo.codice = arrpart.codice
-	and arrpart.partenza = 'CIA';
+select distinct ArrPart.codice, arrpart.comp
+from ArrPart
+where and arrpart.partenza = 'CIA';
 
 
 -- 4. Quali sono le compagnie che hanno voli che arrivano all’aeroporto con codice ‘FCO’ ?
 
-select distinct compagnia.nome
-from compagnia, volo, arrpart
+select distinct ArrPart.comp
+from ArrPart
 where arrpart.arrivo = 'FCO'
-	and compagnia.nome = volo.comp
-	and arrpart.comp = volo.comp
-	and volo.codice = arrpart.codice; 
 
 -- 5. Quali sono i voli (codice e nome della compagnia) che partono dall’aeroporto ‘FCO’ e arrivano all’aeroporto ‘JFK’ ?
 
-select distinct volo.codice, volo.comp
-from volo, compagnia, ArrPart
-where compagnia.nome = volo.comp
-	and arrpart.comp = volo.comp
-	and volo.codice = arrpart.codice
-	and arrpart.partenza = 'FCO'
+select distinct ArrPart.codice, ArrPart.comp
+from ArrPart
+where arrpart.partenza = 'FCO'
 	and arrpart.arrivo = 'JFK';
 	
 -- 6. Quali sono le compagnie che hanno voli che partono dall’aeroporto ‘FCO’ e atterrano all’aeroporto ‘JFK’ ?
 
-select distinct compagnia.nome
-from compagnia, volo, arrpart
+select distinct arrpart.comp
+from ArrPart
 where arrpart.arrivo = 'JFK'
 	and arrpart.partenza = 'FCO'
-	and compagnia.nome = volo.comp
-	and arrpart.comp = volo.comp
-	and volo.codice = arrpart.codice; 
 	
 -- 7. Quali sono i nomi delle compagnie che hanno voli diretti dalla città di ‘Roma’ alla città di ‘New York’ ?
 
@@ -90,7 +78,6 @@ where ar1.arrivo = ar2.partenza
 	and la2.citta = 'New York'
 	and ar1.partenza = la1.aeroporto
 	and ar2.arrivo = la2.aeroporto
-
 
 
 -- 11. Quali sono le compagnie che hanno voli che partono dall’aeroporto ‘FCO’,
