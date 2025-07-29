@@ -22,7 +22,6 @@ const UserAlbums = () => {
     const [PhotosIsLoading, PhotosSetIsLoading] = useState(true);
     const [PhotosError, PhotosSetError] = useState(true);
     const [photos, setPhotos] = useState([]);
-    const [selectedPhoto, setSelectedPhotos] = useState();
 
     const getUsersData = async () => {
         setIsError(false);
@@ -68,11 +67,11 @@ const UserAlbums = () => {
     }, []);
 
     useEffect(() => {
-        getAlbumsData(selectedUser);
+        getAlbumsData();
     }, [selectedUser]);
 
     useEffect(() => {
-        getPhotosData(selectedAlbum);
+        getPhotosData();
     }, [selectedAlbum]);
 
     if (isLoading || albumIsLoading || PhotosIsLoading) {
@@ -139,7 +138,7 @@ const UserAlbums = () => {
                             const { albumId, id, title } = photo;
                             return (
                                 <div className="photo-card" key={id}>
-                                    <p>
+                                    <p> 
                                         <b>ID:</b> {id} <br />
                                         <b>AlbumID:</b> {albumId} <br />
                                         <b>Title:</b> {title}
