@@ -67,11 +67,20 @@ const UserAlbums = () => {
     }, []);
 
     useEffect(() => {
-        getAlbumsData();
+        if(selectedUser){
+            getAlbumsData();
+        }else{
+            setAlbums([]);
+            setSelectedAlbum(0);
+        };
     }, [selectedUser]);
 
     useEffect(() => {
-        getPhotosData();
+        if(selectedAlbum){
+            getPhotosData();
+        }else{
+            setPhotos([]);
+        };
     }, [selectedAlbum]);
 
     if (isLoading || albumIsLoading || PhotosIsLoading) {
