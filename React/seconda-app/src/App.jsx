@@ -1,11 +1,12 @@
 import './App.css'
-import UserAlbums from './esercizi/UserAlbums'
-import UserCrud from './esercizi/UserCrud'
+import GalleriaFoto from './esercizi_agosto/Esercvizio_08/GalleriaFoto'
 
 function App() {
 
   return (
-    <UserCrud></UserCrud>
+    <>
+      <GalleriaFoto/>
+    </>
   )
 }
 
