@@ -1,11 +1,11 @@
 import './App.css'
-import GalleriaFoto from './esercizi_agosto/Esercvizio_08/GalleriaFoto'
+import BlogApp from './esercizi_agosto/Esercizio_10/BlogApp'
 
 function App() {
 
   return (
     <>
-      <GalleriaFoto/>
+      <BlogApp/>
     </>
   )
 }
