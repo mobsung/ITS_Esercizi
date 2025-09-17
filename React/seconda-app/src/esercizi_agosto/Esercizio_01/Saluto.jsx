@@ -11,12 +11,24 @@
 // 5. Sostituisci il contenuto di default del return di App con il tuo componente <Saluto
 // />.
 
-import React from 'react'
+import React from 'react';
 
 const Saluto = () => {
+  const styles = {
+    heading: {
+      fontSize: '2rem',
+      color: '#4f46e5',
+      textAlign: 'center',
+      marginTop: '20vh',
+      fontFamily: 'Arial, sans-serif',
+    },
+  };
+
   return (
-    <h1>Benvenuto nel mio primo componente React!</h1>
-  )
-}
+    <h1 style={styles.heading}>
+      Benvenuto nel mio primo componente React!
+    </h1>
+  );
+};
 
 export default Saluto;

@@ -15,28 +15,56 @@
 import React, { useState } from 'react';
 
 const CampoRicerca = () => {
+  const [testoRicerca, setTestoRicerca] = useState('');
 
-    const [testoRicerca, setTestoRicerca] = useState('');
+  const gestisciCambio = (e) => {
+    setTestoRicerca(e.target.value);
+  };
 
-    const gestisciCambio = (e) => {
-        setTestoRicerca(e.target.value);
-    };
+  // Oggetti di stile
+  const styles = {
+    container: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh',
+      flexDirection: 'column',
+      gap: '16px',
+      backgroundColor: '#f9fafb',
+      fontFamily: 'Arial, sans-serif',
+    },
+    input: {
+      padding: '0.75rem 1rem',
+      fontSize: '1rem',
+      borderRadius: '8px',
+      border: '1px solid #d1d5db',
+      width: '250px',
+      outline: 'none',
+      transition: 'border-color 0.3s',
+    },
+    inputFocus: {
+      borderColor: '#4f46e5',
+    },
+    text: {
+      fontSize: '1.1rem',
+      color: '#374151',
+    },
+  };
 
-    return (
-        <div
-            style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                height: '100vh',
-                flexDirection: 'column',
-                gap: '10px'
-            }}
-        >
-            <input type='text' value={testoRicerca} onChange={gestisciCambio} placeholder="Scrivi Testo" />
-            <p>Stai cercando: {testoRicerca}</p>
-        </div>
-    );
+  return (
+    <div style={styles.container}>
+      <input
+        type="text"
+        value={testoRicerca}
+        onChange={gestisciCambio}
+        placeholder="Scrivi testo"
+        style={styles.input}
+        onFocus={(e) => e.target.style.borderColor = styles.inputFocus.borderColor}
+        onBlur={(e) => e.target.style.borderColor = styles.input.border}
+      />
+      <p style={styles.text}>Stai cercando: {testoRicerca}</p>
+    </div>
+  );
 };
 
-export default CampoRicerca
+export default CampoRicerca;

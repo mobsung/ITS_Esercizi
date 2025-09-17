@@ -20,52 +20,82 @@ import axios from 'axios';
 const url = 'https://jsonplaceholder.typicode.com/photos?_limit=10';
 
 const GalleriaFoto = () => {
+  const [foto, setFoto] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(null);
 
-    const [foto, setFoto] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const [isError, setIsError] = useState(null);
+  const getData = async () => {
+    setIsError(false);
+    setIsLoading(true);
+    try {
+      const response = await axios.get(url);
+      setFoto(response.data);
+    } catch (err) {
+      console.log(err);
+      setIsError(true);
+    }
+    setIsLoading(false);
+  };
 
-    const getData = async () => {
-        setIsError(false);
-        setIsLoading(true);
-        try {
-            const response = await axios.get(url);
-            setFoto(response.data);
-        } catch (err) {
-            console.log(err)
-            setIsError(true);
-        }
-        setIsLoading(false);
-    };
+  useEffect(() => {
+    getData();
+  }, []);
 
-    useEffect(() => {
-        getData();
-    }, [])
+  const styles = {
+    list: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+      gap: '1.5rem',
+      padding: '2rem',
+      listStyle: 'none',
+      margin: 0,
+      backgroundColor: '#f9fafb',
+      minHeight: '100vh',
+    },
+    item: {
+      backgroundColor: '#ffffff',
+      border: '1px solid #e5e7eb',
+      borderRadius: '8px',
+      padding: '1rem',
+      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)',
+      textAlign: 'center',
+      transition: 'transform 0.2s ease',
+    },
+    itemHover: {
+      transform: 'scale(1.02)',
+    },
+    img: {
+      width: '100%',
+      height: 'auto',
+      borderRadius: '6px',
+      marginBottom: '0.5rem',
+    },
+    title: {
+      fontSize: '0.9rem',
+      color: '#374151',
+    },
+    loading: {
+      textAlign: 'center',
+      paddingTop: '2rem',
+      fontSize: '1.25rem',
+      color: '#6b7280',
+    }
+  };
 
-    if (isLoading) {
-        return <h3>Caricamento...</h3>
-    };
 
-    if (isError) {
-        return <h3>Si è verificato un'errore</h3>
-    };
+  if (isLoading) return <h3 style={styles.loading}>Caricamento...</h3>;
+  if (isError) return <h3 style={styles.loading}>Si è verificato un errore</h3>;
 
-    return (
-        <ul>
-            {
-                foto.map((f) => {
-                    return (
-                        <li key={f.id}>
-                            <div>
-                                <img src={f.url} alt="" />
-                                <h5>{f.title}</h5>
-                            </div>
-                        </li>
-                    )
-                })
-            }
-        </ul>
-    )
-}
+  return (
+    <ul style={styles.list}>
+      {foto.map((f) => (
+        <li key={f.id} style={styles.item}>
+          <img src={f.url} alt={f.title} style={styles.img} />
+          <h5 style={styles.title}>{f.title}</h5>
+        </li>
+      ))}
+    </ul>
+  );
+};
 
-export default GalleriaFoto
+export default GalleriaFoto;

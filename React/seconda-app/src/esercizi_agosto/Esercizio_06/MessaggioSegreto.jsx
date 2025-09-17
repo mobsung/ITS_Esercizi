@@ -11,30 +11,60 @@
 // 6.​ Importa e usa <MessaggioSegreto /> in App.js.
 
 
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 const MessaggioSegreto = () => {
+  const [mostra, setMostra] = useState(false);
+  const segreto = 'Questo è un messaggio segreto';
 
-    const [mostra, setMostra] = useState(false);
-
-    const segreto = 'Questo è un messaggio segreto'
-
+  // Styling inline in oggetti
+  const styles = {
+    container: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh',
+      flexDirection: 'column',
+      gap: '16px',
+      backgroundColor: '#f9fafb',
+      fontFamily: 'Arial, sans-serif',
+    },
+    button: {
+      backgroundColor: '#4f46e5',
+      color: '#fff',
+      border: 'none',
+      padding: '0.75rem 1.5rem',
+      fontSize: '1rem',
+      borderRadius: '8px',
+      cursor: 'pointer',
+      transition: 'background-color 0.3s',
+    },
+    buttonHover: {
+      backgroundColor: '#4338ca',
+    },
+    message: {
+      fontSize: '1.2rem',
+      color: '#111827',
+      padding: '0.5rem 1rem',
+      backgroundColor: '#e0e7ff',
+      borderRadius: '6px',
+    },
+  };
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh',
-        flexDirection: 'column',
-        gap: '10px'
-      }}
-    >
-        <button onClick={() => setMostra(!mostra)}>{mostra ? 'Nascondi' : 'Mostra'}</button>
-        <p>{mostra && segreto}</p>
-    </div>
-  )
-}
+    <div style={styles.container}>
+      <button
+        onClick={() => setMostra(!mostra)}
+        style={styles.button}
+        onMouseOver={(e) => e.currentTarget.style.backgroundColor = styles.buttonHover.backgroundColor}
+        onMouseOut={(e) => e.currentTarget.style.backgroundColor = styles.button.backgroundColor}
+      >
+        {mostra ? 'Nascondi' : 'Mostra'}
+      </button>
 
-export default MessaggioSegreto
+      {mostra && <p style={styles.message}>{segreto}</p>}
+    </div>
+  );
+};
+
+export default MessaggioSegreto;
