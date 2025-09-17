@@ -1,19 +1,151 @@
-.photo-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+/* ===== CSS Reset base ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.photo-card {
-    padding: 1rem;
-    border: 1px solid #ccc;
-    border-left: 6px solid #0d6efd;
-    border-radius: 6px;
-    background-color: #f9f9ff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    transition: background-color 0.3s;
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
 }
 
-.photo-card:hover {
-    background-color: #eef5ff;
+body {
+  font-family: system-ui, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* ===== Theme (Light & Dark mode) ===== */
+:root {
+  --bg: #ffffff;
+  --text: #222222;
+  --primary: #0077ff;
+  --secondary: #e0e0e0;
+  --border: #ccc;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121212;
+    --text: #f5f5f5;
+    --primary: #3399ff;
+    --secondary: #1e1e1e;
+    --border: #333;
+  }
+}
+
+/* ===== Layout utility classes ===== */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.flex {
+  display: flex;
+  gap: 1rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* ===== Typography ===== */
+h1, h2, h3, h4 {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* ===== Buttons ===== */
+button {
+  background-color: var(--primary);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: darken(var(--primary), 10%);
+}
+
+/* ===== Inputs ===== */
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background-color: var(--secondary);
+  color: var(--text);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+/* ===== Cards ===== */
+.card {
+  background-color: var(--secondary);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Navigation (basic) ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: var(--secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar a {
+  color: var(--text);
+  text-decoration: none;
+  margin-right: 1rem;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Footer ===== */
+footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.875rem;
+  color: var(--text);
+  border-top: 1px solid var(--border);
 }

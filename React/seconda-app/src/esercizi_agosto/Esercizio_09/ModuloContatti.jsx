@@ -76,4 +76,4 @@ const ModuloContatti = () => {
     )
 }
 
-export default ModuloContatti
+export default ModuloContatti;

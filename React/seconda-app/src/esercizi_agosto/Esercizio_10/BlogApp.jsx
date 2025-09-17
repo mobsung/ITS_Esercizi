@@ -48,4 +48,4 @@ const BlogApp = () => {
     )
 }
 
-export default BlogApp
+export default BlogApp;

@@ -27,4 +27,4 @@ const PostList = (props) => {
     );
 }
 
-export default PostList
+export default PostList;

@@ -19,4 +19,4 @@ const Saluto = () => {
   )
 }
 
-export default Saluto
+export default Saluto;
