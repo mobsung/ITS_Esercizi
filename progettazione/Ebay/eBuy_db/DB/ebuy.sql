@@ -51,7 +51,7 @@ create table PostOggetto(
                 )
             or
                 (
-                    (
+                    not(
                     (ha_feedback = true)
                     =
                     (voto is not null)
@@ -59,7 +59,7 @@ create table PostOggetto(
                     (istante_feedback is not null)
                     )
                     and
-                    not(commenoto is not null)
+                    not(commento is not null)
                 )
             )
         ),
