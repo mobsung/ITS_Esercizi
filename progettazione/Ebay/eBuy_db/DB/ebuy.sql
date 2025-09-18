@@ -70,7 +70,7 @@ create table MetodoDiPagamento(
 );
 
 create table PostOggettoUsato(
-    pou_isa_po serial primary key,
+    pou_isa_po Integer primary key,
     foreign key (pou_isa_po)
         references PostOggetto(id)
     condizione Condizione not null,
@@ -86,7 +86,7 @@ create table VenditoreProf(
 );
 
 create table PostOggettoNuovo(
-    pon_isa_po serial primary key,
+    pon_isa_po Integer primary key,
     foreign key (pon_isa_po)
         references PostOggetto(id),
     anni_garanzia IntG1 not null,
@@ -102,7 +102,7 @@ create table Privato(
 );
 
 create table Asta(
-    asta_isa_po serial primary key,
+    asta_isa_po Integer primary key,
     foreign key (asta_isa_po)
         references PostOggetto(id),
     prezzo_base RealGEZ not null,
@@ -113,14 +113,14 @@ create table Asta(
 create table Bid(
     codice serial primary key,
     istante timestamp not null,
-    asta_bid serial not null,
+    asta_bid Integer not null,
     unique(istante, asta_bid),
     foreign key asta_bid
         references Asta(asta_isa_po)
 );
 
 create table CompraloSubito(
-    cs_isa_po serial primary key
+    cs_isa_po Integer primary key
     foreign key cs_isa_po
         references PostOggetto(id),
     prezzo RealGZ not null,
