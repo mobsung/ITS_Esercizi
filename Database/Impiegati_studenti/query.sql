@@ -15,8 +15,7 @@ select count (*) from Impiegato
 where ruolo = 'Progettista'
 
 -- Quanti sono i responsabili?
-select count (*) from Impiegato, Progetto
-where Impiegato.persona = Progetto.resp_prog;
+select count (distinct *resp_prog) from Progetto;
 
 -- Qual è lo stipendio medio dei segretari?
 select avg(stipendio) from Impiegato
@@ -31,7 +30,7 @@ where Persona.cf = Studente.persona;
 select count(cf) from Persona, Impiegato
 where ruolo = 'Direttore'
 	and Persona.cf = Impiegato.persona
-	and Persona.pos_uomo is not null;
+	and Persona.pos_uomo = 'Assolto';
 
 -- Quanti sono i progetti di cui è responsabile un'impiegata con almeno due figli?
 select count(id) from Progetto, Persona
