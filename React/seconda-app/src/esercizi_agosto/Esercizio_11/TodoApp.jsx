@@ -67,6 +67,20 @@ const TodoApp = () => {
         }
     };
 
+    const deleteTask = async (id) => {
+        await fetch(API_URL + '/' + id, {method: "DELETE"});
+        fetchTask();
+    };
+
+    const toggleTask = async (id, completed) => {
+        await fetch(API_URL + '/' + id, {
+            method: "PATCH",
+            headers: {"Content-Type":"application/json"},
+            body:JSON.stringify({completed:!completed})
+        });
+        fetchTask();
+    };
+
     useEffect(() => {
         fetchTask()
     }, [])
@@ -74,7 +88,7 @@ const TodoApp = () => {
   return (
     <>
     <TodoForm/>
-    <TodoList tasks={tasks}/>
+    <TodoList tasks={tasks} onDeleteTask={deleteTask} onToggleTask={toggleTask}/>
     </>
   )
 }

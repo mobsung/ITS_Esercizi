@@ -11,9 +11,20 @@
 
 import React from 'react'
 
-const TodoItem = ({task}) => {
+const TodoItem = ({task, onDeleteTask, onToggleTask}) => {
   return (
-    <div>{task.text}</div>
+    <li className="list-group-item d-flex justify-content-between">
+      <input 
+        type="checkbox"
+        className="form-check-input me-2"
+        checked={task.completed}
+        onChange={() => onToggleTask(task.id, task.completed)}
+      ></input>
+      <span
+        style={{textDecoration: task.completed ? "line-through" : "none"}}
+      >{task.text}</span>
+      <button class="btn btn-danger" onClick={() => onDeleteTask(task.id)}>DELETE</button>
+    </li>
   )
 }
 
