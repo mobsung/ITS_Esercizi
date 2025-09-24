@@ -11,6 +11,7 @@ import AggiornaTitolo from './esercizi_agosto/Esercizio_07/AggiornaTitolo';
 import GalleriaFoto from './esercizi_agosto/Esercizio_08/GalleriaFoto'
 import ModuloContatti from './esercizi_agosto/Esercizio_09/ModuloContatti';
 import BlogApp from './esercizi_agosto/Esercizio_10/BlogApp';
+import TodoApp from './esercizi_agosto/Esercizio_11/TodoApp';
 
 
 function App() {
@@ -47,6 +48,9 @@ function App() {
         
       case 'BlogApp':
         return <BlogApp />
+      
+      case 'TodoApp':
+        return <TodoApp />
     }
 
   };
