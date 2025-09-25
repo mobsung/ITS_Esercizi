@@ -1,128 +1,144 @@
-CREATE DOMAIN Stringa AS varchar;
-CREATE DOMAIN URL AS varchar(2048);
-CREATE DOMAIN IntG1 AS integer
-    check (value > 1 );
-CREATE DOMAIN IntGEZ AS integer
-    check (value >= 0 );
-CREATE DOMAIN RealGZ AS Real
-    check (value > 0 );
-CREATE DOMAIN RealGEZ AS Real
-    check (value >= 0 );
-CREATE DOMAIN Voto AS integer
-    check (value >= 1 and value < = 5)
-    
-CREATE TYPE condizione AS ENUM
-    ('Ottimo', 'Buono', 'Discreto', 'Da sistemare');
-
-
-create table Categoria(
-  nome Stringa primary key,
-  super Stringa
+create table categoria (
+	nome stringa primary key,
+	-- tutti gli altri attributi di categoria
+	super stringa,
+	check (nome <> super)
 );
 
-alter table Categoria 
-add constraint fk_categoria_super
-foreign key (super) references Categoria(nome);
+alter table categoria add 
+	foreign key (super) 
+		references categoria(nome);
 
-create table Utente(
-    username Stringa primary key,
-    registrazione timestamp not null
+
+create table utente (
+	username stringa primary key,
+	registrazione timestamp not null
 );
 
-create table PostOggetto(
-    id serial primary key,
-    descrizione Stringa not null,
-    ha_feedback boolean not null,
-    voto Voto,
-    commento Stringa,
-    istante_feedback timestamp,
-    utente Stringa not null,
-    foreign key (utente)
-        references Utente(username),
-
-    check(
-            (
-                (
-                    (ha_feedback = true)
-                    =
-                    (voto is not null)
-                    =
-                    (istante_feedback is not null)
-                )
-            or
-                (
-                    not(
-                    (ha_feedback = true)
-                    =
-                    (voto is not null)
-                    =
-                    (istante_feedback is not null)
-                    )
-                    and
-                    not(commento is not null)
-                )
-            )
-        ),
+create table privato (
+	utente stringa primary key,
+	foreign key (utente)
+		references utente(username) deferrable
 );
 
-create table MetodoDiPagamento(
-    nome Stringa primary key
+create table venditoreprof (
+	utente stringa primary key,
+	vetrina URL not null,
+	unique (vetrina),
+	foreign key (utente)
+		references utente(username) deferrable
 );
 
-create table PostOggettoUsato(
-    pou_isa_po Integer primary key,
-    foreign key (pou_isa_po)
-        references PostOggetto(id)
-    condizione Condizione not null,
-    anni_garanzia IntGEZ not null
+-- Vincoli {disjoint, complete} su Utente non ancora implementati
+
+create table metodopagamento (
+	nome stringa primary key
 );
 
-create table VenditoreProf(
-    vp_isa_ut Stringa primary key,
-    foreign key (vp_isa_ut)
-        references Utente(username),
-    vetrina URL not null,
-    unique(vetrina)
+create table postoggetto(
+	id serial primary key,
+	pubblica stringa not null,  -- l'utente che pubblica
+	unique(id, pubblica), -- chiave non-minimale
+	descrizione stringa not null,
+	pubblicazione timestamp not null,
+	ha_feedback boolean not null default false,
+	voto Voto,
+	commento stringa,
+	istante_feedback timestamp,
+	categoria stringa not null,
+	
+	foreign key (pubblica)
+		references utente(username),
+
+	-- superfluo, ma lo scriviamo lo stesso perché può essere implementato come vincolo di ennupla
+	check (istante_feedback is null or istante_feedback > pubblicazione), 
+	check (
+		(ha_feedback = true)
+		=
+		(voto is not null and istante_feedback is not null)
+	),
+	check ( commento is not null or ha_feedback = true), -- ho usato A -> B == (NOT A) OR B
+
+	
+	foreign key (categoria)
+		references categoria(nome)
+
+	-- v.incl. (id) occorre in met_post(postoggetto)
 );
 
-create table PostOggettoNuovo(
-    pon_isa_po Integer primary key,
-    foreign key (pon_isa_po)
-        references PostOggetto(id),
-    anni_garanzia IntG1 not null,
-    pubblica_nuovo Stringa not null,
-    foreign key pubblica_nuovo
-        references VenditoreProf(vp_isa_ut)
+
+create table met_post(
+	postoggetto integer not null,
+	metodo stringa not null,
+	primary key (postoggetto, metodo),
+	foreign key (postoggetto)
+		references postoggetto(id),
+	foreign key (metodo)
+		references metodopagamento(nome)
 );
 
-create table Privato(
-    pr_isa_ut Stringa primary key,
-    foreign key (pr_isa_ut)
-        references Utente(username)
+create table postoggettousato(
+	postoggetto integer primary key,
+	foreign key (postoggetto)
+		references postoggetto(id) deferrable,
+	condizione condizione not null,
+	anni_garanzia intgez not null
 );
 
-create table Asta(
-    asta_isa_po Integer primary key,
-    foreign key (asta_isa_po)
-        references PostOggetto(id),
-    prezzo_base RealGEZ not null,
-    prezzo_bid RealGZ not null,
-    scadenza timestamp not null
+create table postoggettonuovo(
+	postoggetto integer primary key,
+	foreign key (postoggetto)
+		references postoggetto(id) deferrable,
+	anni_garanzia intge2 not null,
+	pubblica_nuovo stringa not null,
+	foreign key (pubblica_nuovo)
+		references venditoreprof(utente) deferrable,
+
+	foreign key (postoggetto, pubblica_nuovo)
+		references postoggetto(id, pubblica) deferrable
 );
 
-create table Bid(
-    codice serial primary key,
-    istante timestamp not null,
-    asta_bid Integer not null,
-    unique(istante, asta_bid),
-    foreign key asta_bid
-        references Asta(asta_isa_po)
+-- Vincoli {disjoint, complete} su PostOggetto nuovo/usato non ancora implementati
+
+create table postoggettocompralosubito(
+	postoggetto integer primary key,
+	foreign key (postoggetto)
+		references postoggetto(id) deferrable,
+	prezzo realgz not null,
+	acquirente stringa,
+	foreign key (acquirente)
+		references privato(utente),
+	istante_acquisto timestamp,
+	check( 
+		(acquirente is null) = (istante_acquisto is null)
+	)
 );
 
-create table CompraloSubito(
-    cs_isa_po Integer primary key
-    foreign key cs_isa_po
-        references PostOggetto(id),
-    prezzo RealGZ not null,
-    istante_aquirente timestamp
+create table postoggettoasta(
+	postoggetto integer primary key,
+	foreign key (postoggetto)
+		references postoggetto(id) deferrable,
+	prezzo_base realgez not null,
+	prezzo_bid realgz not null,
+	scadenza timestamp not null
 );
+
+create table bid(
+	codice serial primary key,
+	istante timestamp not null,
+	asta_bid integer not null,
+	foreign key (asta_bid)
+		references postoggettoasta(postoggetto),
+	unique(istante, asta_bid),
+	bid_ut stringa not null,
+	foreign key (bid_ut)
+		references privato(utente)
+);
+
+
+
+
+
+
+
+

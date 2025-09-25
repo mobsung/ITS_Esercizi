@@ -1,15 +1,25 @@
-CREATE DOMAIN stringa AS varchar;
-CREATE DOMAIN URL AS varchar(2048);
-CREATE DOMAIN IntG1 AS integer
-    check (value > 1 );
-CREATE DOMAIN IntGEZ AS integer
-    check (value >= 0 );
-CREATE DOMAIN RealGZ AS Real
-    check (value > 0 );
-CREATE DOMAIN RealGEZ AS Real
-    check (value >= 0 );
-CREATE DOMAIN Voto AS integer
-    check (value >= 1 and value < = 5)
-    
-CREATE TYPE condizione AS ENUM
-    ('Ottimo', 'Buono', 'Discreto', 'Da sistemare');
+create domain Stringa as varchar;
+
+create domain Voto as integer
+	check (value BETWEEN 0 and 5);
+
+create domain IntGE2 as integer
+	check (value >= 2);
+
+create domain IntGEZ as integer
+	check (value >= 0);
+
+create domain URL as varchar;
+	-- check (value ~ '[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)');
+
+create domain RealGEZ as real 
+	check (value >= 0);
+
+create domain RealGZ as real 
+	check (value > 0);
+
+create type Condizione as enum
+('Ottimo', 'Buono', 'Discreto', 'Da sistemare');
+
+create type Popolarita as enum
+('Bassa', 'Media', 'Alta');
