@@ -22,17 +22,23 @@ Output: 1
 
 def maxArea(heights: list[int]) -> int:
 
-    max_area = 0
-    lenght: int = 0
+    left: int = 0
+    right: int = len(heights) - 1
+
+    max_area: int = 0
     
-    for i in range(len(heights)):
-        for j in range(lenght + 1, len(heights)):
-            if i != j:
-                lenght = j - i
-                
-                if min(heights[i], heights[j]) * lenght > max_area:
-                    max_area = min(heights[i], heights[j]) * lenght
-        lenght = i
+    while left < right:
+        lenght: int = right - left
+        if min(heights[left], heights[right]) * lenght > max_area:
+            max_area = min(heights[left], heights[right]) * lenght
+        else:
+            if heights[left] > heights[right]:
+                right -= 1
+            else:
+                left += 1
+        
+        
+
     return max_area
 
 if __name__ == '__main__':
