@@ -12,7 +12,7 @@ def chunk(lst: list[int], size: int) -> list[list[int]]:
 
     result: list[list[int]] = []
 
-    for _ in range(len(lst) // (size)):
+    for _ in range(len(lst) // size):
 
         if len(lst) >= size:
             result.append(lst[:size])
@@ -22,4 +22,4 @@ def chunk(lst: list[int], size: int) -> list[list[int]]:
         result.append(lst)
     return result
 
-print(chunk([], 1))
+print(chunk([1, 2, 3, 4, 5, 6, 7, 8], 3)), 
