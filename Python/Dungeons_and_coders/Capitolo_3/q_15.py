@@ -5,3 +5,4 @@ Hai `n` reagenti puri: quante miscele teoriche esistono, considerando tutti i so
 def powerset_size(n: int) -> int:
 
     return 2 ** n
+

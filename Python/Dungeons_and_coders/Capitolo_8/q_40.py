@@ -2,22 +2,22 @@
 Quando la soluzione è pronta, trascrivila in righe separate. `to_json_lines(records)` deve creare una lista di stringhe ottenute serializzando ogni dizionario. Mantieni la firma e promuovi i test.
 '''
 
-def to_json_lines(lst: list[dict]) -> list[str]:
-    
-    if not lst:
+import json
+
+def to_json_lines(records: list[dict]) -> list[str]:
+    if not records:
         return []
 
     result: list[str] = []
 
-    for elem in lst:
-        temp_str: str = ''
+    for record in records:
+        result.append(json.dumps(record))
 
-        for key, value in elem.items():
-            temp_str += '{' + f'"{key}": "{value}"' + ',' + '}'
-
-        result.append(temp_str)
 
     return result
+
+dati = {"nome": "Luca", "età": 30}
+json_str = json.dumps(dati)
 
 
 print(to_json_lines([{'a':1},{'b':2}]))
