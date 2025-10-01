@@ -40,6 +40,7 @@
 import React, { useState, useEffect } from 'react';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
+import {fetchTasksService, deleteTaskService, toggleTaskService, addTaskService, updateTaskService} from './api';
 
 const API_URL = 'http://localhost:4000/tasks';
 
@@ -51,10 +52,8 @@ const TodoApp = () => {
 
     const fetchTask = async () => {
         try {
-            const response = await fetch(API_URL);
-            if (!response.ok) throw new Error('Errore nella fetch')
 
-            const data = await response.json();
+            const data = await fetchTasksService();
 
             setTasks(data);
 
@@ -68,16 +67,22 @@ const TodoApp = () => {
     };
 
     const deleteTask = async (id) => {
-        await fetch(API_URL + '/' + id, { method: "DELETE" });
+        await deleteTaskService(id);
         fetchTask();
     };
 
     const toggleTask = async (id, completed) => {
-        await fetch(API_URL + '/' + id, {
-            method: "PATCH",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ completed: !completed })
-        });
+        await toggleTaskService(id, completed);
+        fetchTask();
+    };
+
+    const addTask = async (text) => {
+        await addTaskService(text)
+        fetchTask();
+    };
+
+    const updateTask = async (id, text) => {
+        await updateTaskService(id,text)
         fetchTask();
     };
 
@@ -87,8 +92,8 @@ const TodoApp = () => {
 
     return (
         <>
-            <TodoForm />
-            <TodoList tasks={tasks} onDeleteTask={deleteTask} onToggleTask={toggleTask} />
+            <TodoForm onAddTask={addTask}/>
+            <TodoList tasks={tasks} onDeleteTask={deleteTask} onToggleTask={toggleTask} onUpdateTask={updateTask}/>
         </>
     )
 }

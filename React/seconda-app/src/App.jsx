@@ -12,6 +12,7 @@ import GalleriaFoto from './esercizi_agosto/Esercizio_08/GalleriaFoto'
 import ModuloContatti from './esercizi_agosto/Esercizio_09/ModuloContatti';
 import BlogApp from './esercizi_agosto/Esercizio_10/BlogApp';
 import TodoApp from './esercizi_agosto/Esercizio_11/TodoApp';
+import MainComponent from './esercizi_agosto/use-context/MainComponent';
 
 
 function App() {
@@ -51,6 +52,9 @@ function App() {
       
       case 'TodoApp':
         return <TodoApp />
+      
+      case 'MainComp':
+        return <MainComponent />
     }
 
   };

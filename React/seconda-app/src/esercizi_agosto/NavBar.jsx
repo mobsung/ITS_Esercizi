@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 const Navbar = ({onSetEsercizio}) => {
-    const lista_esercizi = ["Saluto", "CardUtente", "MenuRistorante", "Termostato", "CampoRicerca", "MessaggioSegreto", "AggiornaTitolo", "GalleriaFoto", "ModuloContatti", "BlogApp", "TodoApp"]
+    const lista_esercizi = ["Saluto", "CardUtente", "MenuRistorante", "Termostato", "CampoRicerca", "MessaggioSegreto", "AggiornaTitolo", "GalleriaFoto", "ModuloContatti", "BlogApp", "TodoApp", "MainComp"]
 
     return (
         <div>
