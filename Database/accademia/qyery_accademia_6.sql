@@ -29,7 +29,7 @@ from Progetto p, AttivitaProgetto ap, Persona pr
 where p.nome = 'Pegasus'
 	and p.id = ap.progetto
 	and ap.persona = pr.id
-group by pr.id
+group by pr.id;
 
 
 -- 6. Qual è il numero totale di ore dedicate alla didattica da ogni docente?
@@ -65,8 +65,7 @@ where p.id = ap.persona
 	and ap.progetto = pr.id
 	and p.nome = 'Ginevra'
 	and p.cognome = 'Riva'
-group by pr.id
-;
+group by pr.id;
 
 
 -- 10. Qual è il nome dei progetti su cui lavorano più di due strutturati?
@@ -76,5 +75,4 @@ from persona p, AttivitaProgetto ap, progetto pr
 where p.id = ap.persona
 	and ap.progetto = pr.id
 group by pr.id, pr.nome
-having count(distinct p.id) > 2
-;
+having count(distinct p.id) > 2;

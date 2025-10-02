@@ -1,0 +1,43 @@
+Raffinamento dei requisiti:
+
+
+1. Rquisiti sulle opere
+	1.2. nome (Stringa)
+	1.3. categoria
+	1.4. autore (Stringa)
+	1.5. anno realizzazione
+	1.6. tecnica (opzionale)
+	1.7. correnti artistiche
+
+2. Requisiti sugli autori
+	2.1. nome d'arte (Stringa)
+	2.2. luogo di nascita
+	2.3. data di nascita (date)
+	2.4. data di morte (se disponibile)
+	2.5. opere
+		2.5.1. v.req 1
+	
+3. Requisiti sulle esposizioni
+	3.1. esposizioni permanenti
+		3.1.1. sono sempre attive
+	3.2. esposizioni temporanee
+		3.2.1. si tengono per periodi di tempo
+			3.2.1.1 data inizio (datetime)
+			3.2.1.2. data fine (datetime)
+		3.2.2. tema (Stringa)
+		3.2.3. nome (Stringa)
+		3.2.4. prezzo di accesso (Reale >= 0)
+	
+4. Requisiti sulle tariffe
+	4.1. nome (Stringa)
+	4.2. prezzo (Reale non negativo)
+	
+5. Requisiti sui biglietti
+	5.1. tariffa (v.req. 4)
+	5.2. istante vendita (datetime)
+	5.3. validità (date)
+	5.4. tipologia uno tra
+		5.4.1. Standard
+		5.4.2. Extended
+		
+
