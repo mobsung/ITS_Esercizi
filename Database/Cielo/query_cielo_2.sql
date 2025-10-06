@@ -39,9 +39,8 @@ order by nazione
 select avg(durataMinuti) as media, 
 	min(durataMinuti) as minimo,
 	max(durataMinuti) as massimo
-from Compagnia c, Volo v
-where v.comp = c.nome
-	and c.nome = 'MagicFly'
+from Volo v
+where v.comp = 'MagicFly'
 ;
 
 -- 5. Qual è l’anno di fondazione della compagnia più vecchia che opera in ognuno degli
@@ -57,7 +56,13 @@ group by a.codice
 -- 6. Quante sono le nazioni (diverse) raggiungibili da ogni nazione tramite uno o più
 -- voli?
 
-
+select la1.nazione, count(distinct la2.nazione)
+from LuogoAeroporto la1, LuogoAeroporto la2, ArrPart ap
+where la1.aeroporto = ap.arrivo
+	and la2.aeroporto = ap.partenza
+	and la1.nazione <> la2.nazione
+group by la1.nazione
+;
 
 -- 7. Qual è la durata media dei voli che partono da ognuno degli aeroporti?
 
@@ -80,7 +85,6 @@ where v.comp = c.nome
 group by c.nome
 ;
 
-
 -- 9. Quali sono gli aeroporti nei quali operano esattamente due compagnie?
 
 select a.codice, a.nome
@@ -94,36 +98,35 @@ order by a.codice
 -- 10. Quali sono le città con almeno due aeroporti?
 
 select citta
-from LuogoAeroporto la, Aeroporto a
-where la.aeroporto = a.codice
+from LuogoAeroporto la
 group by la.citta
-having count(la.citta) > 1
+having count(*) > 1
 ;
-
 
 -- 11. Qual è il nome delle compagnie i cui voli hanno una durata media maggiore di 6
 -- ore?
 
-select ap.comp
-from ArrPart ap, Volo v, Compagnia c
-where ap.codice = v.codice
-	and ap.comp = c.nome
-	and v.comp = c.nome
-group by ap.comp
+select v.comp
+from Volo v
+group by v.comp
 having avg(v.durataMinuti) > 360
-order by ap.comp
+order by v.comp
 ;
-
 
 -- 12. Qual è il nome delle compagnie i cui voli hanno tutti una durata maggiore di 100
 -- minuti?
 
 select v.comp
-from ArrPart ap, Volo v, Compagnia c
-where ap.codice = v.codice
-	and ap.comp = c.nome
-	and v.comp = c.nome
+from Volo v
 group by v.comp
 having min(v.durataMinuti) > 100
 order by v.comp
+;
+
+-- 13. Qual è il nome delle compagnie che non ha alcun -- volo
+
+
+select distinct(c.nome)
+from Compagnia c
+where c.nome not in (select comp from Volo)
 ;
