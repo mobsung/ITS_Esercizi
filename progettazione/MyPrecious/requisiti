@@ -39,5 +39,71 @@ Raffinamento dei requisiti:
 	5.4. tipologia uno tra
 		5.4.1. Standard
 		5.4.2. Extended
-		
 
+
+Raffinamento dei Requisiti MyPrecious
+
+1- Requisiti dell'Opera:
+	1.1 nome:Stringa
+	1.2 categoria: uno tra {dipinto,scultura,mosaico,manoscritto, altro}
+	1.3 autore: vedi req(2)
+	1.4 anno_realizzazione: è un Anno
+	1.5 tecnica: Stringa
+	1.6 corrente_artistica: Stringa
+	
+	
+2- Requisiti dell'Autore:
+	2.1 nome: Stringa
+	2.2 luogo_nascita (vedi req citta )
+	2.3 data_nascita: è una Data
+	2.4 data _morte: è una Data
+
+
+3- Requisiti dell'Esposizione:
+	3.1 Permanente
+		3.1.1 nome:Stringa
+	3.2 Temporanea
+		vedi req(4)
+	
+	
+4- Requisiti dell'Esposizione Temporanea:
+	4.1 nome:Stringa
+	4.2 prezzo: è un decimale >= 0
+	4.2 intervallo
+		4.3.1 calcolabile come data_fine - data_inizio
+			4.3.1.1 data_inizio: Data
+			4.3.1.2 data_fine: Data
+5-Requisiti della Tariffa:
+	5.1 nome: Stringa
+	5.2 prezzo_base: un Reale >= 0
+	
+6-Requisiti del Biglietto:
+	uno tra:
+		6.1 Standard
+			6.1.1 prezzo (prezzo_base vedi req(Tariffa))
+			
+		6.2 Extended access	
+			6.2.1 prezzo(prezzo_base + prezzo (vedi req 4)
+7-Requisito Nazione:
+	7.1 nome: Stringa
+	
+8- Requisito Regione:
+	8.1 nome: Stringa
+	8.2 nazione: vedi requisito 7
+	
+9- Requisito Citta:
+	9.1 nome: Stringa
+	9.2 regione: vedi requisito 8
+	
+
+			
+Requisiti degli Use-Case:
+	999.0 Il sistema deve consentire l'inserimento e la rimozione di opere d'arte
+	999.1 Il sistema deve consentire la creazione di un'esposizione con le opere relative
+	999.2 Il sistema deve consentire di aggiungere un artista o permettere la modifica delle sue informazioni
+	999.3 Il sistema deve consentire la mofica delle informazioni di un esposizione
+	999.4 Il sistema deve consentire la registrazione della vendita di uno o più biglietti di una certa tipologia e validi per una certa data
+	999.5 Il sistema deve consentire il calcolo degli introiti totali per una certa esposizione temporanea, in un dato periodo
+	999.6 Il sistema deve permettere data un esposizione temporanea e una data di calcolare il numero di biglietti Extended acces venduti per tale esposizione e validi per tale data
+	999.7 Il sistema deve permettere dato un periodo di tempo di calcolare le esposizioni temporanee per la quale è stato venduto il più alto numero di biglietti Extended access nel periodo
+	999.8 Il sistema deve permettere dato un artista e un periodo di tempo,di calcolare le opere realizzate dall'artista che non sono mai state esposte nel periodo dato.
