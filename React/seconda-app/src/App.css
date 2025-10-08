@@ -45,7 +45,7 @@ body {
     --color-primary-hover: #818cf8;
     --color-accent: #34d399;
     --color-bg: #1f2937;
-    --color-text: #f3f4f6;
+    --color-text: #000000;
     --color-muted: #9ca3af;
     --color-border: #374151;
     --color-surface: #111827;
@@ -101,7 +101,7 @@ a:hover {
 button,
 .btn {
   background-color: var(--color-primary);
-  color: white;
+  color: rgb(240, 240, 240);
   padding: 0.6rem 1.2rem;
   border: none;
   border-radius: 6px;

@@ -14,6 +14,7 @@ import BlogApp from './esercizi_agosto/Esercizio_10/BlogApp';
 import TodoApp from './esercizi_agosto/Esercizio_11/TodoApp';
 import MainComponent from './esercizi_agosto/use-context/MainComponent';
 import Slot from './Esercizi_personale/Slot';
+import ProvaRoutes from './Routes/ProvaRoutes';
 
 
 function App() {
@@ -63,7 +64,8 @@ function App() {
     <>
       <Navbar onSetEsercizio={setEsercizio} />
       <div>{renderCondzionale()}</div>
-      <Slot/>
+      {/* <Slot/> */}
+      <ProvaRoutes/>
     </>
   )
 }
