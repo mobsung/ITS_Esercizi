@@ -4,4 +4,4 @@ if a.get('b'):
     print('OK')
 
 
-print(b)
+print(a)
