@@ -123,7 +123,7 @@ having min(v.durataMinuti) > 100
 order by v.comp
 ;
 
--- 13. Qual è il nome delle compagnie che non ha alcun -- volo
+-- 13. Qual è il nome delle compagnie che non ha alcun volo
 
 
 select distinct(c.nome)
