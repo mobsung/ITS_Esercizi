@@ -1,0 +1,35 @@
+Vincoli esterni
+
+Funzioni ausiliarie
+
+sovrapposti(i1 : DataOra, i2 : DataOra, f1 : DataOra, f2 : DataOra) : Booleano
+    precondizioni:
+        Deve essere vero che i1 <= f1 e che i2 <= f2.
+    postcondizioni:
+        result = true se gli intervalli si sovrappongono, cioè se i1 <= f2 e i2 <= f1;
+        altrimenti result = false.
+
+
+[V_Medico_non_Paziente_di_se_stesso]
+Un medico non puo essere paziente di se stesso
+    Per ogni p:Persona tale che p:Medico e p:PazienteInterno non deve esistere r: Ricovero
+    (p, r):med_ric e (p, r):paz_ric 
+
+
+[V_PazienteInterno_PazienteEsterno_non_contemporanei]
+Lo stesso paziente non deve essere Paziente Intero e Paziente Esterno nello stesso momento
+    Per ogni p:Paziente tali che p:PazienteInterno e p:PazienteEsterno non devono esistere pe:PrestazioneMedica, r:Ricovero,
+    (p, pe):PM_PE e (p, r):paz_ric con pe.data_richiesta = r.data_ricovero
+
+
+[V.Data_Ricovero_prima_Data_Dimissione]
+La data del ricovero deve essere prima della data di dimissione
+    Per ogni r:Ricovero tale che r:Dimissione non deve essere che r.data_ricovero >= r.data_dimissione
+
+
+[V_Due_ricoveri_non_Sovrapposti_stesso_Letto]
+Due ricoveri diversi non possono avere assegnato lo stesso letto se sono nello stesso arco di tempo
+    Per ogni l:Letto, sia r1:Ricovero e r2:Ricovero tali che r1:Dimissione e r2:Dimissione dove r1 != r2,
+    (l, r1):ric_let e (l, r2):ric_let non deve essere vero che sovrapposti(r1.data_ricovero, r1.data_dimissione, r2.data_ricovero, r2.data_dimissione)
+
+        
