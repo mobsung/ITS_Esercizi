@@ -1,0 +1,21 @@
+[V.arrivo_partenza_non_uguali]
+Arrivo e partenza sono diversi
+
+    Sia v:Volo, a1:Aeroporto e a2:Aeroporto tali che (v, a1):partenza e (v, a2):arrivo,
+    deve essere vero che (v, a1):partenza != (v, a2):arrivo
+
+
+[V.arrivo_dopo_partenza]
+L'istante di arrivo deve essere dopo l'istante di partenza
+
+    Per ogni v:Volo e a:Aeroporto tali che (v, a):partenza e (v, a):arrivo, 
+    deve essere vero che (v, a):partenza.istante < (v, a):arrivo.istante
+
+
+[V.aereo_non_può_essere_in_due_voli_contemporaneamente]
+Un aereo non può essere in 2 voli contemporaneamente
+
+    Per ogni a:Aereo sia v1:Volo, v2:Volo e ae1:Aeroporto e ae2:Aeroporto,
+    tali che (a, v1):aer_volo, (a, v2):aer_volo, (v1, a1):partenza, (v1, a2):arrivo, (v2, a1):partenza, (v2, a2):arrivo,
+    non deve essere vero che
+    (v1, a1):partenza.istante <= (v2, a2):arrivo.istante oppure (v2, a1):partenza.istante <= (v1, a2):arrivo.istante
