@@ -18,8 +18,8 @@ Un medico non puo essere paziente di se stesso
 
 [V_PazienteInterno_PazienteEsterno_non_contemporanei]
 Lo stesso paziente non deve essere Paziente Intero e Paziente Esterno nello stesso momento
-    Per ogni p:Paziente tali che p:PazienteInterno e p:PazienteEsterno non devono esistere pe:PrestazioneMedica, r:Ricovero,
-    (p, pe):PM_PE e (p, r):paz_ric con pe.data_richiesta = r.data_ricovero
+    Per ogni p:Paziente tali che p:PazienteInterno e p:PazienteEsterno non devono esistere pe:PrestazioneMedica, r:Ricovero, r:Dimissione,
+    (p, pe):PM_PE e (p, r):paz_ric con psovrapposti(r.data_ricovero, pe.data_richiesta, r.data_dimissione, pe.data_richiesta)
 
 
 [V.Data_Ricovero_prima_Data_Dimissione]
@@ -31,5 +31,17 @@ La data del ricovero deve essere prima della data di dimissione
 Due ricoveri diversi non possono avere assegnato lo stesso letto se sono nello stesso arco di tempo
     Per ogni l:Letto, sia r1:Ricovero e r2:Ricovero tali che r1:Dimissione e r2:Dimissione dove r1 != r2,
     (l, r1):ric_let e (l, r2):ric_let non deve essere vero che sovrapposti(r1.data_ricovero, r1.data_dimissione, r2.data_ricovero, r2.data_dimissione)
+
+
+disponibili(d : Data) : Letto[0..*]:
+- precondizioni:
+    - Nessuna
+
+- postcondizioni:
+    - L'operazione non modifica il livello estensionale
+    - Sia L l'insieme di tutti i l:Letto, tali che:
+        - Sia R l'insieme di tutti i r:Ricovero tali che (r, l):ric_let
+        - Non esista un r in R tale che sovrapposti(r.data_ricovero, r.data_dimissione, d, d)
+    - result = L
 
         

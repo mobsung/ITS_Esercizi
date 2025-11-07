@@ -1,0 +1,64 @@
+Calcolo Itinerario
+
+    calcolo_itinerario(m: Medico) : {Intero >= 0, Intero >= 0} :
+
+        precondizioni:
+            - nessuna
+        
+        postcondizioni:
+            - Sia R l'insieme di tutti i r:Ricovero, tali che (r, m):med_ric
+            - Per ogni r in R, sia L l'insieme di tutti i l:Letto, tali che (r, l):ric_let
+            - Sia S l'insieme di tutte le s:Stanza, tali che st partecipa al link dell'associazione con un l in L
+        - Sia Res l'insieme delle coppie (p, s), dove per ogni s:Stanza in S:
+            - p è l'attributo s.piano
+            - s è l'attributo s.settore
+        - result = Res
+
+
+Calcolo Specializazzione
+
+    calcola_specializazzione(s:Specializzazione): Medico [0..*]:
+
+        - precondizioni:
+            - Nessuna
+
+    - postcondizioni
+        - Sia M_primaria l'insieme di tutti i m:Medico, tale che (s, m):primaria
+        - Sia M_secondaria l'insieme di tutti i med:Medico, tale che (s, m):secondaria
+        - Se M_primaria è un insieme vuoto allora result = M_secondaria altrimenti result = M_primaria
+
+
+Gestione pazienti e ricoveri:
+
+    registrazione_ricovero(data_ricovero : Data, int : Interno, med : Medico, l : Letto) :
+        - precondizioni:
+            - l deve essere presente nell'insieme l.disponibili(data_ricovero)
+
+    - postcondizioni:
+        - viene creati e restituiti i seguenti link/oggetti:
+            - r:Ricovero, tale che:
+                - r.data_ricovero = data_ricovero
+            - (r, pl):ric_let
+            - (int, r):paz_ric
+            - (r, m):med_ric
+        
+
+    registra_dimissione(r : Ricovero, data_dimissione : Data) : Data:
+        - precondizioni:
+            - Nessuna
+
+        - postcondizioni:
+            - viene creato e restituito l'attributo r.data_dimissione = data_dimissione
+
+    
+    registra_paziente(nome : Stringa, cognome : Stringa, data_nascita : Data, email : Email [0..*], telefono : NumTel[0..*], indirizzo : Indirizzo, prest : Prestazione[0..1]) :
+        - precondizioni:
+            - Vengono creati e restituiti i seguenti link/oggetti:
+                - p:Paziente, tale che:
+                    - p.nome = nome
+                    - p.cognome = cognome
+                    - p.data_nascita = data_nascita
+                    - p.email = email
+                    - p.telefono = telefono
+                    - p.indirizzo = indirizzo
+                - (p, pr):p_pr
