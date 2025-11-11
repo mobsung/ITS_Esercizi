@@ -1,0 +1,40 @@
+Funzioni ausiliarie
+
+sovrapposti(i1 : DataOra, i2 : DataOra, f1 : DataOra, f2 : DataOra) : Booleano
+    precondizioni:
+        Deve essere vero che i1 <= f1 e che i2 <= f2.
+    postcondizioni:
+        result = true se gli intervalli si sovrappongono, cioè se i1 <= f2 e i2 <= f1;
+        altrimenti result = false.
+
+
+[V.Rappresentazione_fine_dopo_inizio]
+La fine della rappresentazione di uno spettacolo non deve essere prima del suo inizio
+
+    Per ogni rapp:Rappresentazione non deve essere vero che rapp.fine <= rapp.inizio
+
+
+[V.Stesso_spett_no_rappresentazione_prima_della_fine_della_precedente_se_tipologia_non_film]
+Uno spettacolo non può essere rappresentato prima della fine della rappresentazione precedente
+
+    Per ogni sed:Sede, rapp1:Rappresentazione, rapp2:Rappresentazione ed spett:Spettacolo tali che (sed,rapp1):sed_rap, (rapp1,spett):rap_spe, (sed,rapp2):sed_rap e (rapp2spett):rap_spe sia spett.tipologia = concerto oppure spett.tipologia = rappresentazione teatrale
+    deve essere vero che rapp2.inizio >= rapp1.fine
+
+
+[V.Istante_prenotazione_minore_fine_Rappresentazione]
+L'istante della prenotazione deve essere <= dell'istante di fine rappresentazione
+
+    Per ogni rapp:Rappresentazione e pren:Prenotazione tali che (pren,rapp):rapp_pren,
+    deve essere vero che pren.istante <= rapp.fine
+
+
+[V.prezzo_pieno_maggiore_prezzo_ridotto]
+Il prezzo pieno deve essere maggiore del prezzo ridotto
+
+    Per ogni rapp:Rappresentaizone deve essere vero che rapp.prezzo_pieno > rapp.prezzo_ridotto
+
+
+[V.No_due_rappresentazioni_nella_stessa_sala_nello_stesso_momento]
+Non ci possono essere due rappresentazione nella stessa sala nello stesso momento
+
+    Per ogni rapp1:Rappresentaizone, rapp2:Rappresentaizone, sed:Sede e sal:Sala tali che (rapp1,sed):sed_rap, (rapp2,sed):sed_rap e (sed,sal):sed_sal deve essere sovrapposti(rapp1.inizio, rapp2.inizio, rapp1.fine, rapp2.fine) = False

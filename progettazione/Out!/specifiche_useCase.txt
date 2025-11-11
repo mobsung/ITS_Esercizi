@@ -1,0 +1,10 @@
+
+iscrivi_utente(nome:Stringa, cognome:Stringa, cf:CF):
+    - precondizione:
+        - vengono creati e restituiti i seguenti oggetti :
+            - u: Utente, tale che:
+                - u.nome = nome
+                - u.cognome = cognome
+                - u.cf = cf
+
+

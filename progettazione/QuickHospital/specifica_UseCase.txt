@@ -51,7 +51,7 @@ Gestione pazienti e ricoveri:
             - viene creato e restituito l'attributo r.data_dimissione = data_dimissione
 
     
-    registra_paziente(nome : Stringa, cognome : Stringa, data_nascita : Data, email : Email [0..*], telefono : NumTel[0..*], indirizzo : Indirizzo, prest : Prestazione[0..1]) :
+    registra_paziente(nome : Stringa, cognome : Stringa, data_nascita : Data, email : Email [0..*], telefono : NumTel[0..*], indirizzo : Indirizzo, pr : Prestazione[0..1]) :
         - precondizioni:
             - Vengono creati e restituiti i seguenti link/oggetti:
                 - p:Paziente, tale che:
