@@ -17,7 +17,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def homes() -> str:
-    return '<h1> CIAO CIAOCIAO'
+    return '<h1> CIAO CIAOCIAOoo'
 
 @app.route('/user/<string:username>')
 def greet(username:str) -> str:
