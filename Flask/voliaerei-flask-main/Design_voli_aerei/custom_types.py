@@ -6,8 +6,10 @@ class CodiceVolo(str):
     # Gli oggetti di questa classe *sono* stringhe
     #  che rispettano il formato dei codici dei voli: XY1234
     def __new__(cls, cv: str) -> Self:
-        cv: str = cv.upper().strip()  # rendo la stringa maiuscola e senza spazi iniziali e finali
-        if re.fullmatch(r'^[A-Z0-9]{2}\d{4}$', cv):
+        cv: str = (
+            cv.upper().strip()
+        )  # rendo la stringa maiuscola e senza spazi iniziali e finali
+        if re.fullmatch(r"^[A-Z0-9]{2}\d{4}$", cv):
             return super().__new__(cls, cv)
 
         raise ValueError(f"La stringa '{cv}' non è un codice valido per un volo!")
@@ -15,10 +17,11 @@ class CodiceVolo(str):
 
 class CodiceIATA(str):
     def __new__(cls, c: str) -> Self:
-        if re.fullmatch(r'^[A-Z]{3}$', c):
+        if re.fullmatch(r"^[A-Z]{3}$", c):
             return super().__new__(cls, c)
-        raise ValueError(f"La stringa '{c}' non è un codice IATA valido per un aeroporto!")
-
+        raise ValueError(
+            f"La stringa '{c}' non è un codice IATA valido per un aeroporto!"
+        )
 
 
 class IntGE1900(int):
@@ -46,7 +49,3 @@ class IntGZ(int):
         if n > 0:
             return n
         raise ValueError(f"Il valore {n} non è positivo!")
-
-
-
-

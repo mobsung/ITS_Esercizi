@@ -1,11 +1,14 @@
 from __future__ import annotations
 from custom_types import *
 
+
 class Nazione:
     _nome: str  # mutabile, noto alla nascita
-    _citta: set[Citta] # da assoc. 'citta_naz' [0..*], possibilmente non noti alla nascita
+    _citta: set[
+        Citta
+    ]  # da assoc. 'citta_naz' [0..*], possibilmente non noti alla nascita
 
-    def __init__(self, nome: str, citta: set[Citta]|None = None) -> None:
+    def __init__(self, nome: str, citta: set[Citta] | None = None) -> None:
         self.set_nome(nome)
         if citta:
             for c in citta:
@@ -26,16 +29,14 @@ class Nazione:
     def _remove_citta(self, citta: Citta) -> None:
         self._citta.remove(citta)
 
-
-
     def __str__(self) -> str:
         return f"Nazione '{self.nome()}'"
 
 
 class Citta:
     _nome: str  # mutabile, noto alla nascita
-    _abitanti: IntGEZ # noto alla nascita
-    _nazione: Nazione # da assoc. 'citta_naz' [1..1], nota alla nascita
+    _abitanti: IntGEZ  # noto alla nascita
+    _nazione: Nazione  # da assoc. 'citta_naz' [1..1], nota alla nascita
 
     def __init__(self, nome: str, abitanti: IntGEZ, nazione: Nazione) -> None:
         self.set_nome(nome)
@@ -62,17 +63,16 @@ class Citta:
             self._nazione._remove_citta(self)
             nazione._add_citta(self)
             self._nazione = nazione
-        
-
 
     def __str__(self) -> str:
         return f"Citta '{self.nome()}' con {self.abitanti()} abitanti"
 
+
 class Compagnia:
-    _nome: str # noto alla nascita
-    _fondazione: IntGE1900 # immutabile, noto alla nascita
-    _citta_direzione: Citta # da aggregazione 'citta_direzione', noto alla nascita
-    _voli: set[Volo] # da assoc. 'volo_comp' [0..*], certamente non noti alla nascita
+    _nome: str  # noto alla nascita
+    _fondazione: IntGE1900  # immutabile, noto alla nascita
+    _citta_direzione: Citta  # da aggregazione 'citta_direzione', noto alla nascita
+    _voli: set[Volo]  # da assoc. 'volo_comp' [0..*], certamente non noti alla nascita
 
     def __init__(self, nome: str, fondazione: IntGE1900, citta: Citta) -> None:
         self.set_nome(nome)
@@ -99,8 +99,8 @@ class Compagnia:
         return frozenset(self._voli)
 
     def _add_volo(self, volo: Volo) -> None:
-        '''if volo.compagnia() != self:
-            raise ValueError(f"Il volo è già della compagnia {volo.compagnia().nome()}!")'''
+        """if volo.compagnia() != self:
+        raise ValueError(f"Il volo è già della compagnia {volo.compagnia().nome()}!")"""
         self._voli.add(volo)
 
     def remove_volo(self, volo: Volo) -> None:
@@ -111,8 +111,8 @@ class Compagnia:
 
 
 class Aeroporto:
-    _nome: str # noto alla nascita
-    _codice: CodiceIATA # immutabile, noto alla nascita
+    _nome: str  # noto alla nascita
+    _codice: CodiceIATA  # immutabile, noto alla nascita
 
     def __init__(self, nome: str, codice: CodiceIATA) -> None:
         self.set_nome(nome)
@@ -132,13 +132,20 @@ class Aeroporto:
 
 
 class Volo:
-    _codice: CodiceVolo # immutabile, noto alla nascita
-    _durata_minuti: IntGZ # noto alla nascita
-    _compagnia: Compagnia # da assoc. volo_comp [1..1], immutabile, noto alla nascita
-    _arrivo: Aeroporto # <<imm>>
-    _partenza: Aeroporto # <<imm>>
+    _codice: CodiceVolo  # immutabile, noto alla nascita
+    _durata_minuti: IntGZ  # noto alla nascita
+    _compagnia: Compagnia  # da assoc. volo_comp [1..1], immutabile, noto alla nascita
+    _arrivo: Aeroporto  # <<imm>>
+    _partenza: Aeroporto  # <<imm>>
 
-    def __init__(self, codice: CodiceVolo, durata: IntGZ, compagnia: Compagnia, arrivo: Aeroporto, partenza: Aeroporto) -> None:
+    def __init__(
+        self,
+        codice: CodiceVolo,
+        durata: IntGZ,
+        compagnia: Compagnia,
+        arrivo: Aeroporto,
+        partenza: Aeroporto,
+    ) -> None:
         self._codice = codice
         self.set_durata_minuti(durata)
         self._compagnia = compagnia
@@ -157,7 +164,7 @@ class Volo:
 
     def compagnia(self) -> Compagnia:
         return self._compagnia
-    
+
     def arrivo(self) -> Aeroporto:
         return self._arrivo
 
