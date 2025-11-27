@@ -4,4 +4,3 @@ if a.get('b'):
     print('OK')
 
 
-print(a)
