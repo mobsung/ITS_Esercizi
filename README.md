@@ -15,12 +15,12 @@ The repository is organized into the following categories:
 - **`python`**: General Python scripts, exercises, and learning materials.
 - **`react`**: React.js frontend applications and components.
 - **`web_development`**: Fundamental web development exercises (HTML, CSS, JavaScript), including DOM manipulation and Bootstrap.
-- **`software_design`**: Software engineering design patterns, UML diagrams, and project planning exercises (formerly `progettazione`).
-- **`scratchpad`**: Temporary files and simple tests (formerly `simple_test`).
+- **`software_design`**: Software engineering design patterns, UML diagrams, and project planning exercises.
+- **`scratchpad`**: Temporary files and simple tests.
 
 ## Technologies
 
-- **Languages**: Python, Java, JavaScript, HTML, CSS, SQL, Go.
+- **Languages**: Python, Java, JavaScript, HTML, CSS, SQL.
 - **Frameworks/Libraries**: Flask, React, Bootstrap.
 - **Tools**: Git, VS Code.
 
