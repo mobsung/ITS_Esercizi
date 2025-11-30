@@ -25,6 +25,7 @@ public class Esercizio04 {
 			}
 		}
 
+
 		System.out.println("totale numeri posizione pari: " + pari);
 		System.out.println("totale numeri posizione dispari: " + dispari);
 		System.out.println("totale numeri: " + (pari + dispari));
