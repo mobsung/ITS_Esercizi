@@ -3,7 +3,7 @@ package oggetti;
 public class Persona {
 	
 	// dichiarazione attributi	
-	private String nome;
+	private final String nome;
 	private int eta;
 	private double peso;
 	
