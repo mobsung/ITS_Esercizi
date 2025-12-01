@@ -31,25 +31,11 @@ public class Esercizio11 {
 			}
 		}
 
-		int iterations = c.length - 1;
-
-		while (iterations > 0) {
-			for (int i = 0; i < iterations; i++) {
-				if (c[i] > c[i + 1]) {
-					int temp = c[i + 1];
-					c[i + 1] = c[i];
-					c[i] = temp;
-				}
-
-			}
-
-			iterations -= 1;
-
-		}
-
+		Esercizio10.sortB(c);
+		
 		for (int i = 0; i < c.length; i++) {
 			System.out.print(c[i] + " ");
 		}
-
+	
 	}
 }

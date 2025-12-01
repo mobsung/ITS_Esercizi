@@ -36,11 +36,11 @@ public class MorraCinese {
 				break;
 			case 2:
 				if (utente == 2 && nRandom == 0) {
-					System.out.println("TU: carta --|-- AI: sasso\nHai perso");
+					System.out.println("TU: forbici --|-- AI: sasso\nHai perso");
 				} else if (utente == 2 && nRandom == 1) {
-					System.out.println("TU: carta --|-- AI: forbici\nHai vinto");
+					System.out.println("TU: forbici --|-- AI: carta\nHai vinto");
 				} else {
-					System.out.println("TU: carta --|-- AI: carta\nPareggio");
+					System.out.println("TU: forbici --|-- AI: forbici\nPareggio");
 				}
 				break;
 			}

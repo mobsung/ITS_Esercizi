@@ -1,6 +1,26 @@
 package EserciziArray;
 
 public class Esercizio10 {
+	
+	
+	public static void sortB(int[] array){
+		int iterations = array.length - 1;
+		
+		while (iterations > 0) {
+			for (int i = 0; i < iterations; i++) {
+				if (array[i] > array[i + 1]) {
+					int temp = array[i + 1];
+					array[i + 1] = array[i];
+					array[i] = temp;
+				}
+
+			}
+			
+			iterations -= 1;
+			
+		}
+	}
+	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -22,24 +42,7 @@ public class Esercizio10 {
 
 		int[] mixed = { 7, 11, 1, 4, 20, 3, 5, 6, 13 };
 		
-	
-		
-		
-		int iterations = mixed.length - 1;
-		
-		while (iterations > 0) {
-			for (int i = 0; i < iterations; i++) {
-				if (mixed[i] > mixed[i + 1]) {
-					int temp = mixed[i + 1];
-					mixed[i + 1] = mixed[i];
-					mixed[i] = temp;
-				}
-
-			}
-			
-			iterations -= 1;
-			
-		}
+		Esercizio10.sortB(mixed);
 		
 		for (int i = 0; i < mixed.length; i++) {
 			System.out.print(mixed[i] + " ");
