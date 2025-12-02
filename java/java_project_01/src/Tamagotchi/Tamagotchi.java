@@ -62,19 +62,19 @@ public class Tamagotchi {
 
 	private void setPesoAltezzaEnergia() {
 		switch(this.specie) {
-		case Specie.CANE:
+		case CANE:
 			this.altezza = 20;
 			this.peso = 300;
 			break;
-		case Specie.GATTO:
+		case GATTO:
 			this.altezza = 10;
 			this.peso = 100;
 			break;
-		case Specie.CANARINO:
+		case CANARINO:
 			this.altezza = 3;
 			this.peso = 10;
 			break;
-		case Specie.CONIGLIO:
+		case CONIGLIO:
 			this.altezza = 10;
 			this.peso = 100;
 			break;

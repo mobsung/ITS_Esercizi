@@ -5,21 +5,12 @@ public class HelloWorld {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("Real Chat");
 		
-		double a = 5;
-		int b = 2;
+		String s = "CIAO";
+
+		String t = s;
 		
-		double div = a/b;
-		double mol = a*b;
-		System.out.println(div);
-		System.out.println(mol);
-		
-		String s = "Ciao";
-		
-		for(char c : s.toCharArray()) {
-			System.out.println(c);
-		}
+		System.out.println(s == t);
 
 		
 	}
