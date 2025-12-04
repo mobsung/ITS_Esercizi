@@ -11,15 +11,17 @@ public class LasVegas {
 
 		Dado d1 = new Dado();
 
-		Casino c1 = new Casino("Las Vegas", 100);
+		Casino c1 = new Casino("Las Vegas", 10000);
 
 		String sceltaC = "";
 
 		ArrayList<Giocatore> giocatori = new ArrayList<Giocatore>();
 
 		while (!sceltaC.equalsIgnoreCase("termina")) {
-			System.out.println("1 - Digita | aggiungi | per aggiungere un giocatore\n"
-					+ "2 - Digita | gioca | per avviare il gioco\n" + "3 - Digita | termina | per terminare il gioco");
+			System.out.println(
+					  "1 - Digita | aggiungi | per aggiungere un giocatore\n"
+					+ "2 - Digita | gioca    | per avviare il gioco\n" + 
+					  "3 - Digita | termina  | per terminare il gioco");
 
 			sceltaC = sc.next();
 
@@ -34,10 +36,9 @@ public class LasVegas {
 				int budget = sc.nextInt();
 
 				giocatori.add(new Giocatore(nome, budget));
+				break;
 
 			case "gioca":
-				ArrayList<Integer> puntate = new ArrayList<Integer>();
-				ArrayList<Integer> numeri = new ArrayList<Integer>();
 				
 				giocatori.forEach((g) -> {
 					
@@ -48,22 +49,18 @@ public class LasVegas {
 					
 					while (!scelta.equalsIgnoreCase("termina")) {
 
-						System.out.println("1 - Se vuoi visualizzare il tuo saldo digita        | vedi          |\n"
-								+ "2 - Se vuoi depositare, digita                               | deposita      |\n"
-								+ "3 - Se vuoi puntare digita                                   | punta         |\n"
-								+ "4 - Se vuoi confermare la puntata digita                     | conferma      |\n"
-								+ "5 - Se vuoi resettare la puntata ed il numero puntato digita | reset         |\n"
-								+ "6 - Se vuoi resettare solo la puntata digita                 | reset puntata |\n"
-								+ "7 - Se non vuoi giocare digita                               | termina       |"
+						System.out.println(g);
+						System.out.println(
+								  "1 - Se vuoi depositare, digita                               | deposita      |\n"
+								+ "2 - Se vuoi puntare digita                                   | punta         |\n"
+								+ "3 - Se vuoi resettare la puntata ed il numero puntato digita | reset         |\n"
+								+ "4 - Se vuoi resettare solo la puntata digita                 | reset puntata |\n"
+								+ "5 - Se non vuoi giocare digita                               | termina       |"
 								);
 						scelta = sc.next();
 
 						
 						switch (scelta) {
-						case "vedi":
-							System.out.println(g);
-							break;
-
 						case "deposita":
 							System.out.println("Quando vuoi depositare ==> ");
 							while (importo <= 0) {
@@ -90,15 +87,6 @@ public class LasVegas {
 							g.punta(puntata, numero);
 							break;
 							
-						case "conferma":
-							if (puntata > 0 && numero > 0) {
-								System.out.println("Puntata confermata");
-								puntate.add(puntata);
-								numeri.add(numero);
-							} else {
-								System.out.println("Non hai ancora puntato");
-							}
-							
 						case "reset":
 							System.out.println("La punta ed in numero sono stati resettati");
 							g.reset();
@@ -113,6 +101,37 @@ public class LasVegas {
 					}
 				});
 				
+				ArrayList<Integer> puntateVincenti = new ArrayList<Integer>();
+				int dadoVincente = Dado.estrai();
+				
+				giocatori.forEach((g) -> {
+					if (g.getPuntata() > 0 && g.getNumeroGiocato() == dadoVincente) {
+						puntateVincenti.add(g.getPuntata());
+					}
+				});
+				
+				int[] puntateArray = new int[puntateVincenti.size()];
+				
+				if (c1.valutaPuntate(puntateArray)) {
+					System.out.println("Dado vincente: " + dadoVincente);
+					
+					giocatori.forEach((g) -> {
+						if (g.getPuntata() > 0 && g.getNumeroGiocato() == dadoVincente) {
+							g.incassa();
+							c1.paga(g.getPuntata());
+							System.out.println("Il giocatore: " + g.getNome() + " ha puntato " + g.getPuntata() + " ed ha vinto " + (g.getPuntata() * Dado.getRICARICO()) + " monete");
+							g.reset();
+						} else if (g.getPuntata() > 0) {
+							c1.incasso(g.getPuntata());
+							System.out.println("Il giocatore: " + g.getNome() + " ha puntato " + g.getPuntata() + " ed ha perso ");
+							g.reset();
+						}
+					});
+				} else {
+					System.out.println("Giocata non possibile per insufficienza di fondi");
+				}
+				
+				break;
 				
 
 			}

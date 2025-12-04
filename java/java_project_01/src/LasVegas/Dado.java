@@ -15,22 +15,17 @@ public class Dado {
 	 * casuale compreso tra 1 e 6 Ritorna il numero estratto
 	 */
 	
-	private int facce = 6;
 	private static final int RICARICO = 5;
 	
-	
-	public int getFacce() {
-		return facce;
-	}
 	
 	public static int getRICARICO() {
 		return RICARICO;
 	}
 	
-	public int estrai() {
+	public static int estrai() {
 		Random r = new Random();
 		
-		return r.nextInt(1, facce + 1);
+		return r.nextInt(1, 7);
 	}
 	
 	
