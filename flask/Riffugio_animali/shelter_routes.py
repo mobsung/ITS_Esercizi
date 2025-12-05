@@ -10,6 +10,7 @@ animal3: Dog = Dog(id='3', name='Spike', age_years=1, weight_kg=5, breed='bool d
 animal4: Dog = Dog(id='4', name='Spek', age_years=8, weight_kg=10.1, breed='russel', is_trained=True)
 
 
+
 shelter1: Shelter = Shelter()
 
 shelter1.add_animal(animal=animal1)
@@ -74,4 +75,51 @@ def get_adoption(animal_id):
 
 @app.post('/Animals/add')
 def add_animal():
-    pass
+    new_animal: dict = request.get_json()
+    if "id" not in new_animal or "type" not in new_animal or "name" not in new_animal or "age_years" not in new_animal or "weight_kg" not in new_animal:
+        return jsonify({"errore": "Per aggiungere un animale, fornire tutti i dati!"}), 400
+    
+    if new_animal["type"] == "dog" and "breed" in new_animal and "is_trained" in new_animal:
+        d: Dog = Dog(id=new_animal["id"], name=new_animal["name"], age_years=new_animal["age_years"], weight_kg=new_animal["weight_kg"], breed=new_animal["breed"], is_trained=new_animal["is_trained"])
+        shelter1.add_animal(animal=d)
+        return jsonify({ "status": "ok", "added": { "id": d.get_id(), "species": d.species() }}), 200
+    
+    elif "type" == "cat" and "favourite_toy" in new_animal and "indoor_only" in new_animal:
+        c: Cat = Cat(id=new_animal["id"], name=new_animal["name"], age_years=new_animal["age_years"], weight_kg=new_animal["weight_kg"], favourite_toy=new_animal["favourite_toy"], indoor_only=new_animal["indoor_only"])
+        shelter1.add_animal(c)
+        return jsonify({ "status": "ok", "added": { "id": c["id"], "species": c.species() }}), 200
+
+    else:
+        return jsonify({"errore": "Per aggiungere un animale, fornire tutti i dati!"}), 400
+
+
+@app.post('/Animals/<string:animal_id>/adopt')
+def adopt_animal(animal_id: str):
+    new_adoption: dict = request.get_json()
+
+    if "adopter_name" not in new_adoption:
+        return jsonify({"errore": "Per procedere con l'adozione, fornire tutti i dati!"}), 400
+
+    if shelter1.get(animal_id=animal_id) == None:
+        return jsonify({"errore": "L'animale non esiste!"}), 400
+    
+    if shelter1.is_adopted(animal_id=animal_id):
+        return jsonify({"errore": "L'animale risulta già adottato!"}), 400
+    
+    shelter1.set_adopted(animal_id=animal_id, adopter_name=new_adoption["adopter_name"])
+    return jsonify({ "id": animal_id, "adopted": True, "adopter_name": new_adoption["adopter_name"]}), 200
+
+
+'''
+def __init__(self, id: str, name: str, age_years: int, weight_kg: float, favourite_toy: str, indoor_only: bool) -> None:
+        super().__init__(id, name, age_years, weight_kg)
+        self.favourite_toy = favourite_toy
+        self.indoor_only = indoor_only
+'''
+
+'''
+def __init__(self, id: str, name: str, age_years: int, weight_kg: float, breed: str, is_trained: bool) -> None:
+        super().__init__(id, name, age_years, weight_kg)
+        self.breed = breed
+        self.is_trained = is_trained
+'''

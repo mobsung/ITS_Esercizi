@@ -1,7 +1,9 @@
 a = {'a' : {'b': 4}}
 
-if a.get('b'):
-    print('OK')
+print(a.get("b"))
 
+if a.get("a"):
+    print("OK")
 
-print('a' < 'b')
+if a.get("b"):
+    print("notOK")

@@ -62,6 +62,9 @@ class Animal:
         info_dict: dict[str: Any] = { "id": self.id, "name": self.name, "species": self.species(), "age_years": self.age_years, "weight_kg": self.weight_kg}
         return info_dict
     
+    def get_id(self):
+        return self.id
+
     def bmi_like(self) -> float:
         return self.weight_kg / (self.age_years + 1)
     
