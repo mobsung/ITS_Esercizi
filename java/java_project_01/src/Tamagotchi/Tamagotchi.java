@@ -6,7 +6,7 @@ public class Tamagotchi {
 		CANE,
 		GATTO,
 		CANARINO,
-		CONIGLIO;
+		CONIGLIO
 	}
 	
 	private final String nome;
