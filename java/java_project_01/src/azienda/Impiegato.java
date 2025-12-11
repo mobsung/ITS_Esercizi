@@ -2,14 +2,14 @@ package azienda;
 
 import java.util.Date;
 
-public class Impiegato {
+public class Impiegato implements Comparable<Impiegato> {
 
 	
 	private String nome;
 	private double salario;
 	private Date dataAssunzione;
+	
 	public Impiegato(String nome, double salario, Date dataAssunzione) {
-		super();
 		this.nome = nome;
 		this.salario = salario;
 		this.dataAssunzione = dataAssunzione;
@@ -37,6 +37,16 @@ public class Impiegato {
 	
 	public void incrSalario(double aumento) {
 		this.salario += aumento;
+	}
+	@Override
+	public int compareTo(Impiegato o) {
+		// criterio che induce l'ordinamento crescente per nome
+		
+		System.out.println("stanno chiamando la compareTo....");
+		return this.nome.compareTo(o.nome);
+		
+		
+		
 	}
 	
 }
