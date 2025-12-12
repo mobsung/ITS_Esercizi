@@ -46,12 +46,12 @@ public class Reservation implements Comparable<Reservation>{
 
 	@Override
 	public int compareTo(Reservation o) {
-		if (this.dataInizio < o.dataInizio) {
-			return -1;
+		if (this.dataInizio > o.dataInizio) {
+			return 1;
 		} else if (this.dataInizio == o.dataInizio) {
 			return 0;
 		}
-		return 1;
+		return -1;
 	}
 	
 }
