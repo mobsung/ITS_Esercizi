@@ -110,16 +110,3 @@ def adopt_animal(animal_id: str):
     return jsonify({ "id": animal_id, "adopted": True, "adopter_name": new_adoption["adopter_name"]}), 200
 
 
-'''
-def __init__(self, id: str, name: str, age_years: int, weight_kg: float, favourite_toy: str, indoor_only: bool) -> None:
-        super().__init__(id, name, age_years, weight_kg)
-        self.favourite_toy = favourite_toy
-        self.indoor_only = indoor_only
-'''
-
-'''
-def __init__(self, id: str, name: str, age_years: int, weight_kg: float, breed: str, is_trained: bool) -> None:
-        super().__init__(id, name, age_years, weight_kg)
-        self.breed = breed
-        self.is_trained = is_trained
-'''
