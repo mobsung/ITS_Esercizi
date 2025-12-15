@@ -11,5 +11,8 @@ public class TestTamagotchi {
 		cane.gioca();
 		
 		System.out.println(cane);
+
+		cane.dorme();
+
 	}
 }

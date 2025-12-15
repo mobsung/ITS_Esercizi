@@ -66,7 +66,7 @@ public class Tamagotchi {
 			this.altezza = 20;
 			this.peso = 300;
 			break;
-		case GATTO:
+			case GATTO, CONIGLIO:
 			this.altezza = 10;
 			this.peso = 100;
 			break;
@@ -74,22 +74,15 @@ public class Tamagotchi {
 			this.altezza = 3;
 			this.peso = 10;
 			break;
-		case CONIGLIO:
-			this.altezza = 10;
-			this.peso = 100;
-			break;
 		}
 		this.energia = 3;
 	}
 	
 	
 	private boolean hasEnergia() {
-		if (this.energia > 1 && this.energia < 10) {
-			return true;
-		}
-		return false;
-	}
-	
+        return this.energia > 1 && this.energia < 10;
+    }
+
 	public boolean mangia() {
 		if (this.hasEnergia()) {
 			this.altezza ++;

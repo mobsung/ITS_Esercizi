@@ -8,7 +8,7 @@ public class Auto extends Veicolo{
 		STANDARD(5),
 		SUV(8.5);
 		
-		private double tariffa;
+		private final double tariffa;
 		
 		private TipoAuto(double tariffa) {
 			this.tariffa = tariffa;	

@@ -11,14 +11,13 @@ public class Biglietteria {
 		coda.add(t);
 	}
 	
-	public Tariffabile riceviPagamento() throws ArithmeticException{
+	public Tariffabile riceviPagamento() throws Exception{
 		
 		if (coda.size() == 0) {
-			throw new ArithmeticException("La coda è vuota");
+			throw new Exception("La coda è vuota");
 		} else {
 			cassa += coda.get(0).calcolaTariffa();
-			Tariffabile entità =  coda.remove(0);
-			return entità;
+			return coda.remove(0);
 		}
 		
 	}

@@ -31,20 +31,21 @@ public abstract class Veicolo implements Tariffabile{
 		return persone.size();
 	}
 	
-	public void aggiungiPersona(Persona p) {
+	public void aggiungiPersona(Persona p) throws Exception{
 		if (postiOccupati() < posti) {
 			persone.add(p);
 		} else {
-			System.out.println("Raggiunto il limite di posti occupati");
+
+			throw new Exception("Raggiunto il limite di posti occupati");
 		}
 		
 	}
 
-	public void rimuoviPersona(Persona p) {
+	public void rimuoviPersona(Persona p) throws Exception{
 		if (postiOccupati() > 1) {
 			persone.remove(p);
 		} else {
-			System.out.println("Il veicolo deve contenere almento una persona");
+			throw new Exception("Il veicolo deve contenere almento una persona");
 		}
 		
 	}
