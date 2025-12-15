@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dccbbceb-381c-4503-8084-6b67e7bcff16" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/java_project_01/src/Tamagotchi/Tamagotchi.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_project_01/src/Tamagotchi/Tamagotchi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project_01/src/Tamagotchi/TestTamagotchi.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_project_01/src/Tamagotchi/TestTamagotchi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project_01/src/traghetto/Auto.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_project_01/src/traghetto/Auto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project_01/src/traghetto/Biglietteria.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_project_01/src/traghetto/Biglietteria.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project_01/src/traghetto/TestTraghetto.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_project_01/src/traghetto/TestTraghetto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project_01/src/traghetto/Veicolo.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_project_01/src/traghetto/Veicolo.java" afterDir="false" />
-    </list>
+    <list default="true" id="dccbbceb-381c-4503-8084-6b67e7bcff16" name="Changes" comment="refactor esercizi con Exception" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -155,12 +148,33 @@
       <workItem from="1765789009487" duration="28000" />
       <workItem from="1765789056722" duration="18000" />
       <workItem from="1765789126023" duration="1778000" />
-      <workItem from="1765791088914" duration="8142000" />
+      <workItem from="1765791088914" duration="8363000" />
     </task>
+    <task id="LOCAL-00001" summary="refactor esercizi con Exception">
+      <option name="closed" value="true" />
+      <created>1765803010785</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1765803010785</updated>
+    </task>
+    <task id="LOCAL-00002" summary="refactor esercizi con Exception">
+      <option name="closed" value="true" />
+      <created>1765803047913</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1765803047913</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="refactor esercizi con Exception" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor esercizi con Exception" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
