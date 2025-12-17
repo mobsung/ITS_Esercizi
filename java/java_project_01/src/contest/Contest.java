@@ -25,7 +25,7 @@ public class Contest {
     public Performer getWinner(){
         Performer winner = performers.getFirst();
         for (Performer p : performers){
-            winner = (winner.compareTo(p) == 1) ? winner : p;
+            winner = (winner.compareTo(p) > 0) ? winner : p;
         }
         return winner;
     }
