@@ -164,7 +164,7 @@
       <workItem from="1765789126023" duration="1778000" />
       <workItem from="1765791088914" duration="8363000" />
       <workItem from="1765959820852" duration="6148000" />
-      <workItem from="1766045916067" duration="6210000" />
+      <workItem from="1766045916067" duration="8735000" />
     </task>
     <task id="LOCAL-00001" summary="refactor esercizi con Exception">
       <option name="closed" value="true" />
@@ -187,6 +187,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="refactor esercizi con Exception" />
