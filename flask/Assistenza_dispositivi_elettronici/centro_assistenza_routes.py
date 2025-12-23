@@ -6,6 +6,8 @@ from Classi.laptop import Laptop
 from Classi.serviceCenter import ServiceCenter
 
 
+#flask --app centro_assistenza_routes run --debug
+
 serviceCenter: ServiceCenter = ServiceCenter()
 
 app = Flask(__name__)
@@ -97,7 +99,7 @@ def add_device():
             return jsonify(device.info()), 201
     
         elif new_device["device_type"] == "laptop":
-            device = Smartphone(
+            device = Laptop(
                 id=new_device["id"],
                 model=new_device["model"],
                 customer_name=new_device["customer_name"],
@@ -111,11 +113,8 @@ def add_device():
 
     else:
         return jsonify({"errore": "Campi mancanti, tipo non riconosciuto"}), 400
-    
 
-
-
-app.put("devices/<string:device_id>")
+app.put("/devices/<string:device_id>")
 def update_device(device_id: str):
     new_device = request.get_json()
 
@@ -133,7 +132,7 @@ def update_device(device_id: str):
             )
     
         elif new_device["device_type"] == "laptop":
-            device = Smartphone(
+            device = Laptop(
                 id=new_device["id"],
                 model=new_device["model"],
                 customer_name=new_device["customer_name"],
@@ -152,4 +151,27 @@ def update_device(device_id: str):
             return jsonify(device.info()), 201
     else:
         return jsonify({"errore": "Campi mancanti, tipo non riconosciuto"}), 400
+    
+
+@app.patch("/devices/<string:device_id>/status")
+def update_status(device_id: str):
+    if serviceCenter.get(device_id) == None:
+        return jsonify({"errore": "Il dispositivo non esiste"}), 404
+
+    new_status = request.get_json()
+    if not new_status or "status" not in new_status:
+        return jsonify({"errore": "Campo 'status' mancante"}), 400
+
+    serviceCenter.patch_status(device_id, new_status["status"])
+    return jsonify(serviceCenter.get(device_id).info()), 200
+
+
+@app.delete("/devices/<string:device_id>")
+def delete_device(device_id: str):
+    if serviceCenter.delete(device_id):
+        return jsonify({"deleted": True, "id": device_id}), 200
+    else:
+        return jsonify({"errore": "Il dispositivo non esiste"}), 404
+    
+
 

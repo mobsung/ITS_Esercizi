@@ -33,3 +33,30 @@ if __name__ == "__main__":
         headers=headers
     )
     print("Risposta POST:", response_post.json())
+
+
+
+    payload = {
+    "status": "diagnosing"
+    }
+
+    response_patch = requests.patch(
+        "http://localhost:5000/devices/d3/status",
+        json=payload
+    )
+
+    print(response_patch.json())
+
+
+
+    response_delete = requests.delete(
+        "http://localhost:5000/devices/d3",
+    )
+
+    print(response_delete.json())
+
+    response = requests.get(
+        url="http://localhost:5000/devices",
+        headers=headers
+    )
+    print("Risposta GET:", response.json())

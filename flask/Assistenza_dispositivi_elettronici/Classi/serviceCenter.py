@@ -34,4 +34,4 @@ class ServiceCenter:
         return False
     
     def list_all(self) -> list[dict]:
-        return [d.info() for d in self.devices]
+        return [d.info() for d in self.devices.values()]
