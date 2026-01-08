@@ -1,0 +1,35 @@
+from Classi.smartDevice import SmartDevice
+
+class SecurityCamera(SmartDevice):
+
+    def __init__(self, 
+                 serial_number: str, 
+                 brand: str, 
+                 room: str, 
+                 installation_year: int, 
+                 status: str,
+                 resolution: str,
+                 night_vision: bool 
+                ) -> None:
+        
+        super().__init__(serial_number, brand, room, installation_year, status)
+        self.resolution = resolution
+        self.night_vision = night_vision
+
+    def device_type(self) -> str:
+        return 'camera'
+    
+    def energy_consumption(self) -> int:
+        return 50
+    
+    def connection_quality(self) -> int:
+        return 8
+    
+    def info(self):
+
+        base_dict: dict = super().info()
+
+        base_dict['resolution'] = self.resolution
+        base_dict['night_vision'] = self.night_vision
+
+        return base_dict
