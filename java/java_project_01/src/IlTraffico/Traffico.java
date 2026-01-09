@@ -34,7 +34,7 @@ public class Traffico {
         String[] modelli = {"Panda", "Golf", "Corolla", "Focus", "Serie 3", "A4", "Classe C", "208", "Clio", "Model 3"};
         char[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
 
-        int numeroAuto = random.nextInt(50);
+        int numeroAuto = random.nextInt(1,50);
 
         for (int i = 0; i < numeroAuto; i++){
 

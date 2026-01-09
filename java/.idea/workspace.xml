@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="dccbbceb-381c-4503-8084-6b67e7bcff16" name="Changes" comment="refactor esercizi con Exception">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java_project_01/src/IlTraffico/Traffico.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_project_01/src/IlTraffico/Traffico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java_project_01/src/IlTraffico/testTraffico.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_project_01/src/IlTraffico/testTraffico.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +44,7 @@
     "Application.TestContest.executor": "Run",
     "Application.TestTamagotchi.executor": "Run",
     "Application.TestTraghetto.executor": "Run",
+    "Application.testOperazioni.executor": "Run",
     "Application.testTraffico.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -167,6 +170,7 @@
       <workItem from="1765959820852" duration="6148000" />
       <workItem from="1766045916067" duration="8735000" />
       <workItem from="1767794231668" duration="9993000" />
+      <workItem from="1767966733151" duration="6663000" />
     </task>
     <task id="LOCAL-00001" summary="refactor esercizi con Exception">
       <option name="closed" value="true" />

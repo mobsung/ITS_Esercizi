@@ -11,16 +11,17 @@ public class testTraffico {
         List<Automobile> filtrate = traffico.getAutomobili();
         //traffico.showAutomobili();
         System.out.println(traffico.getCondizioniAria());
+        System.out.println(filtrate.size());
 
-        //List<Automobile> filtroPari = Automobile.filtra(automobili, a -> a.getTarga().charAt(a.getTarga().length() - 3) % 2 == 0);
+
         if (traffico.AriaM700()){
             filtrate = Automobile.filtra(filtrate, a -> a.getEuro5());
         }
 
-        if (traffico.autoMcosa(30) || Traffico.ordinanza % 2 == 0){
+        if (traffico.autoMcosa(10) && Traffico.ordinanza % 2 == 0){
             filtrate = Automobile.filtra(filtrate, a -> a.getTarga().charAt(a.getTarga().length() - 3) % 2 != 0);
             Traffico.setOrdinanza();
-        } else if(traffico.autoMcosa(30)){
+        } else if(traffico.autoMcosa(10)){
             filtrate = Automobile.filtra(filtrate, a -> a.getTarga().charAt(a.getTarga().length() - 3) % 2 == 0);
             Traffico.setOrdinanza();
         }
