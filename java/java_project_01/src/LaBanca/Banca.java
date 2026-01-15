@@ -1,7 +1,9 @@
 package LaBanca;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class Banca {
 
@@ -51,17 +53,27 @@ public class Banca {
         }
     }
 
-    public void bonifico(int ccOrdinante, int ccBeneficiario, int importo){
-        for (CC cc : conti){
-            if (cc.getNumeroConto() == ccOrdinante){
-                for (CC ccb : conti){
-                    if (ccb.getNumeroConto() == ccBeneficiario){
-                        cc.diminuisciSaldo(importo);
-                        ccb.aumentaSaldo(importo);
-                    }
-                }
+    public synchronized void bonifico(int ccOrdinante, int ccBeneficiario, int importo){
+        HashMap<Integer, CC> nConti = new HashMap<>();
+        nConti =
+                (HashMap<Integer, CC>) conti.stream()
+                        .collect(Collectors.toMap(
+                                cc -> cc.getNumeroConto(),
+                                cc -> cc
+                        ));
+        if (nConti.containsKey(ccOrdinante) && nConti.containsKey(ccBeneficiario)){
+            if (nConti.get(ccOrdinante).getSaldo() - importo >= 0 && ccOrdinante != ccBeneficiario){
+                nConti.get(ccOrdinante).diminuisciSaldo(importo);
+                nConti.get(ccBeneficiario).aumentaSaldo(importo);
             }
         }
     }
+
+    public synchronized int getPatrimonio(){
+        return conti.stream()
+                .map(c -> c.getSaldo())
+                .reduce(0, (a, b) -> a + b);
+    }
+
 
 }
