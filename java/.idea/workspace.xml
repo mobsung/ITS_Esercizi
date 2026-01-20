@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dccbbceb-381c-4503-8084-6b67e7bcff16" name="Changes" comment="refactor esercizi con Exception">
+      <change beforePath="$PROJECT_DIR$/../database/accademia/qyery_accademia_6.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../database/accademia/qyery_accademia_6.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,6 +43,7 @@
     "Application.Simulazione.executor": "Run",
     "Application.TestCarrello.executor": "Run",
     "Application.TestContest.executor": "Run",
+    "Application.TestSconti.executor": "Run",
     "Application.TestTamagotchi.executor": "Run",
     "Application.TestTraghetto.executor": "Run",
     "Application.testBanca.executor": "Run",
@@ -70,6 +72,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Sconti" />
       <recent name="EsercizioAdapter" />
     </key>
   </component>

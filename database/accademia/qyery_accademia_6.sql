@@ -76,3 +76,10 @@ where p.id = ap.persona
 	and ap.progetto = pr.id
 group by pr.id, pr.nome
 having count(distinct p.id) > 2;
+
+-- 11. Quali sono i professori associati che hanno lavorato su più di un progetto?
+select p.id
+from persona p join attivitaprogetto a
+on a.persona = p.id and p.posizione = 'Professore Associato'
+group by p.id
+having count(distinct a.progetto) > 1;
