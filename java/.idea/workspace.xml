@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dccbbceb-381c-4503-8084-6b67e7bcff16" name="Changes" comment="refactor esercizi con Exception">
+      <change afterPath="$PROJECT_DIR$/project_biblioteca/src/Biblioteca/EsempiStringa.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project_biblioteca/src/log4j2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java_project_01/src/SalvataggioDatiDecorator/Criptazione.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_project_01/src/SalvataggioDatiDecorator/Criptazione.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../scratchpad/test.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +43,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "Application.Simulazione.executor": "Run",
     "Application.TestCarrello.executor": "Run",
     "Application.TestContest.executor": "Run",
