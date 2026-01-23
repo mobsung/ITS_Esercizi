@@ -7,8 +7,8 @@ public class Biblioteca {
 
     private String nome;
     private String localita;
-    private HashMap<Integer, Utente> utenti = new HashMap<>();
-    private HashMap<String, Pubblicazione> catalogo = new HashMap<>();
+    private final HashMap<Integer, Utente> utenti = new HashMap<>();
+    private final HashMap<String, Pubblicazione> catalogo = new HashMap<>();
 
     public Biblioteca(String nome, String localita) {
         this.nome = nome;
@@ -45,7 +45,7 @@ public class Biblioteca {
     }
 
     Pubblicazione getPubblicazione(String codicePub){
-        return catalogo.get(1);
+        return catalogo.get(codicePub);
     }
 
 

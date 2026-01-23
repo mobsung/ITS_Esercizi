@@ -2,7 +2,7 @@ package Biblioteca;
 
 import java.util.Objects;
 
-public class Pubblicazione {
+public abstract class Pubblicazione {
 
     private String codicePub;
     private String titolo;
@@ -50,5 +50,16 @@ public class Pubblicazione {
         return Objects.hashCode(codicePub);
     }
 
+    void incrementaNumCopie(int n){
+        numCopie += n;
+    }
+
+    void decrementaNumCopie(int n){
+        if (numCopie - n >= 0){
+            numCopie -= n;
+        }
+    }
+
+    abstract double calcolaPrezzo(int nGiorniRit);
 
 }
