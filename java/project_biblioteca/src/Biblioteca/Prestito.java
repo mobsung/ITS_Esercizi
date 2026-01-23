@@ -17,6 +17,6 @@ public class Prestito {
     }
 
     int getGiorniPrestati(){
-
+        return 1;
     }
 }
