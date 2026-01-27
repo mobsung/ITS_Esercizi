@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dccbbceb-381c-4503-8084-6b67e7bcff16" name="Changes" comment="refactor esercizi con Exception">
-      <change afterPath="$PROJECT_DIR$/project_biblioteca/src/Biblioteca/EsempiStringa.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project_biblioteca/src/log4j2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project_01/src/SalvataggioDatiDecorator/Criptazione.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_project_01/src/SalvataggioDatiDecorator/Criptazione.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../scratchpad/test.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +57,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/its/vscode_projects/Esercizi/java/java_project_01",
+    "last_opened_file_path": "/home/its/vscode_projects/Esercizi/java",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -75,6 +71,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Java_maven_project/src/main/java" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="SalvataggioDatiDecorator" />
       <recent name="Sconti" />
