@@ -48,6 +48,4 @@ public class Biblioteca {
         return catalogo.get(codicePub);
     }
 
-
-
 }
